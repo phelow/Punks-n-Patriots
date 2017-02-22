@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 3b3362d31ead40d46ad929d806c621cd
+timeCreated: 1485118478
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: KG WhY yOu GoTtA Be So MeAn
+  fontNames:
+  - KG WhY yOu GoTtA Be So MeAn
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

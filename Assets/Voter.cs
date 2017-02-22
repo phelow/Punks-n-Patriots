@@ -28,6 +28,9 @@ public class Voter : Unit
     [SerializeField]
     private AudioClip m_negativeConversion;
 
+    private const float MC_LEADER_MOVEMENT_MODIFIER = 1.75f;
+    private const float MC_VOTER_MOVEMENT_MODIFIER = 1.0f;
+
 
     float m_minMovementInterval = .7f;
     float m_maxMovementInterval = 1.4f;
@@ -211,18 +214,18 @@ public class Voter : Unit
             if(this is Leader)
             {
 
-                MoveTo(m_myCluster.transform.position, moverride_movementForce * 100.0f);
+                MoveTo(m_myCluster.transform.position, moverride_movementForce * 100.0f * MC_LEADER_MOVEMENT_MODIFIER);
             }
-            MoveTo(m_myCluster.transform.position, moverride_movementForce);
+            MoveTo(m_myCluster.transform.position, moverride_movementForce * MC_VOTER_MOVEMENT_MODIFIER);
             return;
         }
 
         if (this is Leader)
         {
 
-            MoveTo(m_myCluster.transform.position, moverride_movementForce * 100.0f);
+            MoveTo(m_myCluster.transform.position, moverride_movementForce * 100.0f * MC_LEADER_MOVEMENT_MODIFIER);
         }
-        MoveTo(m_targetSlot.transform.position, moverride_movementForce);
+        MoveTo(m_targetSlot.transform.position, moverride_movementForce * MC_VOTER_MOVEMENT_MODIFIER);
     }
 
     void OnCollisionEnter2D(Collision2D coll)
@@ -342,11 +345,11 @@ public class Voter : Unit
                     if(this is Leader)
                     {
 
-                        MoveTo(booth.transform.position, moverride_movementForce * 100.0f);
+                        MoveTo(booth.transform.position, moverride_movementForce * 100.0f * MC_LEADER_MOVEMENT_MODIFIER);
                     }
                     else
                     {
-                        MoveTo(booth.transform.position, moverride_movementForce);
+                        MoveTo(booth.transform.position, moverride_movementForce * MC_VOTER_MOVEMENT_MODIFIER);
 
                     }
 

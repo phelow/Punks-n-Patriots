@@ -132,6 +132,8 @@ public class GameManager : MonoBehaviour
 
     // Use this for initialization
     void Awake() {
+        AudioListener.volume = 10.0f;
+
         ms_instance = this;
         m_voters = GameObject.FindGameObjectsWithTag("Voter").Select(x => x.GetComponent<Voter>()).ToList();
 

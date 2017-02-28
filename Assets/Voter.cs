@@ -6,6 +6,9 @@ public class Voter : Unit
 {
     Cluster m_myCluster = null;
 
+    private const float MC_RED_LEADER_VOTING_BOOTH_DISTANCE = 10000.0F;
+    private const float MC_NORMAL_VOTING_BOOTH_DISTANCE = 6.0f;
+
     [SerializeField]
     private LineRenderer m_lineRenderer;
     private float moverride_movementForce = 300.0f;
@@ -23,7 +26,7 @@ public class Voter : Unit
 
     [SerializeField]
     protected AudioClip m_positiveConversion;
-    
+
 
     [SerializeField]
     private AudioClip m_negativeConversion;
@@ -99,7 +102,7 @@ public class Voter : Unit
         {
             return;
         }
-        
+
 
 
         if (m_team == Team.BlueTeam)
@@ -122,7 +125,7 @@ public class Voter : Unit
 
     public void TurnBlue()
     {
-     //   m_audiosource.PlayOneShot(m_negativeConversion);
+        //   m_audiosource.PlayOneShot(m_negativeConversion);
         m_team = Team.BlueTeam;
 
         m_animatorBlue.SetActive(true);
@@ -134,7 +137,7 @@ public class Voter : Unit
     {
 
         GameManager.ms_instance.PlayVoteSound();
-        GameManager.ms_instance.VoteRed(this,isLeader);
+        GameManager.ms_instance.VoteRed(this, isLeader);
 
         if (m_myCluster != null)
         {
@@ -148,7 +151,7 @@ public class Voter : Unit
 
     public void CastBlueVote(bool isLeader)
     {
-        GameManager.ms_instance.VoteBlue(this,isLeader);
+        GameManager.ms_instance.VoteBlue(this, isLeader);
 
 
 
@@ -212,7 +215,7 @@ public class Voter : Unit
 
         if (m_targetSlot == null)
         {
-            if(this is Leader)
+            if (this is Leader)
             {
 
                 MoveTo(m_myCluster.transform.position, moverride_movementForce * 100.0f * MC_LEADER_MOVEMENT_MODIFIER);
@@ -268,6 +271,7 @@ public class Voter : Unit
 
         }
     }
+
     protected IEnumerator PassiveLeaderRoutine()
     {
         while (true)
@@ -282,7 +286,7 @@ public class Voter : Unit
                 m_myCluster = null;
             }
 
-            VotingBooth booth = GameManager.ms_instance.GetVotingBoothInRange(transform);
+            VotingBooth booth = GameManager.ms_instance.GetVotingBoothInRange(transform, this.GetTeam() == Team.RedTeam ? MC_RED_LEADER_VOTING_BOOTH_DISTANCE : MC_NORMAL_VOTING_BOOTH_DISTANCE);
 
             if (booth != null)
             {
@@ -305,7 +309,7 @@ public class Voter : Unit
 
     [SerializeField]
     private SpriteRenderer m_renderer;
-    
+
     private IEnumerator WaitToImmortalize()
     {
         m_renderer.color = Color.black;
@@ -313,7 +317,7 @@ public class Voter : Unit
         m_immortal = true;
         yield return new WaitForSeconds(5.0f);
         float t = 0.0f;
-        while(t < 1.0f)
+        while (t < 1.0f)
         {
             m_renderer.color = Color.Lerp(Color.black, Color.white, t);
             t += Time.deltaTime;
@@ -329,78 +333,69 @@ public class Voter : Unit
         StartCoroutine(WaitToImmortalize());
         while (true)
         {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, PlayerMovement.ms_instance.transform.position - transform.position, Vector2.Distance(transform.position, PlayerMovement.ms_instance.transform.position) + 1.0f, m_ignoreVotersMask);
-
-            bool hasEnemies = GameManager.ms_instance.HasEnemiesNearby(this);
-
-
-
-            //find out if there are enemies nearby, if there are go to clustering
-            if (hasEnemies)
+            VotingBooth booth = GameManager.ms_instance.GetVotingBoothInRange(transform, MC_NORMAL_VOTING_BOOTH_DISTANCE);
+            if (booth != null)
             {
-
-                VotingBooth booth = GameManager.ms_instance.GetVotingBoothInRange(transform);
-                if (booth != null)
+                Debug.Log(booth);
+                if (this is Leader)
                 {
-                    Debug.Log(booth);
-                    if(this is Leader)
-                    {
 
-                        MoveTo(booth.transform.position, moverride_movementForce * 100.0f * MC_LEADER_MOVEMENT_MODIFIER);
-                    }
-                    else
-                    {
-                        MoveTo(booth.transform.position, moverride_movementForce * MC_VOTER_MOVEMENT_MODIFIER);
-
-                    }
-
+                    MoveTo(booth.transform.position, moverride_movementForce * 100.0f * MC_LEADER_MOVEMENT_MODIFIER);
                 }
                 else
                 {
-
-                    //Debug.Log("HasEnemies");
-                    ClusterBehaviour();
+                    MoveTo(booth.transform.position, moverride_movementForce * MC_VOTER_MOVEMENT_MODIFIER);
 
                 }
 
             }
             else
             {
-                if (m_myCluster != null)
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, PlayerMovement.ms_instance.transform.position - transform.position, Vector2.Distance(transform.position, PlayerMovement.ms_instance.transform.position) + 1.0f, m_ignoreVotersMask);
+
+                bool hasEnemies = GameManager.ms_instance.HasEnemiesNearby(this);
+
+
+                if (hasEnemies)
                 {
-                    m_myCluster.RemoveMember(this);
-                    m_myCluster = null;
-                }
-
-
-                VotingBooth booth = GameManager.ms_instance.GetVotingBoothInRange(transform);
-
-                if (booth != null)
-                {
-                    //Debug.Log("Going to the polls");
-                    MoveTo(booth.transform.position, moverride_movementForce);
-
-                }
-                else if (Vector2.Distance(PlayerMovement.ms_instance.transform.position, this.transform.position) < Unit.ms_detectionRadius && this.GetTeam() == Team.RedTeam)
-                {
-                    //If there is no voting poll nearby look for the player. If he's there follow him.
-                    if (this is Leader)
-                    {
-
-                        MoveTo(PlayerMovement.ms_instance.transform.position, moverride_movementForce * 100.0f);
-                    }
-                    else
-                    {
-                        MoveTo(PlayerMovement.ms_instance.transform.position, moverride_movementForce);
-                    }
+                    //Debug.Log("HasEnemies");
+                    ClusterBehaviour();
 
                 }
                 else
                 {
+                    if (m_myCluster != null)
+                    {
+                        m_myCluster.RemoveMember(this);
+                        m_myCluster = null;
+                    }
 
-                    ClusterBehaviour();
+                    //If there is no voting poll nearby look for the player. If he's there follow him.
+                    if (Vector2.Distance(PlayerMovement.ms_instance.transform.position, this.transform.position) < Unit.ms_detectionRadius && this.GetTeam() == Team.RedTeam)
+                    {
+
+                        if (this is Leader)
+                        {
+
+                            MoveTo(PlayerMovement.ms_instance.transform.position, moverride_movementForce * 100.0f * MC_LEADER_MOVEMENT_MODIFIER);
+                        }
+                        else
+                        {
+                            MoveTo(PlayerMovement.ms_instance.transform.position, moverride_movementForce * MC_VOTER_MOVEMENT_MODIFIER);
+
+                        }
+
+
+                    }
+                    else
+                    {
+
+                        ClusterBehaviour();
+                    }
                 }
             }
+
+
 
 
 

@@ -100,7 +100,7 @@ public class PlayerMovement : Unit
 
                         foreach (Voter voter in GameManager.ms_instance.GetAllVoters())
                         {
-                            if (Vector2.Distance(voter.transform.position, transform.position) < waveRadius / 2)
+                            if (Vector2.Distance(voter.transform.position, transform.position) < waveRadius / 2 + 1.0f)
                             {
                                 m_audiosource.clip = m_deployClip;
                                 m_audiosource.Play();

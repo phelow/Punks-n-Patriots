@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
         m_voters.Add(voter);
     }
 
-    public VotingBooth GetVotingBoothInRange(Transform startingPoint)
+    public VotingBooth GetVotingBoothInRange(Transform startingPoint, float range)
     {
         VotingBooth closest = null;
         if(m_booths == null)
@@ -92,7 +92,7 @@ public class GameManager : MonoBehaviour
         {
             float dist = Vector2.Distance(booth.transform.position, startingPoint.position);
 
-            if (dist < 6.0f)
+            if (dist < range)
             {
                 RaycastHit2D hit = Physics2D.Raycast(startingPoint.position, booth.transform.position - startingPoint.position, dist, GameManager.ms_instance.m_ignoreVoters);
 

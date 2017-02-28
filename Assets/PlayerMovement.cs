@@ -24,6 +24,7 @@ public class PlayerMovement : Unit
     [SerializeField]
     private Animator m_animator;
 
+    private const float MC_PROTESTOR_KICK_RATE = 100000.0f;
 
     [SerializeField]
     private AudioClip m_chargeClip;
@@ -176,11 +177,17 @@ public class PlayerMovement : Unit
         }
     }
 
+    private void KickAwayFromLeader(GameObject go)
+    {
+
+        m_rigidbody.AddForce((transform.position - go.transform.position).normalized * MC_PROTESTOR_KICK_RATE);
+    }
+
     void OnCollisionEnter2D(Collision2D coll)
     {
         if (coll.gameObject.tag == "Voter" && coll.gameObject.GetComponent<Voter>().GetTeam() == Voter.Team.BlueTeam && coll.gameObject.GetComponent<Voter>() is Leader)
         {
-            interrupted = true;
+            KickAwayFromLeader(coll.gameObject);
         }
 
     }
@@ -188,7 +195,8 @@ public class PlayerMovement : Unit
     {
         if (coll.gameObject.tag == "Voter" && coll.gameObject.GetComponent<Voter>().GetTeam() == Voter.Team.BlueTeam && coll.gameObject.GetComponent<Voter>() is Leader)
         {
-            interrupted = true;
+            KickAwayFromLeader(coll.gameObject);
+
         }
 
     }

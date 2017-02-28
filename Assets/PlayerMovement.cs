@@ -99,10 +99,7 @@ public class PlayerMovement : Unit
 
                         foreach (Voter voter in GameManager.ms_instance.GetAllVoters())
                         {
-
-                            RaycastHit2D hit = Physics2D.Raycast(transform.position, voter.transform.position - transform.position, waveRadius / 2, m_ignorePlayer);
-
-                            if (hit.transform != null && hit.transform.GetComponent<Voter>() == voter)
+                            if (Vector2.Distance(voter.transform.position, transform.position) < waveRadius / 2)
                             {
                                 m_audiosource.clip = m_deployClip;
                                 m_audiosource.Play();

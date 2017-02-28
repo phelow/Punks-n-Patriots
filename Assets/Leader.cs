@@ -12,22 +12,20 @@ public class Leader : Voter {
         StartCoroutine(LeaderRoutine());
     }
 
+    /// <summary>
+    /// Leaders are highly resistant to being converted by collision and it's almost impossible for this to happen
+    /// </summary>
+    /// <param name="coll"></param>
     void OnCollisionEnter2D(Collision2D coll)
     {
         if (coll.gameObject.tag == "Voter")
         {
-            if (coll.gameObject.GetComponent<Voter>() is Leader)
-            {
-                m_hitPoints = 0;
-            }
-
             if (coll.gameObject.GetComponent<Voter>().GetTeam() == GetTeam())
             {
-                m_hitPoints += 3;
+                m_hitPoints += 10;
             }
             else
             {
-                m_hitPoints /= 2;
                 m_hitPoints--;
             }
 
@@ -43,9 +41,33 @@ public class Leader : Voter {
                     TurnBlue();
                 }
             }
-
         }
     }
+
+
+
+    public override void TurnRed()
+    {
+        if (m_immortal)
+        {
+            return;
+        }
+
+
+
+        if (m_team == Team.BlueTeam)
+        {
+            m_audiosource.clip = (m_positiveConversion);
+            //m_audiosource.Play();
+
+            m_hitPoints = 30;
+            m_team = Team.RedTeam;
+            m_animatorBlue.SetActive(false);
+            m_animatorRed.SetActive(true);
+            GameManager.ms_instance.GainConversionPoint(this);
+        }
+    }
+
     private IEnumerator LeaderRoutine()
     {
         yield return VoterRoutine();

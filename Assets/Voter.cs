@@ -22,7 +22,7 @@ public class Voter : Unit
     private Queue<SpringJoint2D> m_lineLeader;
 
     [SerializeField]
-    private AudioClip m_positiveConversion;
+    protected AudioClip m_positiveConversion;
     
 
     [SerializeField]
@@ -93,17 +93,18 @@ public class Voter : Unit
         m_lineRenderer.numPositions = 0;
     }
 
-    public void TurnRed()
+    public virtual void TurnRed()
     {
         if (m_immortal)
         {
             return;
         }
-
+        
 
 
         if (m_team == Team.BlueTeam)
         {
+            m_hitPoints = 10;
             m_audiosource.clip = (m_positiveConversion);
             //m_audiosource.Play();
 
@@ -300,7 +301,7 @@ public class Voter : Unit
         }
     }
 
-    private bool m_immortal = false;
+    protected bool m_immortal = false;
 
     [SerializeField]
     private SpriteRenderer m_renderer;

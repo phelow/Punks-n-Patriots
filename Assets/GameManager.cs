@@ -194,7 +194,7 @@ public class GameManager : MonoBehaviour
         string pointsToLoseText = "-" + pointsToLose;
 
 
-        GainPoints(-pointsToLose, pointsToLoseText, Color.red);
+        GainPoints(-pointsToLose, pointsToLoseText, Color.red, voter.transform.position);
     }
 
     public void PlayVoteSound()
@@ -206,14 +206,14 @@ public class GameManager : MonoBehaviour
     public void GainConversionPoint(Voter voter)
     {
         string pointsToGainText = "+" + MC_CONVERSION_POINTS;
-        GainPoints(MC_CONVERSION_POINTS, pointsToGainText, Color.green);
+        GainPoints(MC_CONVERSION_POINTS, pointsToGainText, Color.green, voter.transform.position);
     }
 
 
     public void LoseConversionPoint(Voter voter)
     {
         string pointsToGainText = "-" + MC_CONVERSION_POINTS;
-        GainPoints(-MC_CONVERSION_POINTS, pointsToGainText, Color.red);
+        GainPoints(-MC_CONVERSION_POINTS, pointsToGainText, Color.red, voter.transform.position);
     }
 
     public void VoteRed(Voter voter, bool isLeader)
@@ -221,17 +221,20 @@ public class GameManager : MonoBehaviour
         int pointsToGain = isLeader == false ? 2 : 5;
 
         string pointsToGainText = "+" + pointsToGain;
-        GainPoints(pointsToGain,pointsToGainText, Color.green);
+        GainPoints(pointsToGain,pointsToGainText, Color.green, voter.transform.position);
     }
 
-    public void GainPoints(int pointsToGain,string pointsToGainText, Color textColor)
+    public void GainPoints(int pointsToGain,string pointsToGainText, Color textColor, Vector3 position)
     {
         m_currentPoints += pointsToGain;
+        
+
         m_pointsNeededText.text = "Approval: " + m_currentPoints + "%" + "    Goal: " + m_pointsNeeded + "%";
 
 
-        Text t = GameObject.Instantiate(mp_fallingText, m_fallingTextSpawnPoint.transform.position + new Vector3(Random.Range(20.0f, 50.0f), Random.Range(-20.0f, 20.0f), 0.0f), transform.rotation, transform).GetComponent<Text>();
-        t.color = textColor;
+        GameObject t = GameObject.Instantiate(mp_fallingText, position, transform.rotation, transform);
+        t.GetComponentInChildren<TextMesh>().color = textColor;
+        t.GetComponentInChildren<TextMesh>().text = "" + (pointsToGain > 0 ? "+" : "") + pointsToGain;
 
         t.GetComponent<Rigidbody2D>().AddTorque(Random.Range(-20.0f, 20.0f));
 

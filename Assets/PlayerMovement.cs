@@ -60,7 +60,7 @@ public class PlayerMovement : Unit
                 if (Input.GetMouseButton(1) && !interrupted)
                 {
                     m_animator.SetBool("Down", true);
-                    if ( triggered == false)
+                    if (triggered == false)
                     {
                         triggered = true;
                         m_audiosource.clip = m_chargeClip;
@@ -68,7 +68,7 @@ public class PlayerMovement : Unit
                     }
                     waveRadius += Time.deltaTime * scaleFactor;
                     scaleFactor -= Time.deltaTime;
-                    m_animator.SetBool("Wave",true);
+                    m_animator.SetBool("Wave", true);
                     m_animator.SetBool("Down", false);
 
 
@@ -144,8 +144,8 @@ public class PlayerMovement : Unit
             Vector3 worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             m_audiosource.clip = null;
             m_rigidbody.AddForce((new Vector2(worldPos.x, worldPos.y) - new Vector2(transform.position.x, transform.position.y)).normalized * 200000.0f * Time.deltaTime);
-            
-            if(transform.position.x > worldPos.x+ .1f)
+
+            if (transform.position.x > worldPos.x + .1f)
             {
 
                 m_animator.SetBool("Left", true);
@@ -172,7 +172,7 @@ public class PlayerMovement : Unit
                 m_animator.SetBool("Down", true);
             }
 
-            
+
             yield return new WaitForEndOfFrame();
         }
     }

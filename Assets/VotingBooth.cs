@@ -10,6 +10,14 @@ public class VotingBooth : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D coll)
     {
+        //check to see if the colliding gameobject is visible. If it is not, return.
+        Vector3 viewPosition = Camera.main.WorldToViewportPoint(coll.gameObject.transform.position);
+
+        if(viewPosition.x > 1.0f || viewPosition.x < 0.0f || viewPosition.y < 0.0f || viewPosition.y > 1.0f)
+        {
+            return;
+        }
+
         if(coll.gameObject.tag == "Voter")
         {
             Voter voter = coll.gameObject.GetComponent<Voter>();

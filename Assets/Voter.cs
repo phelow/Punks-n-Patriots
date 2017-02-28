@@ -38,9 +38,12 @@ public class Voter : Unit
     float m_minMovementInterval = .7f;
     float m_maxMovementInterval = 1.4f;
 
+    public static int ms_numCharacters = 0;
+
 
     void Awake()
     {
+        ms_numCharacters++;
         foreach (SpringJoint2D joint in m_initLineLeader)
         {
             m_lineLeader.Enqueue(joint);
@@ -144,6 +147,8 @@ public class Voter : Unit
             m_myCluster.RemoveMember(this);
         }
 
+        ms_numCharacters--;
+
         Destroy(this.gameObject);
     }
 
@@ -159,7 +164,7 @@ public class Voter : Unit
         {
             m_myCluster.RemoveMember(this);
         }
-
+        ms_numCharacters--;
         Destroy(this.gameObject);
     }
 
@@ -396,10 +401,18 @@ public class Voter : Unit
             }
 
 
+            Vector3 viewPosition = Camera.main.WorldToViewportPoint(this.transform.position);
+
+            if (viewPosition.x > 1.0f || viewPosition.x < 0.0f || viewPosition.y < 0.0f || viewPosition.y > 1.0f)
+            {
+                yield return new WaitForSeconds(3.0f);
+            }
+            else
+            {
+                yield return new WaitForSeconds(Random.Range(m_minMovementInterval, m_maxMovementInterval));
+            }
 
 
-
-            yield return new WaitForSeconds(Random.Range(m_minMovementInterval, m_maxMovementInterval));
         }
     }
 

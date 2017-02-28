@@ -18,6 +18,9 @@ public class Voter : Unit
     [SerializeField]
     private List<Slot> m_slots;
 
+    [SerializeField]
+    private bool m_startNow = false;
+
     private Slot m_targetSlot;
 
     [SerializeField]
@@ -110,7 +113,7 @@ public class Voter : Unit
 
         if (m_team == Team.BlueTeam)
         {
-            m_hitPoints = 10;
+            m_hitPoints = 100;
             m_audiosource.clip = (m_positiveConversion);
             //m_audiosource.Play();
 
@@ -317,18 +320,21 @@ public class Voter : Unit
 
     private IEnumerator WaitToImmortalize()
     {
-        m_renderer.color = Color.black;
 
-        m_immortal = true;
-        yield return new WaitForSeconds(5.0f);
-        float t = 0.0f;
-        while (t < 1.0f)
+        if (!m_startNow)
         {
-            m_renderer.color = Color.Lerp(Color.black, Color.white, t);
-            t += Time.deltaTime;
-            yield return new WaitForEndOfFrame();
-        }
+            m_renderer.color = Color.black;
 
+            m_immortal = true;
+            yield return new WaitForSeconds(5.0f);
+            float t = 0.0f;
+            while (t < 1.0f)
+            {
+                m_renderer.color = Color.Lerp(Color.black, Color.white, t);
+                t += Time.deltaTime;
+                yield return new WaitForEndOfFrame();
+            }
+        }
         m_renderer.color = Color.white;
         m_immortal = false;
     }
@@ -412,6 +418,10 @@ public class Voter : Unit
                 yield return new WaitForSeconds(Random.Range(m_minMovementInterval, m_maxMovementInterval));
             }
 
+            if(m_hitPoints > 20)
+            {
+                m_hitPoints -= 5;
+            }
 
         }
     }

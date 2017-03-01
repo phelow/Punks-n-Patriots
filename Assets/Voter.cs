@@ -113,7 +113,7 @@ public class Voter : Unit
 
         if (m_team == Team.BlueTeam)
         {
-            m_hitPoints = 100;
+            m_hitPoints = 20;
             m_audiosource.clip = (m_positiveConversion);
             //m_audiosource.Play();
 
@@ -249,7 +249,7 @@ public class Voter : Unit
                 m_hitPoints = 10;
             }
 
-            if (coll.gameObject.GetComponent<Voter>() is Leader)
+            if (coll.gameObject.GetComponent<Voter>() is Leader && coll.gameObject.GetComponent<Voter>().GetTeam() != this.GetTeam())
             {
                 m_hitPoints = 0;
             }

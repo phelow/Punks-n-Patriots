@@ -307,22 +307,16 @@ public class GameManager : MonoBehaviour
 
     public bool HasEnemiesNearby(Voter voter)
     {
-        foreach (Voter person in m_voters)
+
+        Collider2D [] collisions = Physics2D.OverlapCircleAll(voter.transform.position, 10.0f);
+
+        foreach (Collider2D collision in collisions)
         {
-            if (person.GetTeam() != voter.GetTeam())
+            Voter person = collision.GetComponent<Voter>();
+
+            if (person != null && person.GetTeam() != voter.GetTeam())
             {
-                RaycastHit2D hit = Physics2D.Raycast(voter.transform.position, person.transform.position- voter.transform.position, Vector2.Distance(person.transform.position,voter.transform.position) + 1.0f);
-
-                if (hit.collider != null)
-                {
-
-                    Voter collidedVoter = hit.collider.gameObject.GetComponent<Voter>();
-                    if (collidedVoter != null && collidedVoter.GetTeam() != voter.GetTeam())
-                    {
-
-                        return true;
-                    }
-                }
+                return true;
             }
         }
 
@@ -335,7 +329,7 @@ public class GameManager : MonoBehaviour
         {
             Vector3 center = cluster.GetCenter();
 
-            if (Physics2D.RaycastAll(center, voter.transform.position - center, Vector2.Distance(center, transform.position)).Where(x => x == voter).ToList().Count > 0 && cluster.HasRoom())
+            if (Physics2D.Raycast(center, voter.transform.position - center, Vector2.Distance(center, transform.position),m_ignoreClusters).collider.gameObject == voter.gameObject && cluster.HasRoom())
             {
                 return cluster;
             }

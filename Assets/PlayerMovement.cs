@@ -46,6 +46,7 @@ public class PlayerMovement : Unit
 
     private IEnumerator MovePlayer()
     {
+        bool waving = false;
         while (true)
         {
             float waveRadius = m_defaultWaveRadius;
@@ -57,8 +58,9 @@ public class PlayerMovement : Unit
             {
                 //TODO: waving is weird if you wait
                 timePassed += Time.deltaTime;
-                if (Input.GetMouseButton(1) && !interrupted)
+                if (Input.GetMouseButton(1))
                 {
+                    waving = true;
                     m_animator.SetBool("Down", true);
                     if (triggered == false)
                     {
@@ -74,33 +76,17 @@ public class PlayerMovement : Unit
 
 
                     m_waveRadius.transform.localScale = new Vector3(waveRadius, waveRadius, waveRadius);
-
-                    foreach (Voter voter in GameManager.ms_instance.GetAllVoters())
-                    {
-
-                        RaycastHit2D hit = Physics2D.Raycast(transform.position, voter.transform.position - transform.position, waveRadius / 2, m_ignorePlayer);
-
-                        if (hit.transform != null && hit.transform.GetComponent<Voter>() == voter)
-                        {
-                            voter.GetWavedAt(transform);
-                        }
-                        else
-                        {
-                            voter.DontGetWavedAt();
-                        }
-                    }
+                    
                 }
                 else
                 {
                     triggered = false;
                     scaleFactor = mc_originalScaleFactor;
-                    if (!interrupted)
+                    if (waving)
                     {
-
-
                         foreach (Voter voter in GameManager.ms_instance.GetAllVoters())
                         {
-                            if (Vector2.Distance(voter.transform.position, transform.position) < waveRadius / 2 + 1.0f)
+                            if (Vector2.Distance(voter.transform.position, transform.position) < waveRadius / 2 + .1f)
                             {
                                 m_audiosource.clip = m_deployClip;
                                 m_audiosource.Play();
@@ -111,6 +97,7 @@ public class PlayerMovement : Unit
                                 voter.DontGetWavedAt();
                             }
                         }
+                        waving = false;
                     }
                     waveRadius = m_defaultWaveRadius;
                     m_waveRadius.transform.localScale = new Vector3(waveRadius, waveRadius, waveRadius);

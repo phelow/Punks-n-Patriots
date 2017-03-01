@@ -49,7 +49,7 @@ public class Unit : MonoBehaviour
 
         if(m_team == Team.BlueTeam)
         {
-            force += GameManager.ms_instance.GetAllVoters().Count * 10;
+            force += Mathf.Max(GameManager.ms_instance.GetAllVoters().Count * 2,200);
         }
 
         Vector3 movement = (new Vector2(target.x, target.y) - new Vector2(transform.position.x, transform.position.y)).normalized * force;

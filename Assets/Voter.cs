@@ -344,7 +344,7 @@ public class Voter : Unit
         StartCoroutine(WaitToImmortalize());
         while (true)
         {
-            VotingBooth booth = GameManager.ms_instance.GetVotingBoothInRange(transform, this.GetTeam() == Team.RedTeam ? 2: 1 * MC_NORMAL_VOTING_BOOTH_DISTANCE * (this is Leader ? 100 : 1));
+            VotingBooth booth = GameManager.ms_instance.GetVotingBoothInRange(transform, (this.GetTeam() == Team.RedTeam ? 2: 1) * MC_NORMAL_VOTING_BOOTH_DISTANCE * (this is Leader ? 100 : 1));
             if (booth != null)
             {
                 Debug.Log(booth);

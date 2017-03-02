@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 222684786258462602}
   - component: {fileID: 50251933996914840}
   - component: {fileID: 23336098102158414}
+  - component: {fileID: 114254441157065756}
   m_Layer: 5
   m_Name: FallingText 1
   m_TagString: Untagged
@@ -122,7 +123,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -149,6 +150,19 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
+--- !u!114 &114254441157065756
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1899589736360194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0a848a566f2d3340b15a64006b69081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_textMesh: {fileID: 102155485141798924}
+  m_rigidbody: {fileID: 50251933996914840}
 --- !u!222 &222684786258462602
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -181,7 +195,7 @@ RectTransform:
   m_GameObject: {fileID: 1899589736360194}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children:
   - {fileID: 224141786181712424}
   m_Father: {fileID: 0}

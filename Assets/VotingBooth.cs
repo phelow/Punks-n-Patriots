@@ -24,11 +24,11 @@ public class VotingBooth : MonoBehaviour {
 
             if (voter.GetTeam() == Voter.Team.BlueTeam)
             {
-                voter.CastBlueVote(voter);
+                voter.CastBlueVote(voter is Leader);
             }
             else
             {
-                voter.CastRedVote(voter);
+                voter.CastRedVote(voter is Leader);
 
             }
 

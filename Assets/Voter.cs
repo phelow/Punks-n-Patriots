@@ -345,9 +345,11 @@ public class Voter : Unit
         while (true)
         {
             VotingBooth booth = GameManager.ms_instance.GetVotingBoothInRange(transform, (this.GetTeam() == Team.RedTeam ? 2: 1) * MC_NORMAL_VOTING_BOOTH_DISTANCE * (this is Leader ? 100 : 1));
-            if (booth != null)
+            bool hasEnemies = GameManager.ms_instance.HasEnemiesNearby(this);
+
+            if (booth != null && (!(this is Leader && this.GetTeam() == Team.BlueTeam) || hasEnemies == false))
             {
-                Debug.Log(booth);
+                //Debug.Log(booth);
                 if (this is Leader)
                 {
 
@@ -364,7 +366,6 @@ public class Voter : Unit
             {
                 RaycastHit2D hit = Physics2D.Raycast(transform.position, PlayerMovement.ms_instance.transform.position - transform.position, Vector2.Distance(transform.position, PlayerMovement.ms_instance.transform.position) + 1.0f, m_ignoreVotersMask);
 
-                bool hasEnemies = GameManager.ms_instance.HasEnemiesNearby(this);
 
 
                 if (hasEnemies)

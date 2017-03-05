@@ -14,6 +14,12 @@ public class GameManager : MonoBehaviour
     private int m_currentPoints = 15;
 
     [SerializeField]
+    private List<Spawner> m_spawners;
+
+    [SerializeField]
+    private List<int> m_timeIntervals;
+    
+    [SerializeField]
     public LayerMask m_ignoreVoters;
     [SerializeField]
     private LayerMask m_ignoreClusters;
@@ -173,9 +179,18 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator TimeLevel()
     {
-        for (int i = m_timeLeft; i > 0; i--)
+        for (int timeLeft = m_timeLeft; timeLeft > 0; timeLeft--)
         {
-            m_timeText.text = "" + Mathf.Floor(i/60.0f) + (":" + i % 60).PadRight(3,'0') + " UNTIL POLLS CLOSE";
+            int minutes = (int) (timeLeft / 60.0f);
+
+            m_timeText.text = "" + minutes + (":" + (""+ (timeLeft - (minutes * 60))).PadLeft(2, '0')) + " UNTIL POLLS CLOSE";
+
+            if (m_timeIntervals.Contains(timeLeft))
+            {
+
+                Debug.Log(timeLeft);
+                SetMaxEnemiesOnSpawners();
+            }
 
 
             yield return new WaitForSeconds(1.0f);
@@ -185,6 +200,14 @@ public class GameManager : MonoBehaviour
         EndGame();
 
 
+    }
+
+    public void SetMaxEnemiesOnSpawners()
+    {
+        foreach(Spawner spawner in m_spawners)
+        {
+            spawner.SetMaxEnemiesNext();
+        }
     }
 
     public void VoteBlue(Voter voter, bool isLeader)

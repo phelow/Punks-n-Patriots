@@ -2,14 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Leader : Voter {
+public class Leader : Voter
+{
+
+    private const float MC_PROTESTOR_KICK_RATE = 500.0f;
     [SerializeField]
     private LayerMask m_showEverything;
-    
+
+
     // Use this for initialization
     void Start()
     {
         StartCoroutine(LeaderRoutine());
+    }
+
+    public bool IsCharging()
+    {
+        return m_rigidbody.velocity.magnitude > .01f;
     }
 
     /// <summary>
@@ -42,8 +51,32 @@ public class Leader : Voter {
                 }
             }
         }
+        if (IsCharging())
+        {
+            KickAwayFromLeader(coll.gameObject);
+        }
+    }
+    void OnCollisionStay2D(Collision2D coll)
+    {
+        if (IsCharging())
+        {
+            KickAwayFromLeader(coll.gameObject);
+        }
+
     }
 
+
+    private void KickAwayFromLeader(GameObject go)
+    {
+        Rigidbody2D rb = go.GetComponentInChildren<Rigidbody2D>();
+
+        if(rb == null)
+        {
+            return;
+        }
+
+        rb.AddForce((go.transform.position - transform.position).normalized * MC_PROTESTOR_KICK_RATE * rb.mass);
+    }
 
 
     public override void TurnRed()

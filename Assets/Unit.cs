@@ -47,10 +47,8 @@ public class Unit : MonoBehaviour
             force = m_movementForce;
         }
 
-        if(m_team == Team.BlueTeam)
-        {
-            force += Mathf.Max(GameManager.ms_instance.GetAllVoters().Count * 2,200);
-        }
+        force += Mathf.Max(GameManager.ms_instance.GetAllVoters().Count * 2, 200);
+
 
         Vector3 movement = (new Vector2(target.x, target.y) - new Vector2(transform.position.x, transform.position.y)).normalized * force;
 
@@ -89,5 +87,5 @@ public class Unit : MonoBehaviour
         }
         m_rigidbody.AddForce(current);
     }
-    
+
 }

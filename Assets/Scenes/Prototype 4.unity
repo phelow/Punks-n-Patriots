@@ -1169,7 +1169,7 @@ Prefab:
     - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
         type: 2}
       propertyPath: m_maxEnemiesOverTime.Array.size
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4528119661001268, guid: 91452d9f485dc784d93d78b7e20420cf, type: 2}
       propertyPath: m_LocalPosition.x
@@ -1250,6 +1250,11 @@ Prefab:
     - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
         type: 2}
       propertyPath: m_maxEnemiesOverTime.Array.data[7]
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
+        type: 2}
+      propertyPath: m_maxEnemiesOverTime.Array.data[8]
       value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2059,7 +2064,7 @@ Prefab:
     - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
         type: 2}
       propertyPath: m_maxEnemiesOverTime.Array.size
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4528119661001268, guid: 91452d9f485dc784d93d78b7e20420cf, type: 2}
       propertyPath: m_LocalPosition.x
@@ -2116,6 +2121,11 @@ Prefab:
     - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
         type: 2}
       propertyPath: m_maxEnemiesOverTime.Array.data[7]
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
+        type: 2}
+      propertyPath: m_maxEnemiesOverTime.Array.data[8]
       value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3369,7 +3379,7 @@ Prefab:
     - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
         type: 2}
       propertyPath: m_maxEnemiesOverTime.Array.size
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4528119661001268, guid: 91452d9f485dc784d93d78b7e20420cf, type: 2}
       propertyPath: m_LocalPosition.x
@@ -3426,6 +3436,11 @@ Prefab:
     - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
         type: 2}
       propertyPath: m_maxEnemiesOverTime.Array.data[7]
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
+        type: 2}
+      propertyPath: m_maxEnemiesOverTime.Array.data[8]
       value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3782,7 +3797,7 @@ Prefab:
     - target: {fileID: 224918096579586384, guid: 0b229f4f2ce3ab649bd1b4c27907a737,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 400.21973
+      value: 341
       objectReference: {fileID: 0}
     - target: {fileID: 224918096579586384, guid: 0b229f4f2ce3ab649bd1b4c27907a737,
         type: 2}
@@ -3868,6 +3883,21 @@ Prefab:
         type: 2}
       propertyPath: m_SizeDelta.y
       value: 444
+      objectReference: {fileID: 0}
+    - target: {fileID: 114585811351159020, guid: 0b229f4f2ce3ab649bd1b4c27907a737,
+        type: 2}
+      propertyPath: m_Text
+      value: Right click and hold then release to gain support
+      objectReference: {fileID: 0}
+    - target: {fileID: 224918096579586384, guid: 0b229f4f2ce3ab649bd1b4c27907a737,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 279
+      objectReference: {fileID: 0}
+    - target: {fileID: 114585811351159020, guid: 0b229f4f2ce3ab649bd1b4c27907a737,
+        type: 2}
+      propertyPath: m_FontData.m_Alignment
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0b229f4f2ce3ab649bd1b4c27907a737, type: 2}
@@ -5050,7 +5080,7 @@ Prefab:
     - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
         type: 2}
       propertyPath: m_maxEnemiesOverTime.Array.size
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4528119661001268, guid: 91452d9f485dc784d93d78b7e20420cf, type: 2}
       propertyPath: m_LocalPosition.x
@@ -5131,6 +5161,11 @@ Prefab:
     - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
         type: 2}
       propertyPath: m_maxEnemiesOverTime.Array.data[7]
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
+        type: 2}
+      propertyPath: m_maxEnemiesOverTime.Array.data[8]
       value: 75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -5879,7 +5914,7 @@ Prefab:
     - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
         type: 2}
       propertyPath: m_maxEnemiesOverTime.Array.size
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4528119661001268, guid: 91452d9f485dc784d93d78b7e20420cf, type: 2}
       propertyPath: m_LocalPosition.x
@@ -5966,6 +6001,11 @@ Prefab:
     - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
         type: 2}
       propertyPath: m_maxEnemiesOverTime.Array.data[7]
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
+        type: 2}
+      propertyPath: m_maxEnemiesOverTime.Array.data[8]
       value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []

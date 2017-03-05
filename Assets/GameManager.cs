@@ -175,7 +175,7 @@ public class GameManager : MonoBehaviour
     {
         for (int i = m_timeLeft; i > 0; i--)
         {
-            m_timeText.text = "" + i;
+            m_timeText.text = "" + Mathf.Floor(i/60.0f) + (":" + i % 60).PadRight(3,'0') + " UNTIL POLLS CLOSE";
 
 
             yield return new WaitForSeconds(1.0f);

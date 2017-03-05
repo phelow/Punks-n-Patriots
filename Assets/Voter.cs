@@ -7,7 +7,7 @@ public class Voter : Unit
     Cluster m_myCluster = null;
 
     private const float MC_RED_LEADER_VOTING_BOOTH_DISTANCE = 10000.0F;
-    private const float MC_NORMAL_VOTING_BOOTH_DISTANCE = 6.0f;
+    private const float MC_NORMAL_VOTING_BOOTH_DISTANCE = 3.0f;
 
     [SerializeField]
     private LineRenderer m_lineRenderer;
@@ -365,13 +365,32 @@ public class Voter : Unit
             else
             {
                 RaycastHit2D hit = Physics2D.Raycast(transform.position, PlayerMovement.ms_instance.transform.position - transform.position, Vector2.Distance(transform.position, PlayerMovement.ms_instance.transform.position) + 1.0f, m_ignoreVotersMask);
-
-
-
+                
                 if (hasEnemies)
                 {
-                    //Debug.Log("HasEnemies");
-                    ClusterBehaviour();
+                    if (this is Leader)
+                    {
+                        Voter enemy = GameManager.ms_instance.GetNearestEnemy(this);
+
+                        if (enemy != null)
+                        {
+
+                            MoveTo(enemy.transform.position, moverride_movementForce * 100.0f * MC_LEADER_MOVEMENT_MODIFIER);
+
+                        }
+                        else
+                        {
+                            //Debug.Log("HasEnemies");
+                            ClusterBehaviour();
+
+                        }
+                    }
+                    else
+                    {
+                        //Debug.Log("HasEnemies");
+                        ClusterBehaviour();
+
+                    }
 
                 }
                 else
@@ -416,7 +435,16 @@ public class Voter : Unit
             }
             else
             {
-                yield return new WaitForSeconds(Random.Range(m_minMovementInterval, m_maxMovementInterval));
+                if (this is Leader) {
+
+                    yield return new WaitForSeconds(Random.Range(m_minMovementInterval, m_maxMovementInterval) / 2);
+                }
+                else
+                {
+                    yield return new WaitForSeconds(Random.Range(m_minMovementInterval, m_maxMovementInterval));
+
+                }
+
             }
 
             if(m_hitPoints > 20)

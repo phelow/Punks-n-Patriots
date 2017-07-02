@@ -365,6 +365,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114407424507904544, guid: bd4b55c3dce7afe4884a2efcc12ce4fd,
+        type: 2}
+      propertyPath: m_waveSphereRenderer
+      value: 
+      objectReference: {fileID: 1589212709}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bd4b55c3dce7afe4884a2efcc12ce4fd, type: 2}
   m_IsPrefabParent: 0
@@ -4637,6 +4642,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1544861447}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &1589212709 stripped
+MeshRenderer:
+  m_PrefabParentObject: {fileID: 23303564957385878, guid: bd4b55c3dce7afe4884a2efcc12ce4fd,
+    type: 2}
+  m_PrefabInternal: {fileID: 86315763}
 --- !u!1 &1600412412
 GameObject:
   m_ObjectHideFlags: 0

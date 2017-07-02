@@ -11,6 +11,9 @@ public class PlayerMovement : Unit
     private float m_defaultWaveRadius = .0f;
 
     [SerializeField]
+    private MeshRenderer m_waveSphereRenderer;
+
+    [SerializeField]
     private LayerMask m_ignorePlayer;
 
     [SerializeField]
@@ -74,7 +77,7 @@ public class PlayerMovement : Unit
 
 
                     m_waveRadius.transform.localScale = new Vector3(waveRadius, waveRadius, waveRadius);
-                    
+
                 }
                 else
                 {
@@ -100,6 +103,15 @@ public class PlayerMovement : Unit
                     waveRadius = m_defaultWaveRadius;
                     m_waveRadius.transform.localScale = new Vector3(waveRadius, waveRadius, waveRadius);
 
+                }
+
+                if (waving)
+                {
+                    m_waveSphereRenderer.enabled = true;
+                }
+                else
+                {
+                    m_waveSphereRenderer.enabled = false;
                 }
 
                 interrupted = false;

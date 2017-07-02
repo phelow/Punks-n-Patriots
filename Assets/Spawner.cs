@@ -39,7 +39,7 @@ public class Spawner : MonoBehaviour
         // for the first thirty seconds only spawn regular protestors
         float time = 30.0f;
 
-        while(time > 0.0f)
+        while(m_maxEnemies > 0 && time > 0.0f)
         {
             Voter voter = GameObject.Instantiate(mp_voterPrefabs[0], transform.position, transform.rotation, null).GetComponent<Voter>();
             m_myVoters.Add(voter);

@@ -8,7 +8,7 @@ public class PlayerMovement : Unit
     [SerializeField]
     private GameObject m_waveRadius;
 
-    private float m_defaultWaveRadius = .1f;
+    private float m_defaultWaveRadius = .0f;
 
     [SerializeField]
     private LayerMask m_ignorePlayer;

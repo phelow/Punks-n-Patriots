@@ -16,6 +16,14 @@ public class FadeOutOnRightClick : MonoBehaviour
 
     private IEnumerator FadeOnClick()
     {
+        for(int i = 0; i < 10; i++)
+        {
+            m_text.color = new Color(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f));
+            yield return new WaitForSeconds(.3f);
+        }
+
+        m_text.color = Color.white;
+
         yield return new WaitForSeconds(3.0f);
 
         while (!Input.GetMouseButton(1))

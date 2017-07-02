@@ -36,14 +36,24 @@ public class Spawner : MonoBehaviour
 
     private IEnumerator SpawnEnemies()
     {
+        // for the first thirty seconds only spawn regular protestors
+        float time = 30.0f;
+
+        while(time > 0.0f)
+        {
+            Voter voter = GameObject.Instantiate(mp_voterPrefabs[0], transform.position, transform.rotation, null).GetComponent<Voter>();
+            m_myVoters.Add(voter);
+            GameManager.ms_instance.AddVoter(voter);
+            float deltaTime = Random.Range(.8f, 3.5f);
+            time -= deltaTime;
+            yield return new WaitForSeconds(deltaTime);
+        }
+
         while (true)
         {
-
-
             m_myVoters.RemoveAll(item => item == null);
             m_myVoters.RemoveAll(v => v.GetTeam() == Unit.Team.RedTeam);
             
-
             if (m_myVoters.Count > m_maxEnemies)
             {
 
@@ -56,7 +66,6 @@ public class Spawner : MonoBehaviour
                 GameManager.ms_instance.AddVoter(voter);
 
                 yield return new WaitForSeconds(Random.Range(.8f, 3.5f));
-
             }
         }
     }

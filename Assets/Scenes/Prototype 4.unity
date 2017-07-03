@@ -1262,6 +1262,18 @@ Prefab:
       propertyPath: m_maxEnemiesOverTime.Array.data[8]
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
+        type: 2}
+      propertyPath: mp_voterPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 1308123562728904, guid: fe786e307bf3f1942b5eee66afde3baa,
+        type: 2}
+    - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
+        type: 2}
+      propertyPath: mp_voterPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 1308123562728904, guid: 8b522272dc2080449a3e1508c7bf100b,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 91452d9f485dc784d93d78b7e20420cf, type: 2}
   m_IsPrefabParent: 0
@@ -3513,6 +3525,18 @@ Prefab:
       propertyPath: m_maxEnemiesOverTime.Array.data[8]
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
+        type: 2}
+      propertyPath: mp_voterPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 1308123562728904, guid: 8b522272dc2080449a3e1508c7bf100b,
+        type: 2}
+    - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
+        type: 2}
+      propertyPath: mp_voterPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 1308123562728904, guid: fe786e307bf3f1942b5eee66afde3baa,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 91452d9f485dc784d93d78b7e20420cf, type: 2}
   m_IsPrefabParent: 0
@@ -5248,6 +5272,18 @@ Prefab:
       propertyPath: m_maxEnemiesOverTime.Array.data[8]
       value: 75
       objectReference: {fileID: 0}
+    - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
+        type: 2}
+      propertyPath: mp_voterPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 1308123562728904, guid: 8b522272dc2080449a3e1508c7bf100b,
+        type: 2}
+    - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
+        type: 2}
+      propertyPath: mp_voterPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 1308123562728904, guid: fe786e307bf3f1942b5eee66afde3baa,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 91452d9f485dc784d93d78b7e20420cf, type: 2}
   m_IsPrefabParent: 0

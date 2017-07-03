@@ -109,8 +109,6 @@ public class Voter : Unit
             return;
         }
 
-
-
         if (m_team == Team.BlueTeam)
         {
             m_hitPoints = 20;
@@ -342,9 +340,10 @@ public class Voter : Unit
     protected IEnumerator VoterRoutine()
     {
         StartCoroutine(WaitToImmortalize());
+        int babySteps = 10;
         while (true)
         {
-            VotingBooth booth = GameManager.ms_instance.GetVotingBoothInRange(transform, (this.GetTeam() == Team.RedTeam ? 2: 1) * MC_NORMAL_VOTING_BOOTH_DISTANCE * (this is Leader ? 100 : 1));
+            VotingBooth booth = GameManager.ms_instance.GetVotingBoothInRange(transform, (this.GetTeam() == Team.RedTeam ? 2 : 1) * MC_NORMAL_VOTING_BOOTH_DISTANCE * (this is Leader ? 100 : 1));
             bool hasEnemies = GameManager.ms_instance.HasEnemiesNearby(this);
 
             if (booth != null && (!(this is Leader && this.GetTeam() == Team.BlueTeam) || hasEnemies == false))
@@ -365,7 +364,7 @@ public class Voter : Unit
             else
             {
                 RaycastHit2D hit = Physics2D.Raycast(transform.position, PlayerMovement.ms_instance.transform.position - transform.position, Vector2.Distance(transform.position, PlayerMovement.ms_instance.transform.position) + 1.0f, m_ignoreVotersMask);
-                
+
                 if (hasEnemies)
                 {
                     if (this is Leader)
@@ -429,13 +428,14 @@ public class Voter : Unit
 
             Vector3 viewPosition = Camera.main.WorldToViewportPoint(this.transform.position);
 
-            if (viewPosition.x > 1.0f || viewPosition.x < 0.0f || viewPosition.y < 0.0f || viewPosition.y > 1.0f)
+            if (babySteps-- < 0 && (viewPosition.x > 1.0f || viewPosition.x < 0.0f || viewPosition.y < 0.0f || viewPosition.y > 1.0f))
             {
                 yield return new WaitForSeconds(3.0f);
             }
             else
             {
-                if (this is Leader) {
+                if (this is Leader)
+                {
 
                     yield return new WaitForSeconds(Random.Range(m_minMovementInterval, m_maxMovementInterval) / 2);
                 }
@@ -447,7 +447,7 @@ public class Voter : Unit
 
             }
 
-            if(m_hitPoints > 20)
+            if (m_hitPoints > 20)
             {
                 m_hitPoints -= 5;
             }

@@ -37,21 +37,21 @@ public class Spawner : MonoBehaviour
     private IEnumerator SpawnEnemies()
     {
         // for the first thirty seconds only spawn regular protestors
-        float time = 30.0f;
+        float timeLeft = 30.0f;
 
         while(m_maxEnemies <= 0)
         {
             yield return new WaitForSeconds(1.0f);
-            time += 1.0f;
+            timeLeft -= 1.0f;
         }
 
-        while(time > 0.0f)
+        while(timeLeft > 0.0f)
         {
             Voter voter = GameObject.Instantiate(mp_voterPrefabs[0], transform.position, transform.rotation, null).GetComponent<Voter>();
             m_myVoters.Add(voter);
             GameManager.ms_instance.AddVoter(voter);
             float deltaTime = Random.Range(.8f, 3.5f);
-            time -= deltaTime;
+            timeLeft -= deltaTime;
             yield return new WaitForSeconds(deltaTime);
         }
 

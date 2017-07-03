@@ -51,14 +51,38 @@ public class Leader : Voter
                 }
             }
         }
-        if (IsCharging())
+        if (IsCharging() && CanKick(coll))
         {
             KickAwayFromLeader(coll.gameObject);
         }
     }
+
+    public bool CanKick(Collision2D coll)
+    {
+        if(coll.gameObject == null)
+        {
+            return false;
+        }
+
+        Voter voter = coll.gameObject.GetComponent<Voter>();
+        if (voter != null && voter.GetTeam() != GetTeam())
+        {
+            return true;
+        }
+
+        PlayerMovement player = coll.gameObject.GetComponentInChildren<PlayerMovement>();
+
+        if(player != null && GetTeam() == Team.BlueTeam)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
     void OnCollisionStay2D(Collision2D coll)
     {
-        if (IsCharging())
+        if (IsCharging() && CanKick(coll))
         {
             KickAwayFromLeader(coll.gameObject);
         }

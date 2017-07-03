@@ -99,7 +99,7 @@ public class Voter : Unit
         {
             return;
         }
-        m_lineRenderer.numPositions = 0;
+        m_lineRenderer.positionCount = 0;
     }
 
     public virtual void TurnRed()

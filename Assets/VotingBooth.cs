@@ -10,6 +10,11 @@ public class VotingBooth : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D coll)
     {
+        OnCollisionStay2D(coll);
+    }
+
+    void OnCollisionStay2D(Collision2D coll)
+    {
         //check to see if the colliding gameobject is visible. If it is not, return.
         Vector3 viewPosition = Camera.main.WorldToViewportPoint(coll.gameObject.transform.position);
 

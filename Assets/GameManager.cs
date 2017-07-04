@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private List<int> m_timeIntervals;
-    
+
     [SerializeField]
     public LayerMask m_ignoreVoters;
     [SerializeField]
@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private Text m_timeText;
-    
+
     [SerializeField]
     private AudioClip m_voteClip;
 
@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
 
     public void AddVotingBooth(VotingBooth booth)
     {
-        if(m_booths == null)
+        if (m_booths == null)
         {
             m_booths = new List<VotingBooth>();
         }
@@ -87,13 +87,13 @@ public class GameManager : MonoBehaviour
     public VotingBooth GetVotingBoothInRange(Transform startingPoint, float range)
     {
         VotingBooth closest = null;
-        if(m_booths == null)
+        if (m_booths == null)
         {
-            Debug.Log("nullbooths");
+            //Debug.Log("nullbooths");
             return null;
         }
 
-        foreach(VotingBooth booth in m_booths)
+        foreach (VotingBooth booth in m_booths)
         {
             float dist = Vector2.Distance(booth.transform.position, startingPoint.position);
 
@@ -103,18 +103,18 @@ public class GameManager : MonoBehaviour
 
                 Debug.DrawRay(startingPoint.position, booth.transform.position - startingPoint.position, Color.blue, 1.0f);
 
-                if(hit.collider != null)
+                if (hit.collider != null)
                 {
                     if (hit.collider.gameObject != null)
                     {
                         if (hit.collider.gameObject.tag == "PollingStation")
                         {
-                            if(closest == null)
+                            if (closest == null)
                             {
                                 closest = booth;
                             }
 
-                            if(Vector2.Distance(booth.transform.position,startingPoint.position) < Vector2.Distance(closest.transform.position, startingPoint.position))
+                            if (Vector2.Distance(booth.transform.position, startingPoint.position) < Vector2.Distance(closest.transform.position, startingPoint.position))
                             {
                                 closest = booth;
 
@@ -136,7 +136,8 @@ public class GameManager : MonoBehaviour
 
 
     // Use this for initialization
-    void Awake() {
+    void Awake()
+    {
         AudioListener.volume = 10.0f;
 
         ms_instance = this;
@@ -144,7 +145,7 @@ public class GameManager : MonoBehaviour
 
         m_clusters = new List<Cluster>();
         m_currentPoints--;
-        m_pointsNeededText.text = "Approval: " + m_currentPoints + "%" +  " Goal: " + m_pointsNeeded + "%";
+        m_pointsNeededText.text = "Approval: " + m_currentPoints + "%" + " Goal: " + m_pointsNeeded + "%";
 
 
 
@@ -153,23 +154,13 @@ public class GameManager : MonoBehaviour
 
     public Voter GetNearestEnemy(Voter voter)
     {
-
-        foreach (Voter person in m_voters)
+        Collider2D [] colliders = Physics2D.OverlapCircleAll(voter.transform.position, 7.0f);
+        foreach (Collider2D collider in colliders)
         {
-            if (person.GetTeam() != voter.GetTeam())
+            Voter person = collider.GetComponent<Voter>();
+            if(person != null)
             {
-                RaycastHit2D hit = Physics2D.Raycast(voter.transform.position, person.transform.position - voter.transform.position, Vector2.Distance(person.transform.position, voter.transform.position) + 1.0f,m_ignoreClusters);
-
-                if (hit.collider != null)
-                {
-
-                    Voter collidedVoter = hit.collider.gameObject.GetComponent<Voter>();
-                    if (collidedVoter != null && collidedVoter.GetTeam() != voter.GetTeam())
-                    {
-
-                        return hit.collider.gameObject.GetComponent<Voter>();
-                    }
-                }
+                return person;
             }
         }
 
@@ -180,14 +171,14 @@ public class GameManager : MonoBehaviour
     {
         for (int timeLeft = m_timeLeft; timeLeft > 0; timeLeft--)
         {
-            int minutes = (int) (timeLeft / 60.0f);
+            int minutes = (int)(timeLeft / 60.0f);
 
-            m_timeText.text = "" + minutes + (":" + (""+ (timeLeft - (minutes * 60))).PadLeft(2, '0')) + " UNTIL POLLS CLOSE";
+            m_timeText.text = "" + minutes + (":" + ("" + (timeLeft - (minutes * 60))).PadLeft(2, '0')) + " UNTIL POLLS CLOSE";
 
             if (m_timeIntervals.Contains(timeLeft))
             {
 
-                Debug.Log(timeLeft);
+                //Debug.Log(timeLeft);
                 SetMaxEnemiesOnSpawners();
             }
 
@@ -203,7 +194,7 @@ public class GameManager : MonoBehaviour
 
     public void SetMaxEnemiesOnSpawners()
     {
-        foreach(Spawner spawner in m_spawners)
+        foreach (Spawner spawner in m_spawners)
         {
             spawner.SetMaxEnemiesNext();
         }
@@ -212,7 +203,7 @@ public class GameManager : MonoBehaviour
     public void VoteBlue(Voter voter, bool isLeader)
     {
         int pointsToLose = isLeader == false ? 2 : 5;
-        
+
         string pointsToLoseText = "-" + pointsToLose;
 
 
@@ -244,13 +235,13 @@ public class GameManager : MonoBehaviour
         int pointsToGain = isLeader == false ? 2 : 5;
 
         string pointsToGainText = "+" + pointsToGain;
-        GainPoints(pointsToGain,pointsToGainText, Color.green, voter.transform.position);
+        GainPoints(pointsToGain, pointsToGainText, Color.green, voter.transform.position);
     }
 
-    public void GainPoints(int pointsToGain,string pointsToGainText, Color textColor, Vector3 position)
+    public void GainPoints(int pointsToGain, string pointsToGainText, Color textColor, Vector3 position)
     {
         m_currentPoints += pointsToGain;
-        
+
 
         m_pointsNeededText.text = "Approval: " + m_currentPoints + "%" + "    Goal: " + m_pointsNeeded + "%";
 
@@ -274,7 +265,7 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
 
-        if(PlayerPrefs.GetInt("HighScore",0) < m_currentPoints)
+        if (PlayerPrefs.GetInt("HighScore", 0) < m_currentPoints)
         {
             PlayerPrefs.SetInt("HighScore", m_currentPoints);
         }
@@ -331,16 +322,13 @@ public class GameManager : MonoBehaviour
     public bool HasEnemiesNearby(Voter voter)
     {
 
-        Collider2D [] collisions = Physics2D.OverlapCircleAll(voter.transform.position, 10.0f);
+        Collider2D[] collisions = Physics2D.OverlapCircleAll(voter.transform.position, 10.0f);
 
-        foreach (Collider2D collision in collisions)
+        Voter person = collisions[Random.Range(0, collisions.Length)].GetComponent<Voter>();
+
+        if (person != null && person.GetTeam() != voter.GetTeam())
         {
-            Voter person = collision.GetComponent<Voter>();
-
-            if (person != null && person.GetTeam() != voter.GetTeam())
-            {
-                return true;
-            }
+            return true;
         }
 
         return false;
@@ -348,29 +336,34 @@ public class GameManager : MonoBehaviour
 
     public Cluster CheckForClusters(List<Cluster> clusters, Voter voter)
     {
-        foreach (Cluster cluster in clusters)
+        if(clusters.Count == 0)
         {
-            Vector3 center = cluster.GetCenter();
-
-            if (Physics2D.Raycast(center, voter.transform.position - center, Vector2.Distance(center, transform.position),m_ignoreClusters).collider.gameObject == voter.gameObject && cluster.HasRoom())
-            {
-                return cluster;
-            }
+            return null;
         }
+
+        Cluster cluster = clusters[Random.Range(0, clusters.Count)];
+
+        Vector3 center = cluster.GetCenter();
+
+        if (Physics2D.Raycast(center, voter.transform.position - center, Vector2.Distance(center, transform.position), m_ignoreClusters).collider.gameObject == voter.gameObject && cluster.HasRoom())
+        {
+            return cluster;
+        }
+
         return null;
     }
 
     public Cluster GetNearestMegaCluster(Voter voter)
     {
         return CheckForClusters(m_clusters.Where(x => x is MegaCluster).ToList(), voter);
-        
+
 
     }
 
     public Cluster GetNearestCluster(Voter voter)
     {
 
-        return CheckForClusters(Physics2D.OverlapCircleAll(voter.transform.position,4.0f,m_onlyClusters).Select(x=> x.GetComponent<Cluster>()).ToList(), voter);
+        return CheckForClusters(Physics2D.OverlapCircleAll(voter.transform.position, 4.0f, m_onlyClusters).Select(x => x.GetComponent<Cluster>()).ToList(), voter);
     }
 
     public void RemoveCluster(Cluster cluster)
@@ -380,16 +373,17 @@ public class GameManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
         m_sourceOne.volume = 1.0f;
-        
-        if(m_currentPoints > 25)
+
+        if (m_currentPoints > 25)
         {
             m_sourceTwo.volume += Time.deltaTime;
-            
+
         }
 
-        if(m_currentPoints > 50)
+        if (m_currentPoints > 50)
         {
             m_sourceThree.volume += Time.deltaTime;
         }

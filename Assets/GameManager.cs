@@ -151,22 +151,7 @@ public class GameManager : MonoBehaviour
 
         StartCoroutine(TimeLevel());
     }
-
-    public Voter GetNearestEnemy(Voter voter)
-    {
-        Collider2D [] colliders = Physics2D.OverlapCircleAll(voter.transform.position, 7.0f);
-        foreach (Collider2D collider in colliders)
-        {
-            Voter person = collider.GetComponent<Voter>();
-            if(person != null)
-            {
-                return person;
-            }
-        }
-
-        return null;
-    }
-
+    
     private IEnumerator TimeLevel()
     {
         for (int timeLeft = m_timeLeft; timeLeft > 0; timeLeft--)
@@ -319,8 +304,30 @@ public class GameManager : MonoBehaviour
         return cluster;
     }
 
-    public bool HasEnemiesNearby(Voter voter)
+    public Voter HasEnemiesNearby(Voter voter)
     {
+
+        if (voter is Leader)
+        {
+            foreach (Voter v in m_voters)
+            {
+                if (v.GetTeam() != voter.GetTeam())
+                {
+                    RaycastHit2D hit = Physics2D.Raycast(voter.transform.position, v.transform.position - voter.transform.position, Vector2.Distance(v.transform.position, voter.transform.position) + 1.0f, m_ignoreClusters);
+
+                    if (hit.collider != null)
+                    {
+
+                        Voter collidedVoter = hit.collider.gameObject.GetComponent<Voter>();
+                        if (collidedVoter != null && collidedVoter.GetTeam() != voter.GetTeam())
+                        {
+
+                            return hit.collider.gameObject.GetComponent<Voter>();
+                        }
+                    }
+                }
+            }
+        }
 
         Collider2D[] collisions = Physics2D.OverlapCircleAll(voter.transform.position, 10.0f);
 
@@ -328,15 +335,15 @@ public class GameManager : MonoBehaviour
 
         if (person != null && person.GetTeam() != voter.GetTeam())
         {
-            return true;
+            return person;
         }
 
-        return false;
+        return null;
     }
 
     public Cluster CheckForClusters(List<Cluster> clusters, Voter voter)
     {
-        if(clusters.Count == 0)
+        if (clusters.Count == 0)
         {
             return null;
         }

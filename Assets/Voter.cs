@@ -344,7 +344,7 @@ public class Voter : Unit
         while (true)
         {
             VotingBooth booth = GameManager.ms_instance.GetVotingBoothInRange(transform, (this.GetTeam() == Team.RedTeam ? 2 : 1) * MC_NORMAL_VOTING_BOOTH_DISTANCE * (this is Leader ? 100 : 1));
-            bool hasEnemies = GameManager.ms_instance.HasEnemiesNearby(this);
+            Voter hasEnemies = GameManager.ms_instance.HasEnemiesNearby(this);
 
             if (booth != null && (!(this is Leader && this.GetTeam() == Team.BlueTeam) || hasEnemies == false))
             {
@@ -365,32 +365,16 @@ public class Voter : Unit
             {
                 RaycastHit2D hit = Physics2D.Raycast(transform.position, PlayerMovement.ms_instance.transform.position - transform.position, Vector2.Distance(transform.position, PlayerMovement.ms_instance.transform.position) + 1.0f, m_ignoreVotersMask);
 
-                if (hasEnemies)
+                if (hasEnemies != null)
                 {
                     if (this is Leader)
                     {
-                        Voter enemy = GameManager.ms_instance.GetNearestEnemy(this);
-
-                        if (enemy != null)
-                        {
-
-                            MoveTo(enemy.transform.position, moverride_movementForce * 100.0f * MC_LEADER_MOVEMENT_MODIFIER);
-
-                        }
-                        else
-                        {
-                            //Debug.Log("HasEnemies");
-                            ClusterBehaviour();
-
-                        }
+                        MoveTo(hasEnemies.transform.position, moverride_movementForce * 100.0f * MC_LEADER_MOVEMENT_MODIFIER);
                     }
                     else
                     {
-                        //Debug.Log("HasEnemies");
                         ClusterBehaviour();
-
                     }
-
                 }
                 else
                 {

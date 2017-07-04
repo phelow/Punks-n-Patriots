@@ -33,8 +33,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private Text m_timeText;
-
-
+    
     [SerializeField]
     private AudioClip m_voteClip;
 
@@ -222,8 +221,9 @@ public class GameManager : MonoBehaviour
 
     public void PlayVoteSound()
     {
-        m_effectsSource.clip =(m_voteClip);
+        m_effectsSource.clip = (m_voteClip);
         m_effectsSource.Play();
+        m_effectsSource.time = .5f;
     }
 
     public void GainConversionPoint(Voter voter)

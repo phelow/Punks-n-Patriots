@@ -1412,7 +1412,7 @@ Prefab:
     - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
         type: 2}
       propertyPath: m_maxEnemiesOverTime.Array.data[8]
-      value: 50
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
         type: 2}
@@ -2351,17 +2351,17 @@ Prefab:
     - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
         type: 2}
       propertyPath: m_maxEnemiesOverTime.Array.data[6]
-      value: 4
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
         type: 2}
       propertyPath: m_maxEnemiesOverTime.Array.data[7]
-      value: 4
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
         type: 2}
       propertyPath: m_maxEnemiesOverTime.Array.data[8]
-      value: 7
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
         type: 2}
@@ -3805,12 +3805,12 @@ Prefab:
     - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
         type: 2}
       propertyPath: m_maxEnemiesOverTime.Array.data[7]
-      value: 50
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
         type: 2}
       propertyPath: m_maxEnemiesOverTime.Array.data[8]
-      value: 50
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
         type: 2}
@@ -5648,7 +5648,7 @@ Prefab:
     - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
         type: 2}
       propertyPath: m_maxEnemiesOverTime.Array.data[8]
-      value: 75
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
         type: 2}
@@ -6451,47 +6451,47 @@ Prefab:
     - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
         type: 2}
       propertyPath: m_maxEnemiesOverTime.Array.data[0]
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
         type: 2}
       propertyPath: m_maxEnemiesOverTime.Array.data[1]
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
         type: 2}
       propertyPath: m_maxEnemiesOverTime.Array.data[2]
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
         type: 2}
       propertyPath: m_maxEnemiesOverTime.Array.data[3]
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
         type: 2}
       propertyPath: m_maxEnemiesOverTime.Array.data[4]
-      value: 0
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
         type: 2}
       propertyPath: m_maxEnemiesOverTime.Array.data[5]
-      value: 0
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
         type: 2}
       propertyPath: m_maxEnemiesOverTime.Array.data[6]
-      value: 4
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
         type: 2}
       propertyPath: m_maxEnemiesOverTime.Array.data[7]
-      value: 7
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
         type: 2}
       propertyPath: m_maxEnemiesOverTime.Array.data[8]
-      value: 7
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
         type: 2}

@@ -346,7 +346,7 @@ public class Voter : Unit
             VotingBooth booth = GameManager.ms_instance.GetVotingBoothInRange(transform, (this.GetTeam() == Team.RedTeam ? 2 : 1) * MC_NORMAL_VOTING_BOOTH_DISTANCE * (this is Leader ? 100 : 1));
             Voter hasEnemies = GameManager.ms_instance.HasEnemiesNearby(this);
 
-            if (booth != null && (!(this is Leader && this.GetTeam() == Team.BlueTeam) || hasEnemies == false))
+            if (booth != null && (!(this is Leader && this.GetTeam() == Team.BlueTeam) || (hasEnemies == null || GameManager.GetTimeLeft() < 30)))
             {
                 //Debug.Log(booth);
                 if (this is Leader)

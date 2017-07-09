@@ -151,6 +151,11 @@ public class GameManager : MonoBehaviour
 
         StartCoroutine(TimeLevel());
     }
+
+    public static int GetTimeLeft()
+    {
+        return ms_instance.m_timeLeft;
+    }
     
     private IEnumerator TimeLevel()
     {

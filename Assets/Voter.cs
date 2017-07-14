@@ -369,7 +369,7 @@ public class Voter : Unit
                 continue;
             }
 
-            if (booth != null && (!(this is Leader && this.GetTeam() == Team.BlueTeam) || hasEnemies == null))
+            if (booth != null && ((this is Leader && this.GetTeam() == Team.RedTeam) || hasEnemies == null))
             {
                 if (this is Leader)
                 {
@@ -382,8 +382,6 @@ public class Voter : Unit
             }
             else
             {
-                RaycastHit2D hit = Physics2D.Raycast(transform.position, PlayerMovement.ms_instance.transform.position - transform.position, Vector2.Distance(transform.position, PlayerMovement.ms_instance.transform.position) + 1.0f, m_ignoreVotersMask);
-
                 if (hasEnemies != null)
                 {
                     if (this is Leader)
@@ -397,12 +395,6 @@ public class Voter : Unit
                 }
                 else
                 {
-                    if (m_myCluster != null)
-                    {
-                        m_myCluster.RemoveMember(this);
-                        m_myCluster = null;
-                    }
-
                     //If there is no voting poll nearby look for the player. If he's there follow him.
                     if (Vector2.Distance(PlayerMovement.ms_instance.transform.position, this.transform.position) < Unit.ms_detectionRadius && this.GetTeam() == Team.RedTeam)
                     {

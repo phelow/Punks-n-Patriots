@@ -41,7 +41,6 @@ public class Unit : MonoBehaviour
 
     protected void MoveTo(Vector3 target, float force = -1.0f)
     {
-
         if (force == -1.0f)
         {
             force = m_movementForce;
@@ -49,29 +48,12 @@ public class Unit : MonoBehaviour
 
         force += Mathf.Max(GameManager.ms_instance.GetAllVoters().Count * 2, 200);
 
-
         Vector3 movement = (new Vector2(target.x, target.y) - new Vector2(transform.position.x, transform.position.y)).normalized * force;
-
-        float t = 0.0f;
-
-        Vector3 current = movement;
-
-        if (!this is PlayerMovement)
-        {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, movement.normalized, 2.0f, m_ignoreVotersMask);
-            if (hit.collider != null && hit.collider.gameObject.name != "Polling Station")
-            {
-                current = Vector2.Reflect(current, Vector2.right);
-            }
-            Debug.DrawRay(transform.position, current, Color.black, 1.0f);
-            Debug.DrawRay(transform.position, movement / 500.0f, Color.red, 1.0f);
-
-        }
+        Debug.DrawRay(transform.position, target - transform.position, Color.blue, 1.0f);
+        m_rigidbody.AddForce(movement);
 
         if (m_animatorBlue != null)
         {
-            //Debug.Log(target.x + " " + transform.position.x);
-
             if (target.x > transform.position.x + .1f)
             {
                 //Debug.Log("57");
@@ -85,7 +67,6 @@ public class Unit : MonoBehaviour
                 m_animatorBlue.GetComponent<Animator>().SetBool("Left", true);
             }
         }
-        m_rigidbody.AddForce(current);
     }
 
 }

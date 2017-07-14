@@ -343,23 +343,42 @@ public class Voter : Unit
         int babySteps = 10;
         while (true)
         {
-            VotingBooth booth = GameManager.ms_instance.GetVotingBoothInRange(transform, (this.GetTeam() == Team.RedTeam ? 2 : 1) * MC_NORMAL_VOTING_BOOTH_DISTANCE * (this is Leader ? 100 : 1));
+            if (m_hitPoints > 20)
+            {
+                m_hitPoints -= 5;
+            }
+
+            bool sprintToPolls = GameManager.GetTimeLeft() < 30;
+
+            VotingBooth booth = GameManager.ms_instance.GetVotingBoothInRange(transform, sprintToPolls ? Mathf.Infinity : (this.GetTeam() == Team.RedTeam ? 2 : 1) * MC_NORMAL_VOTING_BOOTH_DISTANCE * (this is Leader ? 100 : 1));
             Voter hasEnemies = GameManager.ms_instance.HasEnemiesNearby(this);
 
-            if (booth != null && (!(this is Leader && this.GetTeam() == Team.BlueTeam) || (hasEnemies == null || GameManager.GetTimeLeft() < 30)))
+            if (sprintToPolls && booth != null)
             {
-                //Debug.Log(booth);
+                MoveTo(booth.transform.position, moverride_movementForce * MC_VOTER_MOVEMENT_MODIFIER);
+
                 if (this is Leader)
                 {
+                    yield return new WaitForSeconds(Random.Range(m_minMovementInterval, m_maxMovementInterval) / 2);
+                }
+                else
+                {
+                    yield return new WaitForSeconds(Random.Range(m_minMovementInterval, m_maxMovementInterval));
+                }
 
+                continue;
+            }
+
+            if (booth != null && (!(this is Leader && this.GetTeam() == Team.BlueTeam) || hasEnemies == null))
+            {
+                if (this is Leader)
+                {
                     MoveTo(booth.transform.position, moverride_movementForce * 100.0f * MC_LEADER_MOVEMENT_MODIFIER);
                 }
                 else
                 {
                     MoveTo(booth.transform.position, moverride_movementForce * MC_VOTER_MOVEMENT_MODIFIER);
-
                 }
-
             }
             else
             {
@@ -430,12 +449,6 @@ public class Voter : Unit
                 }
 
             }
-
-            if (m_hitPoints > 20)
-            {
-                m_hitPoints -= 5;
-            }
-
         }
     }
 

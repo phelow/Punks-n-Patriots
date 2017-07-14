@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
         VotingBooth closest = null;
         if (m_booths == null)
         {
-            //Debug.Log("nullbooths");
+            Debug.Log("nullbooths");
             return null;
         }
 
@@ -100,9 +100,7 @@ public class GameManager : MonoBehaviour
             if (dist < range)
             {
                 RaycastHit2D hit = Physics2D.Raycast(startingPoint.position, booth.transform.position - startingPoint.position, dist, GameManager.ms_instance.m_ignoreVoters);
-
-                Debug.DrawRay(startingPoint.position, booth.transform.position - startingPoint.position, Color.blue, 1.0f);
-
+                
                 if (hit.collider != null)
                 {
                     if (hit.collider.gameObject != null)
@@ -311,7 +309,6 @@ public class GameManager : MonoBehaviour
 
     public Voter HasEnemiesNearby(Voter voter)
     {
-
         if (voter is Leader)
         {
             foreach (Voter v in m_voters)
@@ -337,6 +334,11 @@ public class GameManager : MonoBehaviour
         Collider2D[] collisions = Physics2D.OverlapCircleAll(voter.transform.position, 10.0f);
 
         Voter person = collisions[Random.Range(0, collisions.Length)].GetComponent<Voter>();
+
+        if(person is PlayerMovement)
+        {
+            return null;
+        }
 
         if (person != null && person.GetTeam() != voter.GetTeam())
         {

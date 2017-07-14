@@ -152,12 +152,12 @@ public class GameManager : MonoBehaviour
 
     public static int GetTimeLeft()
     {
-        return ms_instance.m_timeLeft;
+        return ms_instance.timeLeft;
     }
-    
+    public int timeLeft;
     private IEnumerator TimeLevel()
     {
-        for (int timeLeft = m_timeLeft; timeLeft > 0; timeLeft--)
+        for (timeLeft = m_timeLeft; timeLeft > 0; timeLeft--)
         {
             int minutes = (int)(timeLeft / 60.0f);
 

@@ -357,27 +357,13 @@ public class GameManager : MonoBehaviour
 
         Cluster cluster = clusters[Random.Range(0, clusters.Count)];
 
-        Vector3 center = cluster.GetCenter();
-
-        if (Physics2D.Raycast(center, voter.transform.position - center, Vector2.Distance(center, transform.position), m_ignoreClusters).collider.gameObject == voter.gameObject && cluster.HasRoom())
-        {
-            return cluster;
-        }
-
-        return null;
+        return cluster;
     }
-
-    public Cluster GetNearestMegaCluster(Voter voter)
-    {
-        return CheckForClusters(m_clusters.Where(x => x is MegaCluster).ToList(), voter);
-
-
-    }
-
+    
     public Cluster GetNearestCluster(Voter voter)
     {
-
-        return CheckForClusters(Physics2D.OverlapCircleAll(voter.transform.position, 4.0f, m_onlyClusters).Select(x => x.GetComponent<Cluster>()).ToList(), voter);
+        Collider2D coll = Physics2D.OverlapCircle(voter.transform.position, 4.0f, m_onlyClusters);
+        return coll != null ? coll.GetComponent<Cluster>() : null;
     }
 
     public void RemoveCluster(Cluster cluster)

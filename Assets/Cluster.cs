@@ -122,23 +122,6 @@ public class Cluster : MonoBehaviour {
                 }
             }
         }
-
-        /*
-        if ((redTeams == 0 || blueTeams == 0) && m_members.Count >= mc_lineRequirement && hasLineLeader)
-        {
-            for (int i = 0; i < m_members.Count - 1; i++)
-            {
-                SpringJoint2D joint = m_members[i].gameObject.GetComponent<SpringJoint2D>();
-
-                if (joint == null)
-                {
-                    joint = m_members[i].gameObject.AddComponent<SpringJoint2D>();
-                }
-
-                joint.connectedBody = m_members[i + 1].gameObject.GetComponent<Rigidbody2D>();
-                joint.distance = .1f;
-            }
-        }*/
     }
 
     public bool HasRoom()

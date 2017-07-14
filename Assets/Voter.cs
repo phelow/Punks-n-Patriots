@@ -169,36 +169,6 @@ public class Voter : Unit
         Destroy(this.gameObject);
     }
 
-    private void FindMegaCluster()
-    {
-        m_myCluster = GameManager.ms_instance.GetNearestMegaCluster(this);
-        if (m_myCluster == null)
-        {
-            m_myCluster = GameManager.ms_instance.CreateMegaCluster();
-            m_myCluster.transform.position = this.transform.position;
-        }
-        m_myCluster.AddMember(this);
-    }
-
-    public void SetLineLeader(Queue<SpringJoint2D> springJoint)
-    {
-        m_lineLeader = springJoint;
-    }
-
-    private void MakeLineLeader(Voter voter)
-    {
-        Destroy(m_lineLeader.Dequeue());
-        SpringJoint2D springJoint = voter.gameObject.AddComponent<SpringJoint2D>();
-
-        springJoint.connectedBody = this.m_rigidbody;
-
-        m_lineLeader.Enqueue(springJoint);
-
-        voter.SetLineLeader(m_lineLeader);
-        m_lineLeader = new Queue<SpringJoint2D>();
-        m_lineLeader = null;
-    }
-
     protected void ClusterBehaviour()
     {
         if (m_myCluster == null)
@@ -395,28 +365,7 @@ public class Voter : Unit
                 }
                 else
                 {
-                    //If there is no voting poll nearby look for the player. If he's there follow him.
-                    if (Vector2.Distance(PlayerMovement.ms_instance.transform.position, this.transform.position) < Unit.ms_detectionRadius && this.GetTeam() == Team.RedTeam)
-                    {
-
-                        if (this is Leader)
-                        {
-
-                            MoveTo(PlayerMovement.ms_instance.transform.position, moverride_movementForce * 100.0f * MC_LEADER_MOVEMENT_MODIFIER);
-                        }
-                        else
-                        {
-                            MoveTo(PlayerMovement.ms_instance.transform.position, moverride_movementForce * MC_VOTER_MOVEMENT_MODIFIER);
-
-                        }
-
-
-                    }
-                    else
-                    {
-
-                        ClusterBehaviour();
-                    }
+                    ClusterBehaviour();
                 }
             }
 

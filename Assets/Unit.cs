@@ -15,11 +15,10 @@ public class Unit : MonoBehaviour
     protected LayerMask m_ignoreVotersMask;
 
     [SerializeField]
-    protected GameObject m_animatorRed;
+    protected Animator m_animatorRed;
 
     [SerializeField]
-    protected GameObject m_animatorBlue;
-
+    protected Animator m_animatorBlue;
 
     [SerializeField]
     protected AudioSource m_audiosource;
@@ -57,14 +56,25 @@ public class Unit : MonoBehaviour
             if (target.x > transform.position.x + .1f)
             {
                 //Debug.Log("57");
-                m_animatorRed.GetComponent<Animator>().SetBool("Right", true);
-                m_animatorBlue.GetComponent<Animator>().SetBool("Right", true);
+                if (m_animatorRed.gameObject.activeSelf)
+                {
+                    m_animatorRed.SetBool("Right", true);
+                }
+                if (m_animatorBlue.gameObject.activeSelf)
+                {
+                    m_animatorBlue.SetBool("Right", true);
+                }
             }
             else if (target.x < transform.position.x - .1f)
             {
-                //Debug.Log("62");
-                m_animatorRed.GetComponent<Animator>().SetBool("Left", true);
-                m_animatorBlue.GetComponent<Animator>().SetBool("Left", true);
+                if (m_animatorRed.gameObject.activeSelf)
+                {
+                    m_animatorRed.SetBool("Left", true);
+                }
+                if (m_animatorBlue.gameObject.activeSelf)
+                {
+                    m_animatorBlue.SetBool("Left", true);
+                }
             }
         }
     }

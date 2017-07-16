@@ -119,8 +119,8 @@ public class Leader : Voter
 
             m_hitPoints = 30;
             m_team = Team.RedTeam;
-            m_animatorBlue.SetActive(false);
-            m_animatorRed.SetActive(true);
+            m_animatorBlue.gameObject.SetActive(false);
+            m_animatorRed.gameObject.SetActive(true);
             GameManager.ms_instance.GainConversionPoint(this);
         }
     }

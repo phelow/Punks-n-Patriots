@@ -72,10 +72,6 @@ public class Voter : Unit
 
     public void GetWavedAt(Transform position)
     {
-        //m_lineRenderer.numPositions = 2;
-        //m_lineRenderer.SetPosition(0, transform.position);
-        //m_lineRenderer.SetPosition(1, position.transform.position);
-
         if (GetTeam() == Team.BlueTeam)
         {
             return;
@@ -84,8 +80,6 @@ public class Voter : Unit
         Vector2 vacuumForce = (new Vector2(position.position.x, position.position.y) - new Vector2(transform.position.x, transform.position.y)).normalized * Time.deltaTime * 100.0f * Mathf.Pow(Vector2.Distance(position.position, transform.position), 2);
 
         m_rigidbody.AddForce(vacuumForce);
-
-
     }
 
     public void ProcessWave()
@@ -116,8 +110,8 @@ public class Voter : Unit
             //m_audiosource.Play();
 
             m_team = Team.RedTeam;
-            m_animatorBlue.SetActive(false);
-            m_animatorRed.SetActive(true);
+            m_animatorBlue.gameObject.SetActive(false);
+            m_animatorRed.gameObject.SetActive(true);
             GameManager.ms_instance.GainConversionPoint(this);
         }
     }
@@ -132,8 +126,8 @@ public class Voter : Unit
         //   m_audiosource.PlayOneShot(m_negativeConversion);
         m_team = Team.BlueTeam;
 
-        m_animatorBlue.SetActive(true);
-        m_animatorRed.SetActive(false);
+        m_animatorBlue.gameObject.SetActive(true);
+        m_animatorRed.gameObject.SetActive(false);
         GameManager.ms_instance.LoseConversionPoint(this);
     }
 

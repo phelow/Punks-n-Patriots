@@ -323,7 +323,7 @@ public class Voter : Unit
 
             if(this.IsLeader())
             {
-                if ( hasEnemies == null)
+                if ( hasEnemies == null || this.GetTeam() == Team.RedTeam)
                 {
                     if(booth != null)
                     {

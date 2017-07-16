@@ -21,8 +21,10 @@ public class Voter : Unit
     [SerializeField]
     private bool m_startNow = false;
 
+    private const float mc_followDistance = 12.0f;
+
     private Slot m_targetSlot;
-    
+
     private Queue<SpringJoint2D> m_lineLeader;
 
     [SerializeField]
@@ -143,7 +145,7 @@ public class Voter : Unit
     public void CastBlueVote(bool isLeader)
     {
         GameManager.ms_instance.VoteBlue(this, isLeader);
-        
+
         if (m_myCluster != null)
         {
             m_myCluster.RemoveMember(this);
@@ -238,6 +240,8 @@ public class Voter : Unit
         }
     }
 
+    int babySteps = 10;
+
     protected bool m_immortal = false;
 
     [SerializeField]
@@ -273,7 +277,6 @@ public class Voter : Unit
 
         StartCoroutine(WaitToImmortalize());
         m_hitPoints = 1000;
-        int babySteps = 10;
 
         while (true)
         {
@@ -291,23 +294,22 @@ public class Voter : Unit
             {
                 MoveTo(booth.transform.position, moverride_movementForce * MC_VOTER_MOVEMENT_MODIFIER);
 
-                if (this is Leader)
-                {
-                    yield return new WaitForSeconds(Random.Range(m_minMovementInterval, m_maxMovementInterval) / 2);
-                }
-                else
-                {
-                    yield return new WaitForSeconds(Random.Range(m_minMovementInterval, m_maxMovementInterval));
-                }
-
+                yield return WaitAndReturn();
                 continue;
             }
 
-            if(this.IsLeader())
+            if (!this.IsLeader() && this.GetTeam() == Team.RedTeam && Vector3.Distance(this.transform.position, PlayerMovement.ms_instance.transform.position) > mc_followDistance)
             {
-                if ( hasEnemies == null || this.GetTeam() == Team.RedTeam)
+                MoveTo(PlayerMovement.ms_instance.transform.position);
+                yield return WaitAndReturn();
+                continue;
+            }
+
+            if (this.IsLeader())
+            {
+                if (hasEnemies == null || this.GetTeam() == Team.RedTeam)
                 {
-                    if(booth != null)
+                    if (booth != null)
                     {
                         MoveTo(booth.transform.position, moverride_movementForce * 100.0f * MC_LEADER_MOVEMENT_MODIFIER);
                     }
@@ -320,8 +322,13 @@ public class Voter : Unit
                 {
                     MoveTo(hasEnemies.transform.position, moverride_movementForce * 100.0f * MC_LEADER_MOVEMENT_MODIFIER);
                 }
+
+                yield return WaitAndReturn();
+                continue;
             }
-            else if (booth != null && hasEnemies == null)
+
+
+            if (booth != null && hasEnemies == null)
             {
                 MoveTo(booth.transform.position, moverride_movementForce * MC_VOTER_MOVEMENT_MODIFIER);
             }
@@ -330,23 +337,27 @@ public class Voter : Unit
                 ClusterBehaviour();
             }
 
+            yield return WaitAndReturn();
+        }
+    }
 
-            Vector3 viewPosition = Camera.main.WorldToViewportPoint(this.transform.position);
+    private IEnumerator WaitAndReturn()
+    {
+        Vector3 viewPosition = Camera.main.WorldToViewportPoint(this.transform.position);
 
-            if (babySteps-- < 0 && (viewPosition.x > 1.0f || viewPosition.x < 0.0f || viewPosition.y < 0.0f || viewPosition.y > 1.0f))
+        if (babySteps-- < 0 && (viewPosition.x > 1.0f || viewPosition.x < 0.0f || viewPosition.y < 0.0f || viewPosition.y > 1.0f))
+        {
+            yield return new WaitForSeconds(3.0f);
+        }
+        else
+        {
+            if (this.IsLeader())
             {
-                yield return new WaitForSeconds(3.0f);
+                yield return new WaitForSeconds(Random.Range(m_minMovementInterval, m_maxMovementInterval) / 2);
             }
             else
             {
-                if (this.IsLeader())
-                {
-                    yield return new WaitForSeconds(Random.Range(m_minMovementInterval, m_maxMovementInterval) / 2);
-                }
-                else
-                {
-                    yield return new WaitForSeconds(Random.Range(m_minMovementInterval, m_maxMovementInterval));
-                }
+                yield return new WaitForSeconds(Random.Range(m_minMovementInterval, m_maxMovementInterval));
             }
         }
     }

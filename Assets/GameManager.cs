@@ -229,6 +229,10 @@ public class GameManager : MonoBehaviour
     public void GainPoints(int pointsToGain, string pointsToGainText, Color textColor, Vector3 position)
     {
         m_currentPoints += pointsToGain;
+        if(m_currentPoints < 0)
+        {
+            m_currentPoints = 0;
+        }
 
 
         m_pointsNeededText.text = "Approval: " + m_currentPoints + "%" + "    Goal: " + m_pointsNeeded + "%";
@@ -253,21 +257,19 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
 
-        if (PlayerPrefs.GetInt("HighScore", 0) < m_currentPoints)
+        if (PlayerPrefs.GetInt("HighScore", 0) <= m_currentPoints)
         {
             PlayerPrefs.SetInt("HighScore", m_currentPoints);
         }
 
         PlayerPrefs.SetInt("YourScore", m_currentPoints);
 
-        if (m_currentPoints > m_pointsNeeded)
+        if (m_currentPoints >= m_pointsNeeded)
         {
-            //TODO: win effects
             UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1);
         }
         else
         {
-
             UnityEngine.SceneManagement.SceneManager.LoadScene("Fail");
         }
     }

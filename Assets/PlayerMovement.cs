@@ -54,7 +54,7 @@ public class PlayerMovement : Unit
             scaleFactor = mc_originalScaleFactor;
             m_waveRadius.transform.localScale = new Vector3(waveRadius, waveRadius, waveRadius);
             bool triggered = false;
-            while (!Input.GetMouseButton(0) || Input.GetMouseButton(1))
+            while (!Input.GetMouseButton(0) || Input.GetMouseButton(1) || Input.GetKey(KeyCode.Space))
             {
                 //TODO: waving is weird if you wait
                 timePassed += Time.deltaTime;
@@ -92,10 +92,6 @@ public class PlayerMovement : Unit
                                 m_audiosource.Play();
                                 voter.ProcessWave();
                             }
-                            else
-                            {
-                                voter.DontGetWavedAt();
-                            }
                         }
                         waving = false;
                     }
@@ -116,23 +112,16 @@ public class PlayerMovement : Unit
                 yield return new WaitForEndOfFrame();
             }
 
-            foreach (Voter voter in GameManager.ms_instance.GetAllVoters())
+            RaycastHit2D [] collisions = Physics2D.CircleCastAll(transform.position, waveRadius / 2, Vector2.up, waveRadius, m_ignorePlayer);
+            foreach (RaycastHit2D voterCast in collisions)
             {
-                RaycastHit2D hit = Physics2D.Raycast(transform.position, voter.transform.position - transform.position, waveRadius / 2, m_ignorePlayer);
-
-                if (hit.transform != null && hit.transform.GetComponent<Voter>() == voter)
+                Voter voter = voterCast.transform.GetComponent<Voter>();
+                if(voter == null)
                 {
-                    voter.ProcessWave();
+                    continue;
                 }
-                else
-                {
-                    voter.DontGetWavedAt();
-                }
-            }
 
-            foreach (Voter voter in GameManager.ms_instance.GetAllVoters())
-            {
-                voter.DontGetWavedAt();
+                voter.ProcessWave();
             }
 
             m_waveRadius.transform.localScale = new Vector3(.1f, .1f, .1f);

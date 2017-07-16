@@ -92,15 +92,6 @@ public class Voter : Unit
         TurnRed();
     }
 
-    public void DontGetWavedAt()
-    {
-        if (m_lineRenderer == null)
-        {
-            return;
-        }
-        m_lineRenderer.positionCount = 0;
-    }
-
     public virtual void TurnRed()
     {
         if (this.GetTeam() == Team.RedTeam)

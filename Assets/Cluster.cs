@@ -14,7 +14,7 @@ public class Cluster : MonoBehaviour {
     private const int mc_lineRequirement = 5;
     
     public void StartCluster(){
-        m_targetSize = UnityEngine.Random.Range(2,3);
+        m_targetSize = UnityEngine.Random.Range(3,6);
         m_members = new List<Voter>();
     }
 
@@ -133,7 +133,6 @@ public class Cluster : MonoBehaviour {
     {
         while(m_targetSize > 0)
         {
-            m_targetSize--;
 
             if (m_targetSize < m_members.Count)
             {
@@ -163,6 +162,7 @@ public class Cluster : MonoBehaviour {
 
             }
             yield return new WaitForSeconds(1.0f);
+            m_targetSize--;
         }
 
         GameManager.ms_instance.RemoveCluster(this);

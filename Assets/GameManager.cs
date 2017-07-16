@@ -189,10 +189,7 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(1.0f);
         }
 
-        //TODO: time warning effects
         EndGame();
-
-
     }
 
     public void SetMaxEnemiesOnSpawners()
@@ -271,7 +268,6 @@ public class GameManager : MonoBehaviour
 
     public void EndGame()
     {
-
         if (PlayerPrefs.GetInt("HighScore", 0) <= m_currentPoints)
         {
             PlayerPrefs.SetInt("HighScore", m_currentPoints);
@@ -295,27 +291,10 @@ public class GameManager : MonoBehaviour
         return m_voters;
     }
 
-    public Cluster CreateMegaCluster()
-    { //TODO: cleanup, make subfunctions
-        MegaCluster cluster = GameObject.Instantiate(mp_megaCluster, null).GetComponent<MegaCluster>();
-        cluster.StartMegaCluster();
-
-
-
-        StartCoroutine(cluster.TickDown());
-
-        m_clusters.Add(cluster);
-
-        return cluster;
-
-    }
-
     public Cluster CreateCluster()
     {
         Cluster cluster = GameObject.Instantiate(mp_cluster, null).GetComponent<Cluster>();
         cluster.StartCluster();
-
-
 
         StartCoroutine(cluster.TickDown());
 

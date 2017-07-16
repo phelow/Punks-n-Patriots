@@ -189,6 +189,7 @@ public class Voter : Unit
 
 
         }
+
         if (m_targetSlot == null || m_targetSlot.transform == null)
         {
             m_targetSlot = m_myCluster.AddMember(this);

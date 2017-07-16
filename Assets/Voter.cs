@@ -300,6 +300,12 @@ public class Voter : Unit
 
     protected IEnumerator VoterRoutine()
     {
+
+        if (Random.Range(0, 100) < GameManager.SpawnRatio)
+        {
+            TurnRed();
+        }
+
         StartCoroutine(WaitToImmortalize());
         m_hitPoints = 1000;
         int babySteps = 10;

@@ -34,6 +34,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Text m_timeText;
 
+    // what percentage of voters spawn on your side
+    private int m_spawnRatio = 0;
+
     [SerializeField]
     private AudioClip m_voteClip;
 
@@ -77,6 +80,14 @@ public class GameManager : MonoBehaviour
         }
 
         m_booths.Add(booth);
+    }
+
+    public static int SpawnRatio
+    {
+        get
+        {
+            return ms_instance.m_spawnRatio;
+        }
     }
 
     public void AddVoter(Voter voter)
@@ -163,14 +174,18 @@ public class GameManager : MonoBehaviour
 
             m_timeText.text = "" + minutes + (":" + ("" + (timeLeft - (minutes * 60))).PadLeft(2, '0')) + " UNTIL POLLS CLOSE";
 
+            if(timeLeft == 30)
+            {
+                m_spawnRatio = m_currentPoints;
+            }
+
             if (m_timeIntervals.Contains(timeLeft))
             {
 
                 //Debug.Log(timeLeft);
                 SetMaxEnemiesOnSpawners();
             }
-
-
+            
             yield return new WaitForSeconds(1.0f);
         }
 

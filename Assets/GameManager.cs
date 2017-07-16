@@ -305,7 +305,7 @@ public class GameManager : MonoBehaviour
 
     public Voter HasEnemiesNearby(Voter voter)
     {
-        if (voter is Leader)
+        if (voter.IsLeader())
         {
             foreach (Voter v in m_voters)
             {

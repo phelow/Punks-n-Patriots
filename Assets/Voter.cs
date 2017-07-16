@@ -191,11 +191,29 @@ public class Voter : Unit
 
         if (m_targetSlot == null)
         {
-            MoveTo(m_myCluster.transform.position, moverride_movementForce * MC_VOTER_MOVEMENT_MODIFIER);
+            if (this.IsLeader())
+            {
+                MoveTo(m_myCluster.transform.position, moverride_movementForce * MC_LEADER_MOVEMENT_MODIFIER);
+
+            }
+            else
+            {
+                MoveTo(m_myCluster.transform.position, moverride_movementForce * MC_VOTER_MOVEMENT_MODIFIER);
+
+            }
             return;
         }
+        if (this.IsLeader())
+        {
+            MoveTo(m_targetSlot.transform.position, moverride_movementForce * MC_LEADER_MOVEMENT_MODIFIER);
 
-        MoveTo(m_targetSlot.transform.position, moverride_movementForce * MC_VOTER_MOVEMENT_MODIFIER);
+        }
+        else
+        {
+            MoveTo(m_targetSlot.transform.position, moverride_movementForce * MC_VOTER_MOVEMENT_MODIFIER);
+
+        }
+
     }
 
     void OnCollisionEnter2D(Collision2D coll)
@@ -238,34 +256,6 @@ public class Voter : Unit
         }
     }
 
-    protected IEnumerator PassiveLeaderRoutine()
-    {
-        while (true)
-        {
-            if (m_myCluster != null)
-            {
-                m_myCluster.RemoveMember(this);
-                m_myCluster = null;
-            }
-
-            VotingBooth booth = GameManager.ms_instance.GetVotingBoothInRange(transform, this.GetTeam() == Team.RedTeam ? MC_RED_LEADER_VOTING_BOOTH_DISTANCE : MC_NORMAL_VOTING_BOOTH_DISTANCE);
-
-            if (booth != null)
-            {
-
-                MoveTo(booth.transform.position, moverride_movementForce);
-
-            }
-            else if (Vector2.Distance(PlayerMovement.ms_instance.transform.position, this.transform.position) < Unit.ms_detectionRadius)
-            {
-                //If there is no voting poll nearby look for the player. If he's there follow him.
-                MoveTo(PlayerMovement.ms_instance.transform.position, moverride_movementForce);
-            }
-
-            yield return new WaitForSeconds(Random.Range(m_minMovementInterval, m_maxMovementInterval));
-        }
-    }
-
     protected bool m_immortal = false;
 
     [SerializeField]
@@ -302,6 +292,7 @@ public class Voter : Unit
         StartCoroutine(WaitToImmortalize());
         m_hitPoints = 1000;
         int babySteps = 10;
+
         while (true)
         {
             if (m_hitPoints > 20)
@@ -330,16 +321,27 @@ public class Voter : Unit
                 continue;
             }
 
-            if (booth != null && ((this.IsLeader() && this.GetTeam() == Team.BlueTeam && hasEnemies == null) || (this.IsLeader() && this.GetTeam() == Team.RedTeam) || hasEnemies == null))
+            if(this.IsLeader())
             {
-                if (this is Leader)
+                if ( hasEnemies == null)
                 {
-                    MoveTo(booth.transform.position, moverride_movementForce * 100.0f * MC_LEADER_MOVEMENT_MODIFIER);
+                    if(booth != null)
+                    {
+                        MoveTo(booth.transform.position, moverride_movementForce * 100.0f * MC_LEADER_MOVEMENT_MODIFIER);
+                    }
+                    else
+                    {
+                        ClusterBehaviour();
+                    }
                 }
                 else
                 {
-                    MoveTo(booth.transform.position, moverride_movementForce * MC_VOTER_MOVEMENT_MODIFIER);
+                    MoveTo(hasEnemies.transform.position, moverride_movementForce * 100.0f * MC_LEADER_MOVEMENT_MODIFIER);
                 }
+            }
+            else if (booth != null && hasEnemies == null)
+            {
+                MoveTo(booth.transform.position, moverride_movementForce * MC_VOTER_MOVEMENT_MODIFIER);
             }
             else
             {
@@ -355,7 +357,7 @@ public class Voter : Unit
             }
             else
             {
-                if (this is Leader)
+                if (this.IsLeader())
                 {
                     yield return new WaitForSeconds(Random.Range(m_minMovementInterval, m_maxMovementInterval) / 2);
                 }

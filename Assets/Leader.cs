@@ -114,14 +114,10 @@ public class Leader : Voter
         {
             return;
         }
-
-
-
+        
         if (m_team == Team.BlueTeam)
         {
             m_audiosource.clip = (m_positiveConversion);
-            //m_audiosource.Play();
-
             m_hitPoints = 30;
             m_team = Team.RedTeam;
             m_animatorBlue.gameObject.SetActive(false);

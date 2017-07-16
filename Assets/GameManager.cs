@@ -334,12 +334,7 @@ public class GameManager : MonoBehaviour
         Collider2D[] collisions = Physics2D.OverlapCircleAll(voter.transform.position, 10.0f);
 
         Voter person = collisions[Random.Range(0, collisions.Length)].GetComponent<Voter>();
-
-        if(person is PlayerMovement)
-        {
-            return null;
-        }
-
+        
         if (person != null && person.GetTeam() != voter.GetTeam())
         {
             return person;

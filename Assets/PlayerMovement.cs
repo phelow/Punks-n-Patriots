@@ -21,7 +21,6 @@ public class PlayerMovement : Unit
 
     private float mc_originalScaleFactor = 3.0f;
 
-    bool interrupted = false;
     public static PlayerMovement ms_instance;
 
     [SerializeField]
@@ -114,7 +113,6 @@ public class PlayerMovement : Unit
                     m_waveSphereRenderer.enabled = false;
                 }
 
-                interrupted = false;
                 yield return new WaitForEndOfFrame();
             }
 

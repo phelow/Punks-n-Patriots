@@ -251,10 +251,6 @@ public class Voter : Unit
     {
         while (true)
         {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, PlayerMovement.ms_instance.transform.position - transform.position, Vector2.Distance(transform.position, PlayerMovement.ms_instance.transform.position) + 1.0f, m_ignoreVotersMask);
-            Debug.DrawRay(transform.position, PlayerMovement.ms_instance.transform.position - transform.position, Color.red, 1.0f);
-
-
             if (m_myCluster != null)
             {
                 m_myCluster.RemoveMember(this);

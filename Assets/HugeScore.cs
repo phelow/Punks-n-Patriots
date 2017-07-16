@@ -8,11 +8,5 @@ public class HugeScore : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         m_text.text = "Game Over\nClick to continue\nHuge Score:" + PlayerPrefs.GetInt("HighScore") + "\nYour Score:" + PlayerPrefs.GetInt("YourScore");
-
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

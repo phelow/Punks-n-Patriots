@@ -285,7 +285,7 @@ public class Voter : Unit
             m_renderer.color = Color.black;
 
             m_immortal = true;
-            yield return new WaitForSeconds(5.0f);
+            yield return new WaitForSeconds(2.0f);
             float t = 0.0f;
             while (t < 1.0f)
             {
@@ -301,6 +301,7 @@ public class Voter : Unit
     protected IEnumerator VoterRoutine()
     {
         StartCoroutine(WaitToImmortalize());
+        m_hitPoints = 1000;
         int babySteps = 10;
         while (true)
         {
@@ -330,7 +331,7 @@ public class Voter : Unit
                 continue;
             }
 
-            if (booth != null && ((this is Leader && this.GetTeam() == Team.RedTeam) || hasEnemies == null))
+            if (booth != null && ((this.IsLeader() && this.GetTeam() == Team.BlueTeam && hasEnemies == null) || (this.IsLeader() && this.GetTeam() == Team.RedTeam) || hasEnemies == null))
             {
                 if (this is Leader)
                 {

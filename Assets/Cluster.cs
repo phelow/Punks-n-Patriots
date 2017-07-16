@@ -78,20 +78,11 @@ public class Cluster : MonoBehaviour {
         {
             if (voter.GetTeam() == Voter.Team.BlueTeam)
             {
-                if (voter is Leader)
-                {
-                    blueTeams += 100;
-                }
-
-                blueTeams++;
+                blueTeams +=voter.GetHealth();
             }
             else
             {
-                if (voter is Leader)
-                {
-                    redTeams += 100;
-                }
-                redTeams++;
+                redTeams += voter.GetHealth();
             }
         }
         if (redTeams > blueTeams)

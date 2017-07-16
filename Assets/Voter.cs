@@ -131,6 +131,11 @@ public class Voter : Unit
         return m_team;
     }
 
+    public int GetHealth()
+    {
+        return 1;
+    }
+
     public void TurnBlue()
     {
         if (this.GetTeam() == Team.BlueTeam)

@@ -40,8 +40,8 @@ public class Cluster : MonoBehaviour {
 
     private IEnumerator DelayTurnColor()
     {
-        int redTeams = 0;
-        int blueTeams = 0;
+        float redTeams = 0;
+        float blueTeams = 0;
         float averageDistance = m_distanceForConversion;
 
         while(averageDistance >= m_distanceForConversion)

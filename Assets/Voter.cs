@@ -131,9 +131,9 @@ public class Voter : Unit
         return m_team;
     }
 
-    public int GetHealth()
+    public float GetHealth()
     {
-        return 1;
+        return m_immortal ? 100.0f : m_hitPoints;
     }
 
     public void TurnBlue()

@@ -54,11 +54,11 @@ public class PlayerMovement : Unit
             scaleFactor = mc_originalScaleFactor;
             m_waveRadius.transform.localScale = new Vector3(waveRadius, waveRadius, waveRadius);
             bool triggered = false;
-            while (!Input.GetMouseButton(0) || Input.GetMouseButton(1) || Input.GetKey(KeyCode.Space))
+            while (!Input.GetMouseButton(0) || (Input.GetMouseButton(1) || Input.GetKey(KeyCode.Space)))
             {
                 //TODO: waving is weird if you wait
                 timePassed += Time.deltaTime;
-                if (Input.GetMouseButton(1))
+                if ((Input.GetMouseButton(1) || Input.GetKey(KeyCode.Space)))
                 {
                     waving = true;
                     m_animator.SetBool("Down", true);

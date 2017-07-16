@@ -133,7 +133,7 @@ public class Voter : Unit
 
     public void TurnBlue()
     {
-        if(this.GetTeam() == Team.BlueTeam)
+        if (this.GetTeam() == Team.BlueTeam)
         {
             return;
         }
@@ -200,20 +200,10 @@ public class Voter : Unit
 
         if (m_targetSlot == null)
         {
-            if (this is Leader)
-            {
-
-                MoveTo(m_myCluster.transform.position, moverride_movementForce * 100.0f * MC_LEADER_MOVEMENT_MODIFIER);
-            }
             MoveTo(m_myCluster.transform.position, moverride_movementForce * MC_VOTER_MOVEMENT_MODIFIER);
             return;
         }
 
-        if (this is Leader)
-        {
-
-            MoveTo(m_myCluster.transform.position, moverride_movementForce * 100.0f * MC_LEADER_MOVEMENT_MODIFIER);
-        }
         MoveTo(m_targetSlot.transform.position, moverride_movementForce * MC_VOTER_MOVEMENT_MODIFIER);
     }
 
@@ -361,16 +351,9 @@ public class Voter : Unit
             }
             else
             {
-                if (hasEnemies != null)
+                if (this is Leader)
                 {
-                    if (this is Leader)
-                    {
-                        MoveTo(hasEnemies.transform.position, moverride_movementForce * 100.0f * MC_LEADER_MOVEMENT_MODIFIER);
-                    }
-                    else
-                    {
-                        ClusterBehaviour();
-                    }
+                    MoveTo(hasEnemies.transform.position, moverride_movementForce * 100.0f * MC_LEADER_MOVEMENT_MODIFIER);
                 }
                 else
                 {

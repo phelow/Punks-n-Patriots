@@ -71,19 +71,11 @@ public class Cluster : MonoBehaviour {
                 maxDist = 0;
             }
 
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForSeconds(1.0f);
         }
-
-        bool hasLineLeader = false;
 
         foreach (Voter voter in m_members)
         {
-
-            if (voter is LineLeader)
-            {
-                hasLineLeader = true;
-            }
-
             if (voter.GetTeam() == Voter.Team.BlueTeam)
             {
                 if (voter is Leader)

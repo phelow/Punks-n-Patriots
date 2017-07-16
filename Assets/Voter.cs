@@ -133,8 +133,6 @@ public class Voter : Unit
         {
             return;
         }
-
-        //   m_audiosource.PlayOneShot(m_negativeConversion);
         m_team = Team.BlueTeam;
 
         m_animatorBlue.gameObject.SetActive(true);
@@ -163,9 +161,7 @@ public class Voter : Unit
     public void CastBlueVote(bool isLeader)
     {
         GameManager.ms_instance.VoteBlue(this, isLeader);
-
-
-
+        
         if (m_myCluster != null)
         {
             m_myCluster.RemoveMember(this);
@@ -186,8 +182,6 @@ public class Voter : Unit
                 m_myCluster = GameManager.ms_instance.CreateCluster();
                 m_myCluster.transform.position = this.transform.position;
             }
-
-
         }
 
         if (m_targetSlot == null || m_targetSlot.transform == null)
@@ -266,7 +260,6 @@ public class Voter : Unit
             {
                 //If there is no voting poll nearby look for the player. If he's there follow him.
                 MoveTo(PlayerMovement.ms_instance.transform.position, moverride_movementForce);
-
             }
 
             yield return new WaitForSeconds(Random.Range(m_minMovementInterval, m_maxMovementInterval));
@@ -280,7 +273,6 @@ public class Voter : Unit
 
     private IEnumerator WaitToImmortalize()
     {
-
         if (!m_startNow)
         {
             m_renderer.color = Color.black;
@@ -295,13 +287,13 @@ public class Voter : Unit
                 yield return new WaitForEndOfFrame();
             }
         }
+
         m_renderer.color = Color.white;
         m_immortal = false;
     }
 
     protected IEnumerator VoterRoutine()
     {
-
         if (Random.Range(0, 100) < GameManager.SpawnRatio)
         {
             TurnRed();
@@ -365,15 +357,12 @@ public class Voter : Unit
             {
                 if (this is Leader)
                 {
-
                     yield return new WaitForSeconds(Random.Range(m_minMovementInterval, m_maxMovementInterval) / 2);
                 }
                 else
                 {
                     yield return new WaitForSeconds(Random.Range(m_minMovementInterval, m_maxMovementInterval));
-
                 }
-
             }
         }
     }

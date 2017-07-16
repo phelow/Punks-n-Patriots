@@ -22,9 +22,7 @@ public class Voter : Unit
     private bool m_startNow = false;
 
     private Slot m_targetSlot;
-
-    [SerializeField]
-    private List<SpringJoint2D> m_initLineLeader;
+    
     private Queue<SpringJoint2D> m_lineLeader;
 
     [SerializeField]
@@ -47,10 +45,6 @@ public class Voter : Unit
     void Awake()
     {
         ms_numCharacters++;
-        foreach (SpringJoint2D joint in m_initLineLeader)
-        {
-            m_lineLeader.Enqueue(joint);
-        }
     }
 
     // Use this for initialization
@@ -73,18 +67,6 @@ public class Voter : Unit
     public void KickFromCluster()
     {
         m_myCluster = null;
-    }
-
-    public void GetWavedAt(Transform position)
-    {
-        if (GetTeam() == Team.BlueTeam)
-        {
-            return;
-        }
-
-        Vector2 vacuumForce = (new Vector2(position.position.x, position.position.y) - new Vector2(transform.position.x, transform.position.y)).normalized * Time.deltaTime * 100.0f * Mathf.Pow(Vector2.Distance(position.position, transform.position), 2);
-
-        m_rigidbody.AddForce(vacuumForce);
     }
 
     public void ProcessWave()

@@ -305,10 +305,18 @@ public class GameManager : MonoBehaviour
 
     public Voter HasEnemiesNearby(Voter voter)
     {
+        Collider2D[] collisions;
         if (voter.IsLeader())
         {
-            foreach (Voter v in m_voters)
+            collisions = Physics2D.OverlapCircleAll(voter.transform.position, 10.0f);
+            foreach (Collider2D coll in collisions)
             {
+                Voter v = coll.GetComponent<Voter>();
+                if(v == null)
+                {
+                    continue;
+                }
+
                 if (v.GetTeam() != voter.GetTeam())
                 {
                     RaycastHit2D hit = Physics2D.Raycast(voter.transform.position, v.transform.position - voter.transform.position, Vector2.Distance(v.transform.position, voter.transform.position) + 1.0f, m_ignoreClusters);
@@ -327,8 +335,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        Collider2D[] collisions = Physics2D.OverlapCircleAll(voter.transform.position, 10.0f);
-
+        collisions = Physics2D.OverlapCircleAll(voter.transform.position, 10.0f);
         Voter person = collisions[Random.Range(0, collisions.Length)].GetComponent<Voter>();
         
         if (person != null && person.GetTeam() != voter.GetTeam())

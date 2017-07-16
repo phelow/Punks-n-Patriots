@@ -106,7 +106,7 @@ public class Cluster : MonoBehaviour {
         {
             foreach (Voter voter in m_members)
             {
-                if (!voter is Leader)
+                if (!voter.IsLeader())
                 {
                     voter.TurnRed();
                 }
@@ -116,7 +116,7 @@ public class Cluster : MonoBehaviour {
         {
             foreach (Voter voter in m_members)
             {
-                if (!voter is Leader)
+                if (!voter.IsLeader())
                 {
                     voter.TurnBlue();
                 }

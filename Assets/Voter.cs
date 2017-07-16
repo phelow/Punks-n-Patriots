@@ -60,6 +60,11 @@ public class Voter : Unit
     }
 
 
+    public virtual bool IsLeader()
+    {
+        return false;
+    }
+
     public List<Slot> GetSlots()
     {
         return m_slots;
@@ -98,6 +103,11 @@ public class Voter : Unit
 
     public virtual void TurnRed()
     {
+        if (this.GetTeam() == Team.RedTeam)
+        {
+            return;
+        }
+
         if (m_immortal)
         {
             return;
@@ -123,6 +133,11 @@ public class Voter : Unit
 
     public void TurnBlue()
     {
+        if(this.GetTeam() == Team.BlueTeam)
+        {
+            return;
+        }
+
         //   m_audiosource.PlayOneShot(m_negativeConversion);
         m_team = Team.BlueTeam;
 

@@ -13,7 +13,12 @@ public class Leader : Voter
     // Use this for initialization
     void Start()
     {
-        StartCoroutine(LeaderRoutine());
+        StartCoroutine(VoterRoutine());
+    }
+
+    public override bool IsLeader()
+    {
+        return true;
     }
 
     public bool IsCharging()
@@ -123,56 +128,5 @@ public class Leader : Voter
             m_animatorRed.gameObject.SetActive(true);
             GameManager.ms_instance.GainConversionPoint(this);
         }
-    }
-
-    private IEnumerator LeaderRoutine()
-    {
-        yield return VoterRoutine();
-        /*
-        while (true)
-        {
-            if(GetTeam() == Team.RedTeam)
-            {
-                yield return PassiveLeaderRoutine();
-            }
-            else
-            {
-                //pick nearest enemy
-                Voter nextEnemy = null;
-                while (nextEnemy == null)
-                {
-                    RaycastHit2D hit = Physics2D.Raycast(this.transform.position, PlayerMovement.ms_instance.transform.position - transform.position, Vector2.Distance(this.transform.position, PlayerMovement.ms_instance.transform.position), m_ignoreVotersMask);
-
-                    if (hit != null && hit.collider != null && hit.collider.gameObject != null && hit.collider.gameObject == PlayerMovement.ms_instance.gameObject == PlayerMovement.ms_instance.gameObject)
-                    {
-                        MoveTo(PlayerMovement.ms_instance.transform.position,100000.0f);
-
-                    }
-                    nextEnemy = GameManager.ms_instance.GetNearestEnemy(this);
-                    yield return new WaitForSeconds(Random.Range(0.3f, .7f));
-                }
-
-                while (nextEnemy != null && nextEnemy.GetTeam() != GetTeam() && Physics2D.Raycast(transform.position, nextEnemy.transform.position - transform.position, Vector2.Distance(transform.position, nextEnemy.transform.position), m_showEverything))
-                {
-
-                    if (nextEnemy == null)
-                    {
-
-                        yield return new WaitForEndOfFrame();
-                    }
-                    else
-                    {
-                        //move towards enemy until
-                        MoveTo(nextEnemy.transform.position);
-                    }
-
-                    //A: they move out of range
-                    //B: They are converted
-                    yield return new WaitForSeconds(Random.Range(0.3f, .7f));
-                }
-
-            }
-
-        }*/
     }
 }

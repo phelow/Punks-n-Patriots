@@ -343,14 +343,7 @@ public class Voter : Unit
             }
             else
             {
-                if (this is Leader)
-                {
-                    MoveTo(hasEnemies.transform.position, moverride_movementForce * 100.0f * MC_LEADER_MOVEMENT_MODIFIER);
-                }
-                else
-                {
-                    ClusterBehaviour();
-                }
+                ClusterBehaviour();
             }
 
 

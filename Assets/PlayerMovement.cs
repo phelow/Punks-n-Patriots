@@ -127,13 +127,20 @@ public class PlayerMovement : Unit
             m_waveRadius.transform.localScale = new Vector3(.1f, .1f, .1f);
             Vector3 worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
+            
+
             if (Mathf.Abs(Input.GetAxis("Vertical")) > 0.01f || Mathf.Abs(Input.GetAxis("Horizontal")) > 0.01f)
             {
                 worldPos = new Vector3(Input.GetAxis("Horizontal") * 100.0f, Input.GetAxis("Vertical") * 100.0f, 0.0f);
             }
 
             m_audiosource.clip = null;
-            m_rigidbody.AddForce((new Vector2(worldPos.x, worldPos.y) - new Vector2(transform.position.x, transform.position.y)).normalized * 200000.0f * Time.deltaTime);
+
+            Vector2 movement = (new Vector2(worldPos.x, worldPos.y) - new Vector2(transform.position.x, transform.position.y));
+            if(movement.magnitude > .03f)
+            {
+                m_rigidbody.AddForce(movement.normalized * 200000.0f * Time.deltaTime);
+            }
 
             if (transform.position.x > worldPos.x + .1f)
             {

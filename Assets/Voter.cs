@@ -21,7 +21,10 @@ public class Voter : Unit
     [SerializeField]
     private bool m_startNow = false;
 
-    private const float mc_followDistance = 12.0f;
+    private const float mc_followDistance = 5.0f;
+    private const float mc_closeDistance = 2.0f;
+
+    private bool m_isFollowing = false;
 
     private Slot m_targetSlot;
 
@@ -300,7 +303,17 @@ public class Voter : Unit
                 continue;
             }
 
-            if (!this.IsLeader() && this.GetTeam() == Team.RedTeam && Vector3.Distance(this.transform.position, PlayerMovement.ms_instance.transform.position) > mc_followDistance)
+            float distance = Vector3.Distance(this.transform.position, PlayerMovement.ms_instance.transform.position);
+            if (distance < mc_closeDistance && m_isFollowing)
+            {
+                m_isFollowing = false;
+            }
+            else if (!this.IsLeader() && this.GetTeam() == Team.RedTeam && distance > mc_followDistance)
+            {
+                m_isFollowing = true;
+            }
+
+            if (m_isFollowing)
             {
                 MoveTo(PlayerMovement.ms_instance.transform.position);
                 yield return WaitAndReturn();

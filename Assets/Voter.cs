@@ -295,10 +295,9 @@ public class Voter : Unit
             VotingBooth booth = GameManager.ms_instance.GetVotingBoothInRange(transform, sprintToPolls ? Mathf.Infinity : (this.GetTeam() == Team.RedTeam ? 2 : 1) * MC_NORMAL_VOTING_BOOTH_DISTANCE * (this is Leader ? 100 : 1));
             Voter hasEnemies = GameManager.ms_instance.HasEnemiesNearby(this);
 
-            if (sprintToPolls && booth != null)
+            if (booth != null && (sprintToPolls || hasEnemies == null))
             {
                 MoveTo(booth.transform.position, moverride_movementForce * MC_VOTER_MOVEMENT_MODIFIER);
-
                 yield return WaitAndReturn();
                 continue;
             }
@@ -341,17 +340,8 @@ public class Voter : Unit
                 yield return WaitAndReturn();
                 continue;
             }
-
-
-            if (booth != null && hasEnemies == null)
-            {
-                MoveTo(booth.transform.position, moverride_movementForce * MC_VOTER_MOVEMENT_MODIFIER);
-            }
-            else
-            {
-                ClusterBehaviour();
-            }
-
+            
+            ClusterBehaviour();
             yield return WaitAndReturn();
         }
     }

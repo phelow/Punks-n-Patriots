@@ -7,7 +7,7 @@ public class Voter : Unit
     Cluster m_myCluster = null;
 
     private const float MC_RED_LEADER_VOTING_BOOTH_DISTANCE = 10000.0F;
-    private const float MC_NORMAL_VOTING_BOOTH_DISTANCE = 3.0f;
+    private const float MC_NORMAL_VOTING_BOOTH_DISTANCE = 6.0f;
 
     [SerializeField]
     private LineRenderer m_lineRenderer;
@@ -292,7 +292,7 @@ public class Voter : Unit
 
             bool sprintToPolls = GameManager.GetTimeLeft() < 30;
 
-            VotingBooth booth = GameManager.ms_instance.GetVotingBoothInRange(transform, sprintToPolls ? Mathf.Infinity : (this.GetTeam() == Team.RedTeam ? 2 : 1) * MC_NORMAL_VOTING_BOOTH_DISTANCE * (this is Leader ? 100 : 1));
+            VotingBooth booth = GameManager.ms_instance.GetVotingBoothInRange(transform, sprintToPolls ? Mathf.Infinity : MC_NORMAL_VOTING_BOOTH_DISTANCE * (this is Leader ? 100 : 1));
             Voter hasEnemies = GameManager.ms_instance.HasEnemiesNearby(this);
 
             if (booth != null && (sprintToPolls || hasEnemies == null))

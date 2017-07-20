@@ -292,8 +292,10 @@ public class Voter : Unit
 
             bool sprintToPolls = GameManager.GetTimeLeft() < 30;
 
-            VotingBooth booth = GameManager.ms_instance.GetVotingBoothInRange(transform, sprintToPolls ? Mathf.Infinity : MC_NORMAL_VOTING_BOOTH_DISTANCE * (this is Leader ? 100 : 1));
             Voter hasEnemies = GameManager.ms_instance.HasEnemiesNearby(this);
+
+            sprintToPolls |= hasEnemies == null;
+            VotingBooth booth = GameManager.ms_instance.GetVotingBoothInRange(transform, sprintToPolls ? Mathf.Infinity : MC_NORMAL_VOTING_BOOTH_DISTANCE * (this is Leader ? 100 : 1));
 
             if (booth != null && (sprintToPolls || hasEnemies == null))
             {

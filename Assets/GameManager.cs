@@ -111,7 +111,7 @@ public class GameManager : MonoBehaviour
             if (dist < range)
             {
                 RaycastHit2D hit = Physics2D.Raycast(startingPoint.position, booth.transform.position - startingPoint.position, dist, GameManager.ms_instance.m_ignoreVoters);
-                
+
                 if (hit.collider != null)
                 {
                     if (hit.collider.gameObject != null)
@@ -174,7 +174,7 @@ public class GameManager : MonoBehaviour
 
             m_timeText.text = "" + minutes + (":" + ("" + (timeLeft - (minutes * 60))).PadLeft(2, '0')) + " UNTIL POLLS CLOSE";
 
-            if(timeLeft == 30)
+            if (timeLeft == 30)
             {
                 m_spawnRatio = m_currentPoints;
             }
@@ -185,7 +185,7 @@ public class GameManager : MonoBehaviour
                 //Debug.Log(timeLeft);
                 SetMaxEnemiesOnSpawners();
             }
-            
+
             yield return new WaitForSeconds(1.0f);
         }
 
@@ -241,7 +241,7 @@ public class GameManager : MonoBehaviour
     public void GainPoints(int pointsToGain, string pointsToGainText, Color textColor, Vector3 position)
     {
         m_currentPoints += pointsToGain;
-        if(m_currentPoints < 0)
+        if (m_currentPoints < 0)
         {
             m_currentPoints = 0;
         }
@@ -306,41 +306,30 @@ public class GameManager : MonoBehaviour
     public Voter HasEnemiesNearby(Voter voter)
     {
         Collider2D[] collisions;
-        if (voter.IsLeader())
+        collisions = Physics2D.OverlapCircleAll(voter.transform.position, voter.IsLeader() ? 10.0f : 6.0f);
+        foreach (Collider2D coll in collisions)
         {
-            collisions = Physics2D.OverlapCircleAll(voter.transform.position, 10.0f);
-            foreach (Collider2D coll in collisions)
+            Voter v = coll.GetComponent<Voter>();
+            if (v == null)
             {
-                Voter v = coll.GetComponent<Voter>();
-                if(v == null)
-                {
-                    continue;
-                }
+                continue;
+            }
 
-                if (v.GetTeam() != voter.GetTeam())
-                {
-                    RaycastHit2D hit = Physics2D.Raycast(voter.transform.position, v.transform.position - voter.transform.position, Vector2.Distance(v.transform.position, voter.transform.position) + 1.0f, m_ignoreClusters);
+            if (v.GetTeam() != voter.GetTeam())
+            {
+                RaycastHit2D hit = Physics2D.Raycast(voter.transform.position, v.transform.position - voter.transform.position, Vector2.Distance(v.transform.position, voter.transform.position) + 1.0f, m_ignoreClusters);
 
-                    if (hit.collider != null)
+                if (hit.collider != null)
+                {
+
+                    Voter collidedVoter = hit.collider.gameObject.GetComponent<Voter>();
+                    if (collidedVoter != null && collidedVoter.GetTeam() != voter.GetTeam())
                     {
 
-                        Voter collidedVoter = hit.collider.gameObject.GetComponent<Voter>();
-                        if (collidedVoter != null && collidedVoter.GetTeam() != voter.GetTeam())
-                        {
-
-                            return hit.collider.gameObject.GetComponent<Voter>();
-                        }
+                        return hit.collider.gameObject.GetComponent<Voter>();
                     }
                 }
             }
-        }
-
-        collisions = Physics2D.OverlapCircleAll(voter.transform.position, 10.0f);
-        Voter person = collisions[Random.Range(0, collisions.Length)].GetComponent<Voter>();
-        
-        if (person != null && person.GetTeam() != voter.GetTeam())
-        {
-            return person;
         }
 
         return null;
@@ -357,7 +346,7 @@ public class GameManager : MonoBehaviour
 
         return cluster;
     }
-    
+
     public Cluster GetNearestCluster(Voter voter)
     {
         Collider2D coll = Physics2D.OverlapCircle(voter.transform.position, 4.0f, m_onlyClusters);

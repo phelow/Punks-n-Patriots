@@ -296,8 +296,8 @@ public class Voter : Unit
 
             sprintToPolls |= hasEnemies == null;
             VotingBooth booth = GameManager.ms_instance.GetVotingBoothInRange(transform, sprintToPolls ? Mathf.Infinity : MC_NORMAL_VOTING_BOOTH_DISTANCE * (this is Leader ? 100 : 1));
-
-            if (booth != null && (sprintToPolls || hasEnemies == null))
+            
+            if (booth != null && (sprintToPolls || hasEnemies == null || Vector3.Distance(booth.transform.position, this.transform.position) < MC_NORMAL_VOTING_BOOTH_DISTANCE))
             {
                 MoveTo(booth.transform.position, moverride_movementForce * MC_VOTER_MOVEMENT_MODIFIER);
                 yield return WaitAndReturn();

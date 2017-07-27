@@ -205,6 +205,11 @@ public class Voter : Unit
 
     void OnCollisionEnter2D(Collision2D coll)
     {
+        if(GameManager.GetTimeLeft() < 30)
+        {
+            return;
+        }
+
         if (coll.gameObject.tag == "Voter")
         {
             if (m_immortal)
@@ -257,8 +262,9 @@ public class Voter : Unit
             m_renderer.color = Color.black;
 
             m_immortal = true;
-            yield return new WaitForSeconds(2.0f);
+            yield return new WaitForSeconds(this.IsLeader() ? 0.0f : 2.0f);
             float t = 0.0f;
+            m_immortal = false;
             while (t < 1.0f)
             {
                 m_renderer.color = Color.Lerp(Color.black, Color.white, t);
@@ -268,7 +274,6 @@ public class Voter : Unit
         }
 
         m_renderer.color = Color.white;
-        m_immortal = false;
     }
 
     protected IEnumerator VoterRoutine()

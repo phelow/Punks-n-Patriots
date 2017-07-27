@@ -192,12 +192,12 @@ public class Voter : Unit
         }
         if (this.IsLeader())
         {
-            MoveTo(m_targetSlot.transform.position, moverride_movementForce * MC_LEADER_MOVEMENT_MODIFIER);
+            MoveTo(m_targetSlot.transform.position, moverride_movementForce * 100.0f * MC_LEADER_MOVEMENT_MODIFIER);
 
         }
         else
         {
-            MoveTo(m_targetSlot.transform.position, moverride_movementForce * 100.0f * MC_VOTER_MOVEMENT_MODIFIER);
+            MoveTo(m_targetSlot.transform.position, moverride_movementForce * MC_VOTER_MOVEMENT_MODIFIER);
 
         }
 

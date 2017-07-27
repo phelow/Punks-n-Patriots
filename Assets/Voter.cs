@@ -180,7 +180,7 @@ public class Voter : Unit
         {
             if (this.IsLeader())
             {
-                MoveTo(m_myCluster.transform.position, moverride_movementForce * MC_LEADER_MOVEMENT_MODIFIER);
+                MoveTo(m_myCluster.transform.position, moverride_movementForce * 100.0f * MC_LEADER_MOVEMENT_MODIFIER);
 
             }
             else
@@ -197,7 +197,7 @@ public class Voter : Unit
         }
         else
         {
-            MoveTo(m_targetSlot.transform.position, moverride_movementForce * MC_VOTER_MOVEMENT_MODIFIER);
+            MoveTo(m_targetSlot.transform.position, moverride_movementForce * 100.0f * MC_VOTER_MOVEMENT_MODIFIER);
 
         }
 
@@ -300,11 +300,11 @@ public class Voter : Unit
             Voter hasEnemies = GameManager.ms_instance.HasEnemiesNearby(this);
 
             goToPolls = goToPolls || hasEnemies == null;
-            VotingBooth booth = GameManager.ms_instance.GetVotingBoothInRange(transform, goToPolls ? Mathf.Infinity : MC_NORMAL_VOTING_BOOTH_DISTANCE * (this.IsLeader() ? 100 : 1));
+            VotingBooth booth = GameManager.ms_instance.GetVotingBoothInRange(transform, goToPolls ? Mathf.Infinity : MC_NORMAL_VOTING_BOOTH_DISTANCE );
             
             if (booth != null && (goToPolls || Vector3.Distance(booth.transform.position, this.transform.position) < MC_NORMAL_VOTING_BOOTH_DISTANCE))
             {
-                float charModifier = (this.IsLeader() ? MC_LEADER_MOVEMENT_MODIFIER : MC_VOTER_MOVEMENT_MODIFIER);
+                float charModifier = (this.IsLeader() ? MC_LEADER_MOVEMENT_MODIFIER * 100.0f : MC_VOTER_MOVEMENT_MODIFIER);
                 MoveTo(booth.transform.position, moverride_movementForce * charModifier);
                 yield return WaitAndReturn();
                 continue;

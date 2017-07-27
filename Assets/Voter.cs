@@ -264,7 +264,6 @@ public class Voter : Unit
             m_immortal = true;
             yield return new WaitForSeconds(this.IsLeader() ? 0.0f : 2.0f);
             float t = 0.0f;
-            m_immortal = false;
             while (t < 1.0f)
             {
                 m_renderer.color = Color.Lerp(Color.black, Color.white, t);
@@ -273,6 +272,7 @@ public class Voter : Unit
             }
         }
 
+        m_immortal = false;
         m_renderer.color = Color.white;
     }
 
@@ -295,16 +295,17 @@ public class Voter : Unit
                 m_hitPoints -= 5;
             }
 
-            bool sprintToPolls = GameManager.GetTimeLeft() < 30;
+            bool goToPolls = GameManager.GetTimeLeft() < 30 || (this.IsLeader() && this.GetTeam() == Team.RedTeam);
 
             Voter hasEnemies = GameManager.ms_instance.HasEnemiesNearby(this);
 
-            sprintToPolls |= hasEnemies == null;
-            VotingBooth booth = GameManager.ms_instance.GetVotingBoothInRange(transform, sprintToPolls ? Mathf.Infinity : MC_NORMAL_VOTING_BOOTH_DISTANCE * (this is Leader ? 100 : 1));
+            goToPolls = goToPolls || hasEnemies == null;
+            VotingBooth booth = GameManager.ms_instance.GetVotingBoothInRange(transform, goToPolls ? Mathf.Infinity : MC_NORMAL_VOTING_BOOTH_DISTANCE * (this.IsLeader() ? 100 : 1));
             
-            if (booth != null && (sprintToPolls || hasEnemies == null || Vector3.Distance(booth.transform.position, this.transform.position) < MC_NORMAL_VOTING_BOOTH_DISTANCE))
+            if (booth != null && (goToPolls || Vector3.Distance(booth.transform.position, this.transform.position) < MC_NORMAL_VOTING_BOOTH_DISTANCE))
             {
-                MoveTo(booth.transform.position, moverride_movementForce * MC_VOTER_MOVEMENT_MODIFIER);
+                float charModifier = (this.IsLeader() ? MC_LEADER_MOVEMENT_MODIFIER : MC_VOTER_MOVEMENT_MODIFIER);
+                MoveTo(booth.transform.position, moverride_movementForce * charModifier);
                 yield return WaitAndReturn();
                 continue;
             }
@@ -314,7 +315,7 @@ public class Voter : Unit
             {
                 m_isFollowing = false;
             }
-            else if (!this.IsLeader() && this.GetTeam() == Team.RedTeam && distance > mc_followDistance)
+            else if (distance > mc_followDistance)
             {
                 m_isFollowing = true;
             }

@@ -311,21 +311,6 @@ public class Voter : Unit
             }
 
             float distance = Vector3.Distance(this.transform.position, PlayerMovement.ms_instance.transform.position);
-            if (distance < mc_closeDistance && m_isFollowing)
-            {
-                m_isFollowing = false;
-            }
-            else if (distance > mc_followDistance)
-            {
-                m_isFollowing = true;
-            }
-
-            if (m_isFollowing)
-            {
-                MoveTo(PlayerMovement.ms_instance.transform.position);
-                yield return WaitAndReturn();
-                continue;
-            }
 
             if (this.IsLeader())
             {
@@ -345,6 +330,21 @@ public class Voter : Unit
                     MoveTo(hasEnemies.transform.position, moverride_movementForce * 100.0f * MC_LEADER_MOVEMENT_MODIFIER);
                 }
 
+                yield return WaitAndReturn();
+                continue;
+            }
+            if (distance < mc_closeDistance && m_isFollowing)
+            {
+                m_isFollowing = false;
+            }
+            else if (distance > mc_followDistance)
+            {
+                m_isFollowing = true;
+            }
+
+            if (m_isFollowing)
+            {
+                MoveTo(PlayerMovement.ms_instance.transform.position);
                 yield return WaitAndReturn();
                 continue;
             }

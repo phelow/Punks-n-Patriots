@@ -74,7 +74,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1308123562728904}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.974742, y: 3.4545994, z: -10}
+  m_LocalPosition: {x: -2.5, y: -2.23, z: -10}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 4677846792316228}
@@ -318,7 +318,6 @@ MonoBehaviour:
   m_lineRenderer: {fileID: 120385465930432468}
   m_slots: []
   m_startNow: 0
-  m_initLineLeader: []
   m_positiveConversion: {fileID: 8300000, guid: 260a4ef52e235f84a959128baa831a7b,
     type: 3}
   m_negativeConversion: {fileID: 8300000, guid: 561cfa3359342cd44ab58175d713ee61,
@@ -410,6 +409,7 @@ LineRenderer:
     numCapVertices: 0
     alignment: 0
     textureMode: 0
+    generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
 --- !u!212 &212017838722649702
@@ -453,6 +453,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!212 &212720685497743550
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -494,3 +495,4 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0

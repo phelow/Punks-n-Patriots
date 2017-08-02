@@ -610,8 +610,7 @@ MonoBehaviour:
   - {fileID: 114406169443384752}
   - {fileID: 114826882281246422}
   - {fileID: 114475896064661830}
-  m_startNow: 1
-  m_initLineLeader: []
+  m_startNow: 0
   m_positiveConversion: {fileID: 8300000, guid: 260a4ef52e235f84a959128baa831a7b,
     type: 3}
   m_negativeConversion: {fileID: 8300000, guid: 561cfa3359342cd44ab58175d713ee61,
@@ -744,6 +743,7 @@ LineRenderer:
     numCapVertices: 0
     alignment: 0
     textureMode: 0
+    generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
 --- !u!212 &212705805719722046
@@ -787,6 +787,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!212 &212888077601192562
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -828,3 +829,4 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0

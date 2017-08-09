@@ -86,6 +86,11 @@ public class Spawner : MonoBehaviour
 
         while (timeLeft > 0.0f)
         {
+            while (enabled == false)
+            {
+                yield return new WaitForEndOfFrame();
+            }
+
             Voter voter = GameObject.Instantiate(mp_voterPrefabs[0], transform.position, transform.rotation, null).GetComponent<Voter>();
             m_myVoters.Add(voter);
             GameManager.ms_instance.AddVoter(voter);

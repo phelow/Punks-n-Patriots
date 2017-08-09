@@ -19,12 +19,52 @@ public class Spawner : MonoBehaviour
     [SerializeField]
     private List<Voter> m_myVoters;
 
+    bool enabled = true;
+
+    float timeDisabled = 0.0f;
+
     // Use this for initialization
     void Start()
     {
         m_myVoters = new List<Voter>();
         SetMaxEnemiesNext();
         StartCoroutine(SpawnEnemies());
+        StartCoroutine(CheckVisible());
+    }
+
+    private IEnumerator CheckVisible()
+    {
+        float timeOnScreen = 0.0f;
+        float timeOffScreen = 0.0f;
+        while (true)
+        {
+            //If 10% or more off screen
+
+            Vector3 viewPosition = Camera.main.WorldToViewportPoint(transform.position);
+
+            if ((viewPosition.x > 1.5f || viewPosition.x < -.5f || viewPosition.y < -0.5f || viewPosition.y > 1.5f))
+            {
+                timeOnScreen = 0.0f;
+                timeOffScreen += Time.deltaTime;
+            }
+            else
+            {
+                timeOnScreen += Time.deltaTime;
+                timeOffScreen = 0.0f;
+            }
+
+            if(timeOnScreen > 10.0f)
+            {
+                enabled = false;
+            }
+
+            if(timeOffScreen > 3.0f)
+            {
+                enabled = true;
+            }
+
+            yield return new WaitForEndOfFrame();
+        }
     }
 
     public void SetMaxEnemiesNext()
@@ -39,13 +79,13 @@ public class Spawner : MonoBehaviour
         // for the first thirty seconds only spawn regular protestors
         float timeLeft = 30.0f;
 
-        while(m_maxEnemies <= 0)
+        while (m_maxEnemies <= 0)
         {
             yield return new WaitForSeconds(1.0f);
             timeLeft -= 1.0f;
         }
 
-        while(timeLeft > 0.0f)
+        while (timeLeft > 0.0f)
         {
             Voter voter = GameObject.Instantiate(mp_voterPrefabs[0], transform.position, transform.rotation, null).GetComponent<Voter>();
             m_myVoters.Add(voter);
@@ -57,9 +97,14 @@ public class Spawner : MonoBehaviour
 
         while (true)
         {
+            while (enabled == false)
+            {
+                yield return new WaitForEndOfFrame();
+            }
+
             m_myVoters.RemoveAll(item => item == null);
             m_myVoters.RemoveAll(v => v.GetTeam() == Unit.Team.RedTeam);
-            
+
             if (m_myVoters.Count > m_maxEnemies)
             {
 

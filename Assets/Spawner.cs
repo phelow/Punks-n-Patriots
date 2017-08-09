@@ -12,9 +12,8 @@ public class Spawner : MonoBehaviour
 
     [SerializeField]
     private List<int> m_maxEnemiesOverTime;
-
-    [SerializeField]
-    private int m_maxEnemies = 20;
+    
+    private int m_maxEnemies = 0;
 
     [SerializeField]
     private List<Voter> m_myVoters;

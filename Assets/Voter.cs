@@ -286,7 +286,7 @@ public class Voter : Unit
         StartCoroutine(WaitToImmortalize());
         m_hitPoints = 1000;
 
-        MoveTo(PlayerMovement.ms_instance.transform.position, moverride_movementForce * (this.IsLeader() ? MC_LEADER_MOVEMENT_MODIFIER : MC_VOTER_MOVEMENT_MODIFIER) * 3.0f);
+        MoveTo(PlayerMovement.ms_instance.transform.position, moverride_movementForce * (this.IsLeader() ? MC_LEADER_MOVEMENT_MODIFIER : MC_VOTER_MOVEMENT_MODIFIER));
 
         while (true)
         {

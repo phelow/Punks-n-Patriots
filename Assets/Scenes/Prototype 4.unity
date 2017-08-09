@@ -2389,7 +2389,7 @@ Prefab:
     - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
         type: 2}
       propertyPath: mp_voterPrefabs.Array.size
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
         type: 2}
@@ -4123,6 +4123,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
         type: 2}
+      propertyPath: mp_voterPrefabs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
+        type: 2}
       propertyPath: m_maxEnemiesOverTime.Array.size
       value: 9
       objectReference: {fileID: 0}
@@ -4199,6 +4204,60 @@ Prefab:
       propertyPath: mp_voterPrefabs.Array.data[2]
       value: 
       objectReference: {fileID: 1308123562728904, guid: fe786e307bf3f1942b5eee66afde3baa,
+        type: 2}
+    - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
+        type: 2}
+      propertyPath: mp_voterPrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 1308123562728904, guid: 8b522272dc2080449a3e1508c7bf100b,
+        type: 2}
+    - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
+        type: 2}
+      propertyPath: mp_voterPrefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: 1308123562728904, guid: 8b522272dc2080449a3e1508c7bf100b,
+        type: 2}
+    - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
+        type: 2}
+      propertyPath: mp_voterPrefabs.Array.data[5]
+      value: 
+      objectReference: {fileID: 1308123562728904, guid: 8b522272dc2080449a3e1508c7bf100b,
+        type: 2}
+    - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
+        type: 2}
+      propertyPath: mp_voterPrefabs.Array.data[6]
+      value: 
+      objectReference: {fileID: 1308123562728904, guid: 8b522272dc2080449a3e1508c7bf100b,
+        type: 2}
+    - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
+        type: 2}
+      propertyPath: mp_voterPrefabs.Array.data[7]
+      value: 
+      objectReference: {fileID: 1308123562728904, guid: 8b522272dc2080449a3e1508c7bf100b,
+        type: 2}
+    - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
+        type: 2}
+      propertyPath: mp_voterPrefabs.Array.data[8]
+      value: 
+      objectReference: {fileID: 1308123562728904, guid: 8b522272dc2080449a3e1508c7bf100b,
+        type: 2}
+    - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
+        type: 2}
+      propertyPath: mp_voterPrefabs.Array.data[9]
+      value: 
+      objectReference: {fileID: 1308123562728904, guid: 8b522272dc2080449a3e1508c7bf100b,
+        type: 2}
+    - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
+        type: 2}
+      propertyPath: mp_voterPrefabs.Array.data[10]
+      value: 
+      objectReference: {fileID: 1308123562728904, guid: 8b522272dc2080449a3e1508c7bf100b,
+        type: 2}
+    - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
+        type: 2}
+      propertyPath: mp_voterPrefabs.Array.data[11]
+      value: 
+      objectReference: {fileID: 1308123562728904, guid: 8b522272dc2080449a3e1508c7bf100b,
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 91452d9f485dc784d93d78b7e20420cf, type: 2}

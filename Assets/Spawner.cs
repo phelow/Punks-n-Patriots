@@ -18,6 +18,9 @@ public class Spawner : MonoBehaviour
     [SerializeField]
     private List<Voter> m_myVoters;
 
+    private const float c_offScreenShutoffTime = 15.0f;
+    private const float c_onScreenTurnOnTime = 1.0f;
+
     bool enabled = true;
 
     float timeDisabled = 0.0f;
@@ -52,12 +55,12 @@ public class Spawner : MonoBehaviour
                 timeOffScreen = 0.0f;
             }
 
-            if(timeOnScreen > 10.0f)
+            if(timeOnScreen > c_offScreenShutoffTime)
             {
                 enabled = false;
             }
 
-            if(timeOffScreen > 3.0f)
+            if(timeOffScreen > c_onScreenTurnOnTime)
             {
                 enabled = true;
             }

@@ -7,6 +7,7 @@ public class FadeOutOnRightClick : MonoBehaviour
 {
     [SerializeField]
     private Text m_text;
+    private const float c_blinkTime = .5f;
 
     bool started = false;
 
@@ -50,9 +51,9 @@ public class FadeOutOnRightClick : MonoBehaviour
 
             m_text.color = Color.clear;
 
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(c_blinkTime);
             m_text.color = Color.white;
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(c_blinkTime);
 
             yield return new WaitForEndOfFrame();
         }

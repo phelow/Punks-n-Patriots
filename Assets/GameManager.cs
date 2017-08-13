@@ -199,7 +199,7 @@ public class GameManager : MonoBehaviour
 
             m_timeText.text = "" + minutes + (":" + ("" + (timeLeft - (minutes * 60))).PadLeft(2, '0')) + " UNTIL POLLS CLOSE";
 
-            if (timeLeft == 30)
+            if (timeLeft == 60)
             {
                 m_spawnRatio = m_currentPoints;
             }

@@ -60,7 +60,7 @@ public class Spawner : MonoBehaviour
                 enabled = false;
             }
 
-            if(timeOffScreen > c_onScreenTurnOnTime)
+            if(timeOffScreen > c_onScreenTurnOnTime || GameManager.IsFinalRush())
             {
                 enabled = true;
             }

@@ -67,6 +67,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private AudioSource m_effectsSource;
 
+    private const float c_finalRushStart = 60.0f;
+
     public void RemoveVoter(Voter voter)
     {
         m_voters.Remove(voter);
@@ -159,12 +161,35 @@ public class GameManager : MonoBehaviour
 
 
         StartCoroutine(TimeLevel());
+        StartCoroutine(BlinkText());
+    }
+
+    private IEnumerator BlinkText()
+    {
+        while (!GameManager.IsFinalRush())
+        {
+            yield return new WaitForSeconds(1.0f);
+        }
+
+        while (true)
+        {
+            yield return new WaitForSeconds(.5f);
+            m_timeText.color = Color.black;
+            yield return new WaitForSeconds(.5f);
+            m_timeText.color = Color.clear;
+        }
     }
 
     public static int GetTimeLeft()
     {
         return ms_instance.timeLeft;
     }
+
+    public static bool IsFinalRush()
+    {
+        return ms_instance.timeLeft <= c_finalRushStart;
+    }
+
     public int timeLeft;
     private IEnumerator TimeLevel()
     {

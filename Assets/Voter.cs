@@ -205,7 +205,7 @@ public class Voter : Unit
 
     void OnCollisionEnter2D(Collision2D coll)
     {
-        if(GameManager.GetTimeLeft() < 30)
+        if(GameManager.IsFinalRush())
         {
             return;
         }
@@ -295,7 +295,7 @@ public class Voter : Unit
                 m_hitPoints -= 5;
             }
 
-            bool goToPolls = GameManager.GetTimeLeft() < 30 || (this.IsLeader() && this.GetTeam() == Team.RedTeam);
+            bool goToPolls = GameManager.IsFinalRush() || (this.IsLeader() && this.GetTeam() == Team.RedTeam);
 
             Voter hasEnemies = GameManager.ms_instance.HasEnemiesNearby(this);
 

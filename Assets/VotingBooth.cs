@@ -18,7 +18,7 @@ public class VotingBooth : MonoBehaviour {
         //check to see if the colliding gameobject is visible. If it is not, return.
         Vector3 viewPosition = Camera.main.WorldToViewportPoint(coll.gameObject.transform.position);
 
-        if(GameManager.GetTimeLeft() > 30 && (viewPosition.x > 1.0f || viewPosition.x < 0.0f || viewPosition.y < 0.0f || viewPosition.y > 1.0f))
+        if(GameManager.IsFinalRush() && (viewPosition.x > 1.0f || viewPosition.x < 0.0f || viewPosition.y < 0.0f || viewPosition.y > 1.0f))
         {
             return;
         }

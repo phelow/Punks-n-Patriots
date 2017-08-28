@@ -202,6 +202,11 @@ public class GameManager : MonoBehaviour
 
     public void VoteBlue(Voter voter, bool isLeader)
     {
+        if (!isLeader)
+        {
+            return;
+        }
+
         int pointsToLose = isLeader == false ? 2 : 5;
 
         string pointsToLoseText = "-" + pointsToLose;

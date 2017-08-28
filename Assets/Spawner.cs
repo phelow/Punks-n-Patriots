@@ -8,7 +8,7 @@ public class Spawner : MonoBehaviour
     [SerializeField]
     private List<GameObject> mp_voterPrefabs;
 
-    private int m_maxEnemiesIterator = 0;
+    private int m_maxEnemiesIterator = 2;
 
     [SerializeField]
     private List<int> m_maxEnemiesOverTime;

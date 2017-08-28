@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private LayerMask m_ignoreClusters;
     [SerializeField]
-    private int m_timeLeft = 480;
+    private int m_timeLeft = 360;
 
     [SerializeField]
     private Text m_votesText;

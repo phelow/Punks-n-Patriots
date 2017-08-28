@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VotingBooth : MonoBehaviour {
+public class VotingBooth : MonoBehaviour
+{
     void Start()
     {
         GameManager.ms_instance.AddVotingBooth(this);
@@ -18,15 +19,15 @@ public class VotingBooth : MonoBehaviour {
         //check to see if the colliding gameobject is visible. If it is not, return.
         Vector3 viewPosition = Camera.main.WorldToViewportPoint(coll.gameObject.transform.position);
 
-        if(GameManager.GetTimeLeft() > 30 && (viewPosition.x > 1.0f || viewPosition.x < 0.0f || viewPosition.y < 0.0f || viewPosition.y > 1.0f))
+        Voter voter = coll.gameObject.GetComponent<Voter>();
+        bool isRedTeam = voter.GetTeam() == Voter.Team.RedTeam;
+        if ((isRedTeam || (voter.IsLeader())) && GameManager.GetTimeLeft() > 30 && (viewPosition.x > 1.0f || viewPosition.x < 0.0f || viewPosition.y < 0.0f || viewPosition.y > 1.0f))
         {
             return;
         }
 
-        if(coll.gameObject.tag == "Voter")
+        if (coll.gameObject.tag == "Voter")
         {
-            Voter voter = coll.gameObject.GetComponent<Voter>();
-
             if (voter.GetTeam() == Voter.Team.BlueTeam)
             {
                 voter.CastBlueVote(voter is Leader);

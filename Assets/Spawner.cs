@@ -18,6 +18,9 @@ public class Spawner : MonoBehaviour
     [SerializeField]
     private List<Voter> m_myVoters;
 
+    private const float c_offScreenShutoffTime = 15.0f;
+    private const float c_onScreenTurnOnTime = 1.0f;
+
     bool enabled = true;
 
     float timeDisabled = 0.0f;
@@ -41,7 +44,7 @@ public class Spawner : MonoBehaviour
 
             Vector3 viewPosition = Camera.main.WorldToViewportPoint(transform.position);
 
-            if ((viewPosition.x > 1.5f || viewPosition.x < -.5f || viewPosition.y < -0.5f || viewPosition.y > 1.5f))
+            if ((viewPosition.x > 1.3f || viewPosition.x < -.3f || viewPosition.y < -0.3f || viewPosition.y > 1.3f))
             {
                 timeOnScreen = 0.0f;
                 timeOffScreen += Time.deltaTime;
@@ -52,12 +55,12 @@ public class Spawner : MonoBehaviour
                 timeOffScreen = 0.0f;
             }
 
-            if(timeOnScreen > 10.0f)
+            if(timeOnScreen > c_offScreenShutoffTime)
             {
                 enabled = false;
             }
 
-            if(timeOffScreen > 3.0f)
+            if(timeOffScreen > c_onScreenTurnOnTime || GameManager.IsFinalRush())
             {
                 enabled = true;
             }
@@ -119,6 +122,13 @@ public class Spawner : MonoBehaviour
                 Voter voter = GameObject.Instantiate(mp_voterPrefabs[Random.Range(0, mp_voterPrefabs.Count)], transform.position, transform.rotation, null).GetComponent<Voter>();
                 m_myVoters.Add(voter);
                 GameManager.ms_instance.AddVoter(voter);
+
+                if (GameManager.IsFinalRush())
+                {
+                    voter = GameObject.Instantiate(mp_voterPrefabs[Random.Range(0, mp_voterPrefabs.Count)], transform.position, transform.rotation, null).GetComponent<Voter>();
+                    m_myVoters.Add(voter);
+                    GameManager.ms_instance.AddVoter(voter);
+                }
 
                 yield return new WaitForSeconds(Random.Range(.8f, 3.5f));
             }

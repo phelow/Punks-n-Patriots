@@ -262,7 +262,7 @@ public class GameManager : MonoBehaviour
 
     public void VoteRed(Voter voter, bool isLeader)
     {
-        int pointsToGain = isLeader == false ? 2 : 5;
+        int pointsToGain = isLeader == false ? 1 : 5;
 
         string pointsToGainText = "+" + pointsToGain;
         GainPoints(pointsToGain, pointsToGainText, Color.green, voter.transform.position);

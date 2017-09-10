@@ -15,7 +15,7 @@ public class Spawner : MonoBehaviour
 
     [SerializeField]
     private List<int> _disabledDuringRush;
-    private Queue<int> _disabledDuringRushStack;
+    private Stack<int> _disabledDuringRushStack;
 
     private int m_maxEnemies = 0;
 
@@ -32,11 +32,11 @@ public class Spawner : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        _disabledDuringRushStack = new Queue<int>();
+        _disabledDuringRushStack = new Stack<int>();
 
-        for(int i = _disabledDuringRush.Count; i >= 0; i--)
+        for(int i = _disabledDuringRush.Count-1; i >= 0; i--)
         {
-            _disabledDuringRushStack.Enqueue(_disabledDuringRush[i]);
+            _disabledDuringRushStack.Push(_disabledDuringRush[i]);
         }
 
         m_myVoters = new List<Voter>();
@@ -94,12 +94,23 @@ public class Spawner : MonoBehaviour
 
         while (m_maxEnemies <= 0)
         {
+            while (_disabledDuringRushStack.Count > 0 && GameManager.GetTimeLeft() < _disabledDuringRushStack.Peek())
+            {
+                _disabledDuringRushStack.Pop();
+                yield return new WaitForSeconds(15.0f);
+            }
             yield return new WaitForSeconds(1.0f);
             timeLeft -= 1.0f;
         }
 
         while (timeLeft > 0.0f)
         {
+
+            while (_disabledDuringRushStack.Count > 0 && GameManager.GetTimeLeft() < _disabledDuringRushStack.Peek())
+            {
+                _disabledDuringRushStack.Pop();
+                yield return new WaitForSeconds(15.0f);
+            }
             while (enabled == false)
             {
                 yield return new WaitForEndOfFrame();
@@ -115,6 +126,12 @@ public class Spawner : MonoBehaviour
 
         while (true)
         {
+
+            while (_disabledDuringRushStack.Count > 0 && GameManager.GetTimeLeft() < _disabledDuringRushStack.Peek())
+            {
+                _disabledDuringRushStack.Pop();
+                yield return new WaitForSeconds(15.0f);
+            }
             while (enabled == false)
             {
                 yield return new WaitForEndOfFrame();
@@ -151,12 +168,12 @@ public class Spawner : MonoBehaviour
                 }
 
                 yield return new WaitForSeconds(Random.Range(.8f, 3.5f));
+            }
 
-                while(GameManager.GetTimeLeft() < _disabledDuringRushStack.Peek())
-                {
-                    _disabledDuringRushStack.Dequeue();
-                    yield return new WaitForSeconds(15.0f);
-                }
+            while (_disabledDuringRushStack.Count > 0 && GameManager.GetTimeLeft() < _disabledDuringRushStack.Peek())
+            {
+                _disabledDuringRushStack.Pop();
+                yield return new WaitForSeconds(15.0f);
             }
         }
     }

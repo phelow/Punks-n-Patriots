@@ -2462,6 +2462,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
         type: 2}
+      propertyPath: _disabledDuringRush.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
+        type: 2}
       propertyPath: m_maxEnemiesOverTime.Array.size
       value: 9
       objectReference: {fileID: 0}
@@ -2593,6 +2598,16 @@ Prefab:
       value: 
       objectReference: {fileID: 1308123562728904, guid: 8b522272dc2080449a3e1508c7bf100b,
         type: 2}
+    - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
+        type: 2}
+      propertyPath: _disabledDuringRush.Array.data[0]
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
+        type: 2}
+      propertyPath: _disabledDuringRush.Array.data[1]
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 91452d9f485dc784d93d78b7e20420cf, type: 2}
   m_IsPrefabParent: 0
@@ -4197,6 +4212,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
         type: 2}
+      propertyPath: _disabledDuringRush.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
+        type: 2}
       propertyPath: m_maxEnemiesOverTime.Array.size
       value: 9
       objectReference: {fileID: 0}
@@ -4328,6 +4348,16 @@ Prefab:
       value: 
       objectReference: {fileID: 1308123562728904, guid: 8b522272dc2080449a3e1508c7bf100b,
         type: 2}
+    - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
+        type: 2}
+      propertyPath: _disabledDuringRush.Array.data[0]
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
+        type: 2}
+      propertyPath: _disabledDuringRush.Array.data[1]
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 91452d9f485dc784d93d78b7e20420cf, type: 2}
   m_IsPrefabParent: 0
@@ -6338,6 +6368,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
         type: 2}
+      propertyPath: _disabledDuringRush.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
+        type: 2}
       propertyPath: m_maxEnemiesOverTime.Array.size
       value: 9
       objectReference: {fileID: 0}
@@ -6439,6 +6474,11 @@ Prefab:
       value: 
       objectReference: {fileID: 1308123562728904, guid: fe786e307bf3f1942b5eee66afde3baa,
         type: 2}
+    - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
+        type: 2}
+      propertyPath: _disabledDuringRush.Array.data[0]
+      value: 45
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 91452d9f485dc784d93d78b7e20420cf, type: 2}
   m_IsPrefabParent: 0
@@ -7263,6 +7303,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
         type: 2}
+      propertyPath: _disabledDuringRush.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
+        type: 2}
       propertyPath: m_maxEnemiesOverTime.Array.size
       value: 9
       objectReference: {fileID: 0}
@@ -7449,6 +7494,16 @@ Prefab:
       value: 
       objectReference: {fileID: 1308123562728904, guid: 8b522272dc2080449a3e1508c7bf100b,
         type: 2}
+    - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
+        type: 2}
+      propertyPath: _disabledDuringRush.Array.data[0]
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
+        type: 2}
+      propertyPath: _disabledDuringRush.Array.data[1]
+      value: 45
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 91452d9f485dc784d93d78b7e20420cf, type: 2}
   m_IsPrefabParent: 0

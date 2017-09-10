@@ -12,7 +12,11 @@ public class Spawner : MonoBehaviour
 
     [SerializeField]
     private List<int> m_maxEnemiesOverTime;
-    
+
+    [SerializeField]
+    private List<int> _disabledDuringRush;
+    private Queue<int> _disabledDuringRushStack;
+
     private int m_maxEnemies = 0;
 
     [SerializeField]
@@ -28,6 +32,13 @@ public class Spawner : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        _disabledDuringRushStack = new Queue<int>();
+
+        for(int i = _disabledDuringRush.Count; i >= 0; i--)
+        {
+            _disabledDuringRushStack.Enqueue(_disabledDuringRush[i]);
+        }
+
         m_myVoters = new List<Voter>();
         SetMaxEnemiesNext();
         StartCoroutine(SpawnEnemies());
@@ -119,7 +130,16 @@ public class Spawner : MonoBehaviour
             }
             else
             {
-                Voter voter = GameObject.Instantiate(mp_voterPrefabs[Random.Range(0, mp_voterPrefabs.Count)], transform.position, transform.rotation, null).GetComponent<Voter>();
+                Voter voter = null;
+                if (GameManager.IsFinalRush())
+                {
+                    voter = GameObject.Instantiate(mp_voterPrefabs[0], transform.position, transform.rotation, null).GetComponent<Voter>();
+                }
+                else
+                {
+                    voter = GameObject.Instantiate(mp_voterPrefabs[Random.Range(0, mp_voterPrefabs.Count)], transform.position, transform.rotation, null).GetComponent<Voter>();
+                }
+
                 m_myVoters.Add(voter);
                 GameManager.ms_instance.AddVoter(voter);
 
@@ -131,6 +151,12 @@ public class Spawner : MonoBehaviour
                 }
 
                 yield return new WaitForSeconds(Random.Range(.8f, 3.5f));
+
+                while(GameManager.GetTimeLeft() < _disabledDuringRushStack.Peek())
+                {
+                    _disabledDuringRushStack.Dequeue();
+                    yield return new WaitForSeconds(15.0f);
+                }
             }
         }
     }

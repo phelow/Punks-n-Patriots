@@ -1521,6 +1521,12 @@ Prefab:
       value: 
       objectReference: {fileID: 1308123562728904, guid: 8b522272dc2080449a3e1508c7bf100b,
         type: 2}
+    - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
+        type: 2}
+      propertyPath: p_leader
+      value: 
+      objectReference: {fileID: 1308123562728904, guid: fe786e307bf3f1942b5eee66afde3baa,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 91452d9f485dc784d93d78b7e20420cf, type: 2}
   m_IsPrefabParent: 0
@@ -2608,6 +2614,12 @@ Prefab:
       propertyPath: _disabledDuringRush.Array.data[1]
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
+        type: 2}
+      propertyPath: p_leader
+      value: 
+      objectReference: {fileID: 1308123562728904, guid: fe786e307bf3f1942b5eee66afde3baa,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 91452d9f485dc784d93d78b7e20420cf, type: 2}
   m_IsPrefabParent: 0
@@ -4358,6 +4370,12 @@ Prefab:
       propertyPath: _disabledDuringRush.Array.data[1]
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
+        type: 2}
+      propertyPath: p_leader
+      value: 
+      objectReference: {fileID: 1308123562728904, guid: fe786e307bf3f1942b5eee66afde3baa,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 91452d9f485dc784d93d78b7e20420cf, type: 2}
   m_IsPrefabParent: 0
@@ -6479,6 +6497,12 @@ Prefab:
       propertyPath: _disabledDuringRush.Array.data[0]
       value: 45
       objectReference: {fileID: 0}
+    - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
+        type: 2}
+      propertyPath: p_leader
+      value: 
+      objectReference: {fileID: 1308123562728904, guid: fe786e307bf3f1942b5eee66afde3baa,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 91452d9f485dc784d93d78b7e20420cf, type: 2}
   m_IsPrefabParent: 0
@@ -6631,20 +6655,6 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_FalloffTable:
-    m_Table[0]: 0
-    m_Table[1]: 0
-    m_Table[2]: 0
-    m_Table[3]: 0
-    m_Table[4]: 0
-    m_Table[5]: 0
-    m_Table[6]: 0
-    m_Table[7]: 0
-    m_Table[8]: 0
-    m_Table[9]: 0
-    m_Table[10]: 0
-    m_Table[11]: 0
-    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -7504,6 +7514,12 @@ Prefab:
       propertyPath: _disabledDuringRush.Array.data[1]
       value: 45
       objectReference: {fileID: 0}
+    - target: {fileID: 114379365712809360, guid: 91452d9f485dc784d93d78b7e20420cf,
+        type: 2}
+      propertyPath: p_leader
+      value: 
+      objectReference: {fileID: 1308123562728904, guid: fe786e307bf3f1942b5eee66afde3baa,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 91452d9f485dc784d93d78b7e20420cf, type: 2}
   m_IsPrefabParent: 0

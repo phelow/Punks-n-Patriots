@@ -22,8 +22,16 @@ public class Spawner : MonoBehaviour
     [SerializeField]
     private List<Voter> m_myVoters;
 
+    [SerializeField]
+    private GameObject p_leader;
+
     private const float c_offScreenShutoffTime = 14.0f;
     private const float c_onScreenTurnOnTime = 3.0f;
+
+    public static float _leaderOverrideChance = 0;
+    
+    private float _twoMinuteLeaderSpawnChance = .25f;
+    private float _oneMinuteLeaderSpawnChance = .5f;
 
     bool enabled = true;
 
@@ -78,6 +86,21 @@ public class Spawner : MonoBehaviour
 
             yield return new WaitForEndOfFrame();
         }
+    }
+
+    public void TriggerTwoMinuteSpawn()
+    {
+        _leaderOverrideChance = _twoMinuteLeaderSpawnChance;
+    }
+    
+    public void TriggerOneMinuteSpawn()
+    {
+        _leaderOverrideChance = _oneMinuteLeaderSpawnChance;
+    }
+
+    public void TriggerFinalRush()
+    {
+        _leaderOverrideChance = 1.0f;
     }
 
     public void SetMaxEnemiesNext()
@@ -148,7 +171,13 @@ public class Spawner : MonoBehaviour
             else
             {
                 Voter voter = null;
-                if (GameManager.IsFinalRush())
+
+
+                if (Random.Range(0.0f, .9ff) < _leaderOverrideChance)
+                {
+                    voter = GameObject.Instantiate(p_leader,transform.position,transform.rotation, null).GetComponent<Voter>();
+                }
+                else if (GameManager.IsFinalRush())
                 {
                     voter = GameObject.Instantiate(mp_voterPrefabs[0], transform.position, transform.rotation, null).GetComponent<Voter>();
                 }

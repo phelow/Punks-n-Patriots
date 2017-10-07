@@ -204,6 +204,30 @@ public class GameManager : MonoBehaviour
                 m_spawnRatio = m_currentPoints;
             }
 
+            if(timeLeft == 120)
+            {
+                foreach(Spawner spawner in m_spawners)
+                {
+                    spawner.TriggerTwoMinuteSpawn();
+                }
+            }
+            else if (timeLeft == 60)
+            {
+
+                foreach (Spawner spawner in m_spawners)
+                {
+                    spawner.TriggerOneMinuteSpawn();
+                }
+            }
+            else if (timeLeft == 10)
+            {
+
+                foreach (Spawner spawner in m_spawners)
+                {
+                    spawner.TriggerFinalRush();
+                }
+            }
+
             if (m_timeIntervals.Contains(timeLeft))
             {
 

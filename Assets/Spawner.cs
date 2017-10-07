@@ -173,7 +173,7 @@ public class Spawner : MonoBehaviour
                 Voter voter = null;
 
 
-                if (Random.Range(0.0f, .9ff) < _leaderOverrideChance)
+                if (Random.Range(0.0f, .9f) < _leaderOverrideChance)
                 {
                     voter = GameObject.Instantiate(p_leader,transform.position,transform.rotation, null).GetComponent<Voter>();
                 }

@@ -22,8 +22,8 @@ public class Spawner : MonoBehaviour
     [SerializeField]
     private List<Voter> m_myVoters;
 
-    private const float c_offScreenShutoffTime = 15.0f;
-    private const float c_onScreenTurnOnTime = 1.0f;
+    private const float c_offScreenShutoffTime = 14.0f;
+    private const float c_onScreenTurnOnTime = 3.0f;
 
     bool enabled = true;
 
@@ -55,7 +55,7 @@ public class Spawner : MonoBehaviour
 
             Vector3 viewPosition = Camera.main.WorldToViewportPoint(transform.position);
 
-            if ((viewPosition.x > 1.3f || viewPosition.x < -.3f || viewPosition.y < -0.3f || viewPosition.y > 1.3f))
+            if ((viewPosition.x > 1.56f || viewPosition.x < -.56f || viewPosition.y < -0.56f || viewPosition.y > 1.56f))
             {
                 timeOnScreen = 0.0f;
                 timeOffScreen += Time.deltaTime;

@@ -30,8 +30,14 @@ public class Spawner : MonoBehaviour
 
     public static float _leaderOverrideChance = 0;
     
+    [SerializeField]
     private float _twoMinuteLeaderSpawnChance = .25f;
+
+    [SerializeField]
     private float _oneMinuteLeaderSpawnChance = .5f;
+
+    [SerializeField]
+    private float _fifteenSecondLeaderSpawnChance = 1.0f;
 
     bool enabled = true;
 
@@ -100,7 +106,7 @@ public class Spawner : MonoBehaviour
 
     public void TriggerFinalRush()
     {
-        _leaderOverrideChance = 1.0f;
+        _leaderOverrideChance = _fifteenSecondLeaderSpawnChance;
     }
 
     public void SetMaxEnemiesNext()

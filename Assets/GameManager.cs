@@ -219,7 +219,7 @@ public class GameManager : MonoBehaviour
                     spawner.TriggerOneMinuteSpawn();
                 }
             }
-            else if (timeLeft == 10)
+            else if (timeLeft == 15)
             {
 
                 foreach (Spawner spawner in m_spawners)

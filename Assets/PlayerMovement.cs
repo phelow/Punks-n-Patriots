@@ -32,6 +32,9 @@ public class PlayerMovement : Unit
     [SerializeField]
     private AudioClip m_deployClip;
 
+    private float m_waveEffectRadius;
+    private Vector2 m_lastScreenPosition;
+
     void Awake()
     {
         PlayerPrefs.SetString("LastLevel", UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
@@ -41,7 +44,47 @@ public class PlayerMovement : Unit
     // Use this for initialization
     void Start()
     {
-        StartCoroutine(MovePlayer());
+        this.StartCoroutine(this.MovePlayer());
+    }
+
+    private IEnumerator WaveRoutine()
+    {
+        float timePassed = 0.0f;
+        while (true)
+        {
+            if (Input.GetMouseButton(0) ||
+                Mathf.Abs(Input.GetAxis("Vertical")) > 0.01f ||
+                Mathf.Abs(Input.GetAxis("Horizontal")) > 0.01f)
+            {
+                yield break;
+            }
+
+            //TODO: waving is weird if you wait
+            timePassed += Time.deltaTime;
+            if ((Input.GetMouseButton(1) || Input.GetKey(KeyCode.Space)))
+            {
+                m_animator.SetBool("Down", true);
+                m_audiosource.clip = m_chargeClip;
+                m_audiosource.Play();
+
+                m_waveEffectRadius += Time.deltaTime * scaleFactor;
+                scaleFactor -= Time.deltaTime;
+                m_animator.SetBool("Wave", true);
+                m_animator.SetBool("Down", false);
+
+
+
+                m_waveRadius.transform.localScale = new Vector3(m_waveEffectRadius, m_waveEffectRadius, m_waveEffectRadius);
+
+            }
+            else
+            {
+                yield break;
+            }
+
+            yield return new WaitForEndOfFrame();
+        }
+
     }
 
     private IEnumerator MovePlayer()
@@ -49,95 +92,55 @@ public class PlayerMovement : Unit
         bool waving = false;
         while (true)
         {
-            float waveRadius = m_defaultWaveRadius;
+            yield return new WaitForEndOfFrame();
+            m_waveEffectRadius = m_defaultWaveRadius;
             float timePassed = 0.0f;
             scaleFactor = mc_originalScaleFactor;
-            m_waveRadius.transform.localScale = new Vector3(waveRadius, waveRadius, waveRadius);
+            m_waveRadius.transform.localScale = new Vector3(m_waveEffectRadius, m_waveEffectRadius, m_waveEffectRadius);
             bool triggered = false;
-            while (!(Input.GetMouseButton(0) || Mathf.Abs(Input.GetAxis("Vertical")) > 0.01f || Mathf.Abs(Input.GetAxis("Horizontal")) > 0.01f) || (Input.GetMouseButton(1) || Input.GetKey(KeyCode.Space)))
+
+            if (Input.GetMouseButton(1) || Input.GetKey(KeyCode.Space))
             {
-                //TODO: waving is weird if you wait
-                timePassed += Time.deltaTime;
-                if ((Input.GetMouseButton(1) || Input.GetKey(KeyCode.Space)))
+                m_waveSphereRenderer.enabled = true;
+                yield return this.WaveRoutine();
+                m_waveSphereRenderer.enabled = false;
+
+                float d_radius = m_waveEffectRadius;
+                Vector3 d_position = transform.position;
+                Collider2D[] collisions = Physics2D.OverlapCircleAll(transform.position, m_waveEffectRadius / 2);
+                foreach (Collider2D voterCast in collisions)
                 {
-                    waving = true;
-                    m_animator.SetBool("Down", true);
-                    if (triggered == false)
+                    Voter voter = voterCast.transform.GetComponentInChildren<Voter>();
+                    if (voter == null)
                     {
-                        triggered = true;
-                        m_audiosource.clip = m_chargeClip;
-                        m_audiosource.Play();
+                        continue;
                     }
-                    waveRadius += Time.deltaTime * scaleFactor;
-                    scaleFactor -= Time.deltaTime;
-                    m_animator.SetBool("Wave", true);
-                    m_animator.SetBool("Down", false);
 
-
-
-                    m_waveRadius.transform.localScale = new Vector3(waveRadius, waveRadius, waveRadius);
-
-                }
-                else
-                {
-                    triggered = false;
-                    scaleFactor = mc_originalScaleFactor;
-                    if (waving)
-                    {
-                        foreach (Voter voter in GameManager.ms_instance.GetAllVoters())
-                        {
-                            if (Vector2.Distance(voter.transform.position, transform.position) < waveRadius / 2 + .1f)
-                            {
-                                m_audiosource.clip = m_deployClip;
-                                m_audiosource.Play();
-                                voter.ProcessWave();
-                            }
-                        }
-                        waving = false;
-                    }
-                    waveRadius = m_defaultWaveRadius;
-                    m_waveRadius.transform.localScale = new Vector3(waveRadius, waveRadius, waveRadius);
-
+                    voter.ProcessWave();
                 }
 
-                if (waving)
-                {
-                    m_waveSphereRenderer.enabled = true;
-                }
-                else
-                {
-                    m_waveSphereRenderer.enabled = false;
-                }
-
-                yield return new WaitForEndOfFrame();
-            }
-
-            RaycastHit2D[] collisions = Physics2D.CircleCastAll(transform.position, waveRadius / 2, Vector2.up, waveRadius, m_ignorePlayer);
-            foreach (RaycastHit2D voterCast in collisions)
-            {
-                Voter voter = voterCast.transform.GetComponent<Voter>();
-                if (voter == null)
-                {
-                    continue;
-                }
-
-                voter.ProcessWave();
-            }
-
-            m_waveRadius.transform.localScale = new Vector3(.1f, .1f, .1f);
-            Vector3 worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-            
-
-            if (Mathf.Abs(Input.GetAxis("Vertical")) > 0.01f || Mathf.Abs(Input.GetAxis("Horizontal")) > 0.01f)
-            {
-                worldPos = new Vector3(Input.GetAxis("Horizontal") * 100.0f, Input.GetAxis("Vertical") * 100.0f, 0.0f);
+                m_waveRadius.transform.localScale = new Vector3(.1f, .1f, .1f);
             }
 
             m_audiosource.clip = null;
 
-            Vector2 movement = (new Vector2(worldPos.x, worldPos.y) - new Vector2(transform.position.x, transform.position.y));
-            if(movement.magnitude > .03f)
+
+            Vector3 worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 movement = new Vector2(0, 0);
+
+            if (Input.GetMouseButton(0))
+            {
+                movement = (new Vector2(worldPos.x, worldPos.y) - new Vector2(transform.position.x, transform.position.y));
+            }
+
+            if (Mathf.Abs(Input.GetAxis("Vertical")) > 0.01f || Mathf.Abs(Input.GetAxis("Horizontal")) > 0.01f)
+            {
+                m_lastScreenPosition = Input.mousePosition;
+                worldPos = new Vector3(Input.GetAxis("Horizontal") * 100.0f, Input.GetAxis("Vertical") * 100.0f, 0.0f);
+                movement = (new Vector2(worldPos.x, worldPos.y) - new Vector2(transform.position.x, transform.position.y));
+            }
+
+            if (movement.magnitude > .03f)
             {
                 m_rigidbody.AddForce(movement.normalized * 200000.0f * Time.deltaTime);
             }
@@ -169,8 +172,6 @@ public class PlayerMovement : Unit
                 m_animator.SetBool("Down", true);
             }
 
-
-            yield return new WaitForEndOfFrame();
         }
     }
 

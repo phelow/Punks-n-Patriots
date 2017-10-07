@@ -61,6 +61,7 @@ public class PlayerMovement : Unit
 
             //TODO: waving is weird if you wait
             timePassed += Time.deltaTime;
+            m_waveSphereRenderer.enabled = true;
             if ((Input.GetMouseButton(1) || Input.GetKey(KeyCode.Space)))
             {
                 m_animator.SetBool("Down", true);
@@ -90,6 +91,7 @@ public class PlayerMovement : Unit
     private IEnumerator MovePlayer()
     {
         bool waving = false;
+        m_waveSphereRenderer.enabled = false;
         while (true)
         {
             yield return new WaitForEndOfFrame();
@@ -101,7 +103,6 @@ public class PlayerMovement : Unit
 
             if (Input.GetMouseButton(1) || Input.GetKey(KeyCode.Space))
             {
-                m_waveSphereRenderer.enabled = true;
                 yield return this.WaveRoutine();
                 m_waveSphereRenderer.enabled = false;
 

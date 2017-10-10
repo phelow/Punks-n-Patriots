@@ -185,6 +185,9 @@ public class Spawner : MonoBehaviour
                 }
                 else if (GameManager.IsFinalRush())
                 {
+                    voter = GameObject.Instantiate(mp_voterPrefabs[Random.Range(0, mp_voterPrefabs.Count)], transform.position, transform.rotation, null).GetComponent<Voter>();
+                    m_myVoters.Add(voter);
+                    GameManager.ms_instance.AddVoter(voter);
                     voter = GameObject.Instantiate(mp_voterPrefabs[0], transform.position, transform.rotation, null).GetComponent<Voter>();
                 }
                 else
@@ -194,14 +197,7 @@ public class Spawner : MonoBehaviour
 
                 m_myVoters.Add(voter);
                 GameManager.ms_instance.AddVoter(voter);
-
-                if (GameManager.IsFinalRush())
-                {
-                    voter = GameObject.Instantiate(mp_voterPrefabs[Random.Range(0, mp_voterPrefabs.Count)], transform.position, transform.rotation, null).GetComponent<Voter>();
-                    m_myVoters.Add(voter);
-                    GameManager.ms_instance.AddVoter(voter);
-                }
-
+                
                 yield return new WaitForSeconds(Random.Range(.8f, 3.5f));
             }
 

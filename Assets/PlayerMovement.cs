@@ -49,6 +49,7 @@ public class PlayerMovement : Unit
 
     private IEnumerator WaveRoutine()
     {
+        m_audiosource.PlayOneShot(m_chargeClip);
         float timePassed = 0.0f;
         while (true)
         {
@@ -65,16 +66,12 @@ public class PlayerMovement : Unit
             if ((Input.GetMouseButton(1) || Input.GetKey(KeyCode.Space)))
             {
                 m_animator.SetBool("Down", true);
-                m_audiosource.clip = m_chargeClip;
-                m_audiosource.Play();
 
                 m_waveEffectRadius += Time.deltaTime * scaleFactor;
                 scaleFactor -= Time.deltaTime;
                 m_animator.SetBool("Wave", true);
                 m_animator.SetBool("Down", false);
-
-
-
+                
                 m_waveRadius.transform.localScale = new Vector3(m_waveEffectRadius, m_waveEffectRadius, m_waveEffectRadius);
 
             }
@@ -104,11 +101,13 @@ public class PlayerMovement : Unit
             if (Input.GetMouseButton(1) || Input.GetKey(KeyCode.Space))
             {
                 yield return this.WaveRoutine();
+                m_audiosource.Stop();
                 m_waveSphereRenderer.enabled = false;
 
                 float d_radius = m_waveEffectRadius;
                 Vector3 d_position = transform.position;
                 Collider2D[] collisions = Physics2D.OverlapCircleAll(transform.position, m_waveEffectRadius / 2);
+                bool shouldPlay = false;
                 foreach (Collider2D voterCast in collisions)
                 {
                     Voter voter = voterCast.transform.GetComponentInChildren<Voter>();
@@ -117,7 +116,14 @@ public class PlayerMovement : Unit
                         continue;
                     }
 
+                    shouldPlay = true;
                     voter.ProcessWave();
+                }
+
+                if (shouldPlay)
+                {
+
+                    m_audiosource.PlayOneShot(m_deployClip);
                 }
 
                 m_waveRadius.transform.localScale = new Vector3(.1f, .1f, .1f);

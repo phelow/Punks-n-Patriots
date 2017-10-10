@@ -28,7 +28,7 @@ public class Spawner : MonoBehaviour
     private const float c_offScreenShutoffTime = 14.0f;
     private const float c_onScreenTurnOnTime = 3.0f;
 
-    public static float _leaderOverrideChance = 0;
+    public float _leaderOverrideChance = 0;
     
     [SerializeField]
     private float _twoMinuteLeaderSpawnChance = .25f;
@@ -145,7 +145,15 @@ public class Spawner : MonoBehaviour
                 yield return new WaitForEndOfFrame();
             }
 
-            Voter voter = GameObject.Instantiate(mp_voterPrefabs[0], transform.position, transform.rotation, null).GetComponent<Voter>();
+            Voter voter;
+            if (Random.Range(0.0f, .9f) < _leaderOverrideChance)
+            {
+                voter = GameObject.Instantiate(p_leader, transform.position, transform.rotation, null).GetComponent<Voter>();
+            }
+            else
+            {
+                voter = GameObject.Instantiate(mp_voterPrefabs[0], transform.position, transform.rotation, null).GetComponent<Voter>();
+            }
             m_myVoters.Add(voter);
             GameManager.ms_instance.AddVoter(voter);
             float deltaTime = Random.Range(.8f, 3.5f);

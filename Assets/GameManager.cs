@@ -166,6 +166,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator BlinkText()
     {
+        yield return new WaitForEndOfFrame();
         while (!GameManager.IsFinalRush())
         {
             yield return new WaitForSeconds(1.0f);
@@ -193,6 +194,7 @@ public class GameManager : MonoBehaviour
     public int timeLeft;
     private IEnumerator TimeLevel()
     {
+        yield return new WaitForEndOfFrame();
         for (timeLeft = m_timeLeft; timeLeft > 0; timeLeft--)
         {
             int minutes = (int)(timeLeft / 60.0f);

@@ -191,7 +191,7 @@ public class GameManager : MonoBehaviour
         return ms_instance.timeLeft <= c_finalRushStart;
     }
 
-    public int timeLeft;
+    public int timeLeft = 9999;
     private IEnumerator TimeLevel()
     {
         yield return new WaitForEndOfFrame();

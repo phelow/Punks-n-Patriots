@@ -15,7 +15,7 @@ public class Spawner : MonoBehaviour
 
     [SerializeField]
     private List<int> _disabledDuringRush;
-    private Stack<int> _disabledDuringRushStack;
+    private Queue<int> _disabledDuringRushStack;
 
     private int m_maxEnemies = 0;
 
@@ -46,11 +46,11 @@ public class Spawner : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        _disabledDuringRushStack = new Stack<int>();
+        _disabledDuringRushStack = new Queue<int>();
 
-        for(int i = _disabledDuringRush.Count-1; i >= 0; i--)
+        foreach(int i in _disabledDuringRush)
         {
-            _disabledDuringRushStack.Push(_disabledDuringRush[i]);
+            _disabledDuringRushStack.Enqueue(i);
         }
 
         m_myVoters = new List<Voter>();
@@ -125,7 +125,7 @@ public class Spawner : MonoBehaviour
         {
             while (_disabledDuringRushStack.Count > 0 && GameManager.GetTimeLeft() < _disabledDuringRushStack.Peek())
             {
-                _disabledDuringRushStack.Pop();
+                _disabledDuringRushStack.Dequeue();
                 yield return new WaitForSeconds(15.0f);
             }
             yield return new WaitForSeconds(1.0f);
@@ -137,7 +137,7 @@ public class Spawner : MonoBehaviour
 
             while (_disabledDuringRushStack.Count > 0 && GameManager.GetTimeLeft() < _disabledDuringRushStack.Peek())
             {
-                _disabledDuringRushStack.Pop();
+                _disabledDuringRushStack.Dequeue();
                 yield return new WaitForSeconds(15.0f);
             }
             while (enabled == false)
@@ -166,7 +166,7 @@ public class Spawner : MonoBehaviour
 
             while (_disabledDuringRushStack.Count > 0 && GameManager.GetTimeLeft() < _disabledDuringRushStack.Peek())
             {
-                _disabledDuringRushStack.Pop();
+                _disabledDuringRushStack.Dequeue();
                 yield return new WaitForSeconds(15.0f);
             }
             while (enabled == false)
@@ -211,7 +211,7 @@ public class Spawner : MonoBehaviour
 
             while (_disabledDuringRushStack.Count > 0 && GameManager.GetTimeLeft() < _disabledDuringRushStack.Peek())
             {
-                _disabledDuringRushStack.Pop();
+                _disabledDuringRushStack.Dequeue();
                 yield return new WaitForSeconds(15.0f);
             }
         }

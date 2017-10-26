@@ -21,7 +21,8 @@ public class VotingBooth : MonoBehaviour
 
         Voter voter = coll.gameObject.GetComponent<Voter>();
         bool isRedTeam = voter.GetTeam() == Voter.Team.RedTeam;
-        if ((isRedTeam || (voter.IsLeader())) && (viewPosition.x > 1.0f || viewPosition.x < 0.0f || viewPosition.y < 0.0f || viewPosition.y > 1.0f))
+
+        if ((isRedTeam) && (viewPosition.x > 1.0f || viewPosition.x < 0.0f || viewPosition.y < 0.0f || viewPosition.y > 1.0f))
         {
             return;
         }

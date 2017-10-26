@@ -147,6 +147,20 @@ public class Voter : Unit
 
     public void CastBlueVote(bool isLeader)
     {
+
+        Vector3 viewPosition = Camera.main.WorldToViewportPoint(transform.position);
+
+        if ((viewPosition.x > 1.0f || viewPosition.x < 0.0f || viewPosition.y < 0.0f || viewPosition.y > 1.0f))
+        {
+            if (m_myCluster != null)
+            {
+                m_myCluster.RemoveMember(this);
+            }
+            ms_numCharacters--;
+            Destroy(this.gameObject);
+            return;
+        }
+
         GameManager.ms_instance.VoteBlue(this, isLeader);
 
         if (m_myCluster != null)

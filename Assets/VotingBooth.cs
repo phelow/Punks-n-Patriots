@@ -29,6 +29,12 @@ public class VotingBooth : MonoBehaviour
 
         if (coll.gameObject.tag == "Voter")
         {
+            if (!voter.IsActivated())
+            {
+                voter.Activate();
+                return;
+            }
+
             if (voter.GetTeam() == Voter.Team.BlueTeam)
             {
                 voter.CastBlueVote(voter is Leader);

@@ -25,6 +25,7 @@ public class Voter : Unit
     private const float mc_closeDistance = 2.0f;
 
     private bool m_isFollowing = false;
+    private bool _activated = false;
 
     private Slot m_targetSlot;
 
@@ -72,6 +73,23 @@ public class Voter : Unit
     public void KickFromCluster()
     {
         m_myCluster = null;
+    }
+
+    public bool IsActivated()
+    {
+        return _activated;
+    }
+
+    public void Activate()
+    {
+        StartCoroutine(ActivateRoutine());
+    }
+
+    private IEnumerator ActivateRoutine()
+    {
+        yield return new WaitForSeconds(1.0f);
+        _activated = true;
+
     }
 
     public void ProcessWave()

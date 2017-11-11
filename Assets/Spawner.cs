@@ -41,6 +41,9 @@ public class Spawner : MonoBehaviour
 
     bool enabled = true;
 
+    [SerializeField]
+    private float _overrideRange = 1.0f;
+
     float timeDisabled = 0.0f;
 
     // Use this for initialization
@@ -69,7 +72,7 @@ public class Spawner : MonoBehaviour
 
             Vector3 viewPosition = Camera.main.WorldToViewportPoint(transform.position);
 
-            if ((viewPosition.x > 1.56f || viewPosition.x < -.56f || viewPosition.y < -0.56f || viewPosition.y > 1.56f))
+            if ((viewPosition.x > 1.56f * _overrideRange || viewPosition.x < -.56f * _overrideRange || viewPosition.y < -0.56f * _overrideRange || viewPosition.y > 1.56f * _overrideRange))
             {
                 timeOnScreen = 0.0f;
                 timeOffScreen += Time.deltaTime;

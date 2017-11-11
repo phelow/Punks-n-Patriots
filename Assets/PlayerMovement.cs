@@ -69,6 +69,11 @@ public class PlayerMovement : Unit
 
                 m_waveEffectRadius += Time.deltaTime * scaleFactor;
                 scaleFactor -= Time.deltaTime;
+
+                if(m_waveEffectRadius < 0)
+                {
+                    break;
+                }
                 m_animator.SetBool("Wave", true);
                 m_animator.SetBool("Down", false);
                 

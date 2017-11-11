@@ -197,6 +197,33 @@ public class Spawner : MonoBehaviour
                         GameManager.ms_instance.AddVoter(voter);
                         voter = GameObject.Instantiate(mp_voterPrefabs[0], transform.position, transform.rotation, null).GetComponent<Voter>();
                     }
+                    else if (GameManager.IsMegaFinalRush())
+                    {
+                        m_myVoters.Add(voter);
+                        GameManager.ms_instance.AddVoter(voter);
+                        voter = GameObject.Instantiate(mp_voterPrefabs[0], transform.position, transform.rotation, null).GetComponent<Voter>();
+                        m_myVoters.Add(voter);
+                        GameManager.ms_instance.AddVoter(voter);
+                        voter = GameObject.Instantiate(mp_voterPrefabs[0], transform.position, transform.rotation, null).GetComponent<Voter>();
+                        m_myVoters.Add(voter);
+                        GameManager.ms_instance.AddVoter(voter);
+                        voter = GameObject.Instantiate(mp_voterPrefabs[0], transform.position, transform.rotation, null).GetComponent<Voter>();
+
+                    }
+                }
+                else if (GameManager.IsMegaFinalRush())
+                {
+                    voter = GameObject.Instantiate(mp_voterPrefabs[Random.Range(0, mp_voterPrefabs.Count)], transform.position, transform.rotation, null).GetComponent<Voter>();
+                    m_myVoters.Add(voter);
+                    GameManager.ms_instance.AddVoter(voter);
+                    voter = GameObject.Instantiate(mp_voterPrefabs[0], transform.position, transform.rotation, null).GetComponent<Voter>();
+                    m_myVoters.Add(voter);
+                    GameManager.ms_instance.AddVoter(voter);
+                    voter = GameObject.Instantiate(mp_voterPrefabs[0], transform.position, transform.rotation, null).GetComponent<Voter>();
+                    m_myVoters.Add(voter);
+                    GameManager.ms_instance.AddVoter(voter);
+                    voter = GameObject.Instantiate(mp_voterPrefabs[0], transform.position, transform.rotation, null).GetComponent<Voter>();
+
                 }
                 else if (GameManager.IsFinalRush())
                 {

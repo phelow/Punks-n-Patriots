@@ -69,6 +69,8 @@ public class GameManager : MonoBehaviour
 
     private const float c_finalRushStart = 60.0f;
 
+    private const float c_megaFinalRushStart = 30.0f;
+
     public void RemoveVoter(Voter voter)
     {
         m_voters.Remove(voter);
@@ -189,6 +191,11 @@ public class GameManager : MonoBehaviour
     public static bool IsFinalRush()
     {
         return ms_instance.timeLeft <= c_finalRushStart;
+    }
+
+    public static bool IsMegaFinalRush()
+    {
+        return ms_instance.timeLeft <= c_megaFinalRushStart;
     }
 
     private int timeLeft = 9999;

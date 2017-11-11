@@ -190,6 +190,13 @@ public class Spawner : MonoBehaviour
                 if (Random.Range(0.0f, .9f) < _leaderOverrideChance)
                 {
                     voter = GameObject.Instantiate(p_leader,transform.position,transform.rotation, null).GetComponent<Voter>();
+
+                    if(GameManager.IsFinalRush())
+                    {
+                        m_myVoters.Add(voter);
+                        GameManager.ms_instance.AddVoter(voter);
+                        voter = GameObject.Instantiate(mp_voterPrefabs[0], transform.position, transform.rotation, null).GetComponent<Voter>();
+                    }
                 }
                 else if (GameManager.IsFinalRush())
                 {

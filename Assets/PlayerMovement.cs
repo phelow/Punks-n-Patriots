@@ -149,7 +149,7 @@ public class PlayerMovement : Unit
 
             if (movement.magnitude > .03f)
             {
-                m_rigidbody.AddForce(movement.normalized * 200000.0f * Time.deltaTime);
+                m_rigidbody.AddForce(movement.normalized * 200000.0f * 1.1f* Time.deltaTime);
             }
 
             if (transform.position.x > worldPos.x + .1f)

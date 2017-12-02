@@ -94,6 +94,7 @@ public class Voter : Unit
 
     public void ProcessWave()
     {
+        FadeOutOnRightClick.StartGame();
         TurnRed();
     }
 

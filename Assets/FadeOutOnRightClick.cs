@@ -9,7 +9,7 @@ public class FadeOutOnRightClick : MonoBehaviour
     private Text m_text;
     private const float c_blinkTime = .5f;
 
-    bool started = false;
+    static bool started = false;
 
     // Use this for initialization
     void Start()
@@ -24,6 +24,10 @@ public class FadeOutOnRightClick : MonoBehaviour
         {
             yield return new WaitForEndOfFrame();
         }
+    }
+
+    public static void StartGame()
+    {
         started = true;
     }
 

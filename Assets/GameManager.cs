@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public static GameManager ms_instance;
     public List<Cluster> m_clusters;
     public List<Voter> m_voters;
-    private int m_currentPoints = 15;
+    private int m_currentPoints = 0;
 
     [SerializeField]
     private List<Spawner> m_spawners;
@@ -49,9 +49,8 @@ public class GameManager : MonoBehaviour
     private List<VotingBooth> m_booths = null;
     [SerializeField]
     private LayerMask m_onlyClusters;
-
-    [SerializeField]
-    private int m_pointsNeeded = 30;
+    
+    private const int m_pointsNeeded = 200;
 
     [SerializeField]
     private GameObject mp_fallingText;
@@ -157,8 +156,7 @@ public class GameManager : MonoBehaviour
         m_voters = GameObject.FindGameObjectsWithTag("Voter").Select(x => x.GetComponent<Voter>()).ToList();
 
         m_clusters = new List<Cluster>();
-        m_currentPoints--;
-        m_pointsNeededText.text = "Approval: " + m_currentPoints + "%" + " Goal: " + m_pointsNeeded + "%";
+        m_pointsNeededText.text = "SUPPORTERS: " + m_currentPoints + " GOAL: " + m_pointsNeeded;
 
 
 
@@ -303,14 +301,14 @@ public class GameManager : MonoBehaviour
 
     public void GainPoints(int pointsToGain, string pointsToGainText, Color textColor, Vector3 position)
     {
-        m_currentPoints += pointsToGain;
+        m_currentPoints +=  pointsToGain;
         if (m_currentPoints < 0)
         {
             m_currentPoints = 0;
         }
 
 
-        m_pointsNeededText.text = "Approval: " + m_currentPoints + "%" + "    Goal: " + m_pointsNeeded + "%";
+        m_pointsNeededText.text = "SUPPORTERS: " + m_currentPoints + " GOAL: " + m_pointsNeeded;
 
 
         GameObject t = GameObject.Instantiate(mp_fallingText, position, transform.rotation, transform);

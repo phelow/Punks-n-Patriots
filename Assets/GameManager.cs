@@ -156,7 +156,7 @@ public class GameManager : MonoBehaviour
         m_voters = GameObject.FindGameObjectsWithTag("Voter").Select(x => x.GetComponent<Voter>()).ToList();
 
         m_clusters = new List<Cluster>();
-        m_pointsNeededText.text = "SUPPORTERS: " + m_currentPoints + " GOAL: " + m_pointsNeeded;
+        m_pointsNeededText.text = "SUPPORTERS: " + m_currentPoints + "  GOAL: " + m_pointsNeeded;
 
 
 
@@ -308,10 +308,16 @@ public class GameManager : MonoBehaviour
         }
 
 
-        m_pointsNeededText.text = "SUPPORTERS: " + m_currentPoints + " GOAL: " + m_pointsNeeded;
+        m_pointsNeededText.text = "SUPPORTERS: " + m_currentPoints + "  GOAL: " + m_pointsNeeded;
 
 
         GameObject t = GameObject.Instantiate(mp_fallingText, position, transform.rotation, transform);
+
+        if(Mathf.Abs(pointsToGain) != 5)
+        {
+            t.transform.localScale *= 0.5f;
+        }
+
         t.GetComponentInChildren<TextMesh>().color = textColor;
         t.GetComponentInChildren<TextMesh>().text = "" + (pointsToGain > 0 ? "+" : "") + pointsToGain;
 

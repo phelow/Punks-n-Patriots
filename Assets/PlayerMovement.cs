@@ -62,6 +62,12 @@ public class PlayerMovement : Unit
 
             //TODO: waving is weird if you wait
             timePassed += Time.deltaTime;
+
+            if(timePassed > 1.0f)
+            {
+                FadeOutOnRightClick.StartGame();
+            }
+
             m_waveSphereRenderer.enabled = true;
             if ((Input.GetMouseButton(1) || Input.GetKey(KeyCode.Space)))
             {

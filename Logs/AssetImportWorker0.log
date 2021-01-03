@@ -1,0 +1,1077 @@
+Using pre-set license
+Built from '2020.2/release' branch; Version is '2020.2.1f1 (270dd8c3da1c) revision 2559448'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10  (10.0.0) 64bit' Language: 'en' Physical Memory: 32574 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2020.2.1f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/t-wip/Documents/GameDev/PNP/Punks-n-Patriots
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+63171
+Successfully changed project path to: C:/Users/t-wip/Documents/GameDev/PNP/Punks-n-Patriots
+C:/Users/t-wip/Documents/GameDev/PNP/Punks-n-Patriots
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 50.72 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.2.1f1 (270dd8c3da1c)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.2.1f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/t-wip/Documents/GameDev/PNP/Punks-n-Patriots/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 2060 (ID=0x1f11)
+    Vendor:   
+    VRAM:     5980 MB
+    Driver:   26.21.14.4294
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.2.1f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.2.1f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.2.1f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56688
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.1f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.1f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.003247 seconds.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 40.12 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.508 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.003073 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.35 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.784 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Refreshing native plugins compatible for Editor in 0.41 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1396 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 63.8 MB.
+System memory in use after: 63.9 MB.
+
+Unloading 33 unused Assets to reduce memory usage. Loaded Objects now: 1823.
+Total: 2.206200 ms (FindLiveObjects: 0.344100 ms CreateObjectMapping: 0.092200 ms MarkObjects: 1.714800 ms  DeleteObjects: 0.053000 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/Background_Lvl2_ColorComp.png
+  artifactKey: Guid(cff076bcad195394da42f8d21493ce3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Background_Lvl2_ColorComp.png using Guid(cff076bcad195394da42f8d21493ce3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '76ae4f39e75cab486dc0578e6b74e662') in 0.122440 seconds
+  Import took 0.124676 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000287 seconds.
+  path: Assets/Canvas.prefab
+  artifactKey: Guid(0b229f4f2ce3ab649bd1b4c27907a737) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Canvas.prefab using Guid(0b229f4f2ce3ab649bd1b4c27907a737) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6c616c94c4d8817e6d1e67881172ece0') in 0.034846 seconds
+  Import took 0.037104 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000274 seconds.
+  path: Assets/Capture 1.PNG
+  artifactKey: Guid(8e4319090a9e44949a450a49d81c5031) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Capture 1.PNG using Guid(8e4319090a9e44949a450a49d81c5031) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4cfc82ad0576e12ba13754db71e4a072') in 0.029271 seconds
+  Import took 0.032399 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000481 seconds.
+  path: Assets/Blackout.mat
+  artifactKey: Guid(c2f6262247b205c49a73d26e98987fd3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blackout.mat using Guid(c2f6262247b205c49a73d26e98987fd3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '187122e48d9411882bf814789ebf2392') in 0.095355 seconds
+  Import took 0.098620 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 15.663691 seconds.
+  path: Assets/Scenes
+  artifactKey: Guid(d6e20f6b4275d314dbdf6d58ddfb09f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes using Guid(d6e20f6b4275d314dbdf6d58ddfb09f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f8b401034ac9c427b91d510ce3779d80') in 0.007972 seconds
+  Import took 0.009981 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.003978 seconds.
+  path: Assets/Scenes
+  artifactKey: Guid(d6e20f6b4275d314dbdf6d58ddfb09f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes using Guid(d6e20f6b4275d314dbdf6d58ddfb09f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f8b401034ac9c427b91d510ce3779d80') in 0.003891 seconds
+  Import took 0.005903 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.028909 seconds.
+  path: Assets/Scenes/Illustration_02.png
+  artifactKey: Guid(eb559bdca07db4f458f771fcd82a6891) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Illustration_02.png using Guid(eb559bdca07db4f458f771fcd82a6891) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6027a58c73179657537e86dc1f22b575') in 0.034998 seconds
+  Import took 0.038175 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000363 seconds.
+  path: Assets/Scenes/Loss_Screen_01.png
+  artifactKey: Guid(15531fa8128417f4bb3d8e1eaaf038e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Loss_Screen_01.png using Guid(15531fa8128417f4bb3d8e1eaaf038e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd08f24b2141bf4811358895714031706') in 0.032385 seconds
+  Import took 0.035850 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000397 seconds.
+  path: Assets/Scenes/Loss_Screen_01.jpg
+  artifactKey: Guid(776e90fa9005c38438e4967122b29443) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Loss_Screen_01.jpg using Guid(776e90fa9005c38438e4967122b29443) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e7fc2528c013cff29ace1b7c525beacc') in 0.051580 seconds
+  Import took 0.054203 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.570200 seconds.
+  path: Assets/Scenes/Title_Screen_01.png
+  artifactKey: Guid(d66882faf456b6142b84940dc27c85e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Title_Screen_01.png using Guid(d66882faf456b6142b84940dc27c85e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '195955e834bdf011d4432ed205389af5') in 0.023474 seconds
+  Import took 0.025863 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.013347 seconds.
+  path: Assets/Scenes/Victory_screen_01.jpg
+  artifactKey: Guid(bb76df0829b7a1b4c9958eb9b6e2f896) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Victory_screen_01.jpg using Guid(bb76df0829b7a1b4c9958eb9b6e2f896) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6463c3fc82c0bb2ea63ccd114b273db5') in 0.031350 seconds
+  Import took 0.034219 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.323236 seconds.
+  path: Assets/Scenes/Start.unity
+  artifactKey: Guid(e0447fb0256209c4a8f659264abb3c23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Start.unity using Guid(e0447fb0256209c4a8f659264abb3c23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b23c1bee1720dabe597841a3f2657931') in 0.007687 seconds
+  Import took 0.009932 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002634 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.36 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.758 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.39 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1390 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 67.3 MB.
+System memory in use after: 67.4 MB.
+
+Unloading 25 unused Assets to reduce memory usage. Loaded Objects now: 1876.
+Total: 1.644700 ms (FindLiveObjects: 0.138900 ms CreateObjectMapping: 0.031400 ms MarkObjects: 1.455000 ms  DeleteObjects: 0.018800 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 175.978949 seconds.
+  path: Assets/Scenes/Win.unity
+  artifactKey: Guid(907355b8150c74848be375684f30e768) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Win.unity using Guid(907355b8150c74848be375684f30e768) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '307450623d3ac73029353ca4de53c87c') in 0.015688 seconds
+  Import took 0.018101 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.951026 seconds.
+  path: Assets/Scenes/Prototype.unity
+  artifactKey: Guid(f7d947b792854e8418cd1e38f4883064) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Prototype.unity using Guid(f7d947b792854e8418cd1e38f4883064) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1e027617d783be65f65345232828dac7') in 0.007117 seconds
+  Import took 0.009352 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.563350 seconds.
+  path: Assets/Scenes/Prototype 4.unity
+  artifactKey: Guid(f5dfa052a024ecc429635cfa9a11141f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Prototype 4.unity using Guid(f5dfa052a024ecc429635cfa9a11141f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c094d924c7440fdf2d585081fe67f5d') in 0.010169 seconds
+  Import took 0.013379 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 25.803705 seconds.
+  path: Assets/Scenes/Prototype5.unity
+  artifactKey: Guid(af986790b0ec51e408e2f032aedff87b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Prototype5.unity using Guid(af986790b0ec51e408e2f032aedff87b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e5c781c4669321261c78a3dda12f3fa2') in 0.008172 seconds
+  Import took 0.010962 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.703001 seconds.
+  path: Assets/Cute Isometric Town/Scenes/Demo Scene.unity
+  artifactKey: Guid(6095713dd000f4ad6bd7a75f30b4ec43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Scenes/Demo Scene.unity using Guid(6095713dd000f4ad6bd7a75f30b4ec43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd285e4c477f971686f3c9d9cb7da3d5') in 0.011238 seconds
+  Import took 0.013715 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 60.063676 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Textures
+  artifactKey: Guid(b5c1e443e81f4433fa8ff992f1cfd614) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Textures using Guid(b5c1e443e81f4433fa8ff992f1cfd614) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b7769b62880b813d3bf055b361a6abc0') in 0.008181 seconds
+  Import took 0.010722 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.987016 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Ground Tiles
+  artifactKey: Guid(1412dd1a0b94b4265860c2aca436f340) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Ground Tiles using Guid(1412dd1a0b94b4265860c2aca436f340) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '42035de46cdc3c401a6df5a01fe62308') in 0.008165 seconds
+  Import took 0.010838 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.034946 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Clear.prefab
+  artifactKey: Guid(c3226049e641c411f808a1dfec68e381) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Clear.prefab using Guid(c3226049e641c411f808a1dfec68e381) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '69d6d09e8a24b5dc094d5985a733e8cf') in 0.062760 seconds
+  Import took 0.064879 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000390 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Down End.prefab
+  artifactKey: Guid(9deb8c984de6c498f9526f4cc2f25087) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Down End.prefab using Guid(9deb8c984de6c498f9526f4cc2f25087) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5a93e8e8340ac704d04779b52130f064') in 0.018714 seconds
+  Import took 0.021597 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000438 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Left Down Road.prefab
+  artifactKey: Guid(f8b32ee1a373f4ce9a9b91b9e9cbdf68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Left Down Road.prefab using Guid(f8b32ee1a373f4ce9a9b91b9e9cbdf68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5dcb9b0927e38f8189ed0d20f0e7b091') in 0.022217 seconds
+  Import took 0.025056 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000210 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Left End Road.prefab
+  artifactKey: Guid(8ef4a97732a3545739c8a66ce069cf9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Left End Road.prefab using Guid(8ef4a97732a3545739c8a66ce069cf9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5a2fde600440526e950597de880deb98') in 0.023019 seconds
+  Import took 0.025914 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000348 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Horizontal Road.prefab
+  artifactKey: Guid(3a3f7a4631db5475cac51f87bc4369de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Horizontal Road.prefab using Guid(3a3f7a4631db5475cac51f87bc4369de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b8ef4706f6afdd8096f5a45cbca7c3cd') in 0.025896 seconds
+  Import took 0.028783 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000347 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Right Down Road.prefab
+  artifactKey: Guid(4ae2e3ed925fd4e8cbe5d27a93800bc4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Right Down Road.prefab using Guid(4ae2e3ed925fd4e8cbe5d27a93800bc4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7dd76aa5fc68ec3cf3b031c009876481') in 0.025120 seconds
+  Import took 0.027959 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000178 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Cross Road.prefab
+  artifactKey: Guid(9aafb728ee16846c88f7f120e593edde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Cross Road.prefab using Guid(9aafb728ee16846c88f7f120e593edde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b4d32a78cc31599ad6a34b8e2401958') in 0.022706 seconds
+  Import took 0.025541 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000313 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Left Up Road.prefab
+  artifactKey: Guid(169af656c4a2f4ac191e0b3ee6421046) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Left Up Road.prefab using Guid(169af656c4a2f4ac191e0b3ee6421046) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6495c2a5813e62e9b389aada6912be69') in 0.024397 seconds
+  Import took 0.027266 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000212 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Horizontal Down Road.prefab
+  artifactKey: Guid(746a518c5f59e4d3e94b2bc9de38c018) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Horizontal Down Road.prefab using Guid(746a518c5f59e4d3e94b2bc9de38c018) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bcab8dff5db4f56511cc65305a6c1184') in 0.025712 seconds
+  Import took 0.027881 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000260 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Horizontal Up Road.prefab
+  artifactKey: Guid(3de4eac85c2624b499661519a75f23ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Horizontal Up Road.prefab using Guid(3de4eac85c2624b499661519a75f23ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b04a258fa112310b1461e0b9e77dcabd') in 0.021646 seconds
+  Import took 0.024322 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000274 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Right End Road.prefab
+  artifactKey: Guid(6adcb5b3e642f49c1b6851c690291861) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Right End Road.prefab using Guid(6adcb5b3e642f49c1b6851c690291861) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6bd33b415aab88d755bb18af9e3a40ff') in 0.025975 seconds
+  Import took 0.028944 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 55.772984 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Objects/Buildings/House/House Blue Down.prefab
+  artifactKey: Guid(2ffe334141ae04981b8a09281d63993d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Objects/Buildings/House/House Blue Down.prefab using Guid(2ffe334141ae04981b8a09281d63993d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd2fe4f424f7307d9a58f7085b3dea182') in 0.015562 seconds
+  Import took 0.017677 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000307 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Objects/Buildings/House/House Purple Left.prefab
+  artifactKey: Guid(9ff88eba5b7ac40dabff2d62af5007a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Objects/Buildings/House/House Purple Left.prefab using Guid(9ff88eba5b7ac40dabff2d62af5007a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '51d6904e7b96b2e37f5faff3d68e1aa9') in 0.016678 seconds
+  Import took 0.018818 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000378 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Objects/Buildings/House/House Purple Right.prefab
+  artifactKey: Guid(828f0ef693e8247bcae48ffe4be5eb2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Objects/Buildings/House/House Purple Right.prefab using Guid(828f0ef693e8247bcae48ffe4be5eb2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a1088bbe22d751c2648c913703560319') in 0.021770 seconds
+  Import took 0.024516 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000407 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Objects/Buildings/House/House Purple Up.prefab
+  artifactKey: Guid(e01a126c0d15949ce8814a4d204621ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Objects/Buildings/House/House Purple Up.prefab using Guid(e01a126c0d15949ce8814a4d204621ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6df8ac5f2a5a6b7796a5ce7d034071eb') in 0.022436 seconds
+  Import took 0.025261 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000298 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Objects/Buildings/House/House Blue Right.prefab
+  artifactKey: Guid(6244a0f7c73114d9aafbb8b61ec6b09d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Objects/Buildings/House/House Blue Right.prefab using Guid(6244a0f7c73114d9aafbb8b61ec6b09d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '32313d428c51032d5c538fb336f6b490') in 0.020897 seconds
+  Import took 0.023578 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000405 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Objects/Buildings/House/House Red Right.prefab
+  artifactKey: Guid(503f3d059028840e893fbc6c22f91506) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Objects/Buildings/House/House Red Right.prefab using Guid(503f3d059028840e893fbc6c22f91506) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2cd071f8e64acf0d2e836fe89fde06e0') in 0.023152 seconds
+  Import took 0.025923 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000231 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Objects/Buildings/House/House Purple Down.prefab
+  artifactKey: Guid(bdec543a3c25544338a8e946e3d687e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Objects/Buildings/House/House Purple Down.prefab using Guid(bdec543a3c25544338a8e946e3d687e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8d175a4f08707d11db32afcba89c00ed') in 0.021085 seconds
+  Import took 0.023395 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000277 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Objects/Buildings/House/House Red Down.prefab
+  artifactKey: Guid(6aef70b04b5d346ee96d7d3727b4ab6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Objects/Buildings/House/House Red Down.prefab using Guid(6aef70b04b5d346ee96d7d3727b4ab6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2a71867aa30f5f0a7a11ede88fc955e6') in 0.021399 seconds
+  Import took 0.024024 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000320 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Objects/Buildings/House/House Blue Up.prefab
+  artifactKey: Guid(2327086cb20cd4295becaeb50cf8cacb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Objects/Buildings/House/House Blue Up.prefab using Guid(2327086cb20cd4295becaeb50cf8cacb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9636f90eaaa5f408bda56246596f17d2') in 0.020895 seconds
+  Import took 0.023721 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000276 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Objects/Buildings/House/House Red Left.prefab
+  artifactKey: Guid(2f49f6129827c4d5781008365cee3427) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Objects/Buildings/House/House Red Left.prefab using Guid(2f49f6129827c4d5781008365cee3427) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0cc4234ac678502433127a37bebdc342') in 0.026341 seconds
+  Import took 0.029076 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000244 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Objects/Buildings/House/House Blue Left.prefab
+  artifactKey: Guid(4d5cd26c08f6f4b4fb8b241e00365e58) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Objects/Buildings/House/House Blue Left.prefab using Guid(4d5cd26c08f6f4b4fb8b241e00365e58) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ef18a454155f9bc616f8c037acd6fa4b') in 0.021120 seconds
+  Import took 0.023846 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.768474 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Up End Road.prefab
+  artifactKey: Guid(3db11df16edc74376aaf4fa8053ef39e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Up End Road.prefab using Guid(3db11df16edc74376aaf4fa8053ef39e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '08260a58676b63e207177272a6e1980e') in 0.019680 seconds
+  Import took 0.022095 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.041707 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Up Right Road.prefab
+  artifactKey: Guid(f4fa2c2b36dea432b922f304f81b3f05) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Up Right Road.prefab using Guid(f4fa2c2b36dea432b922f304f81b3f05) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c730ad3032b4da9cc5cb68fc85822b7') in 0.022526 seconds
+  Import took 0.025412 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.247620 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Vertical Left Road.prefab
+  artifactKey: Guid(bb7c883dd7ff44427863877eafc0cf0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Vertical Left Road.prefab using Guid(bb7c883dd7ff44427863877eafc0cf0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2fa9bbf2a3ef52cf60429eaf4e9ea84c') in 0.019865 seconds
+  Import took 0.022654 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.004252 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Vertical Left Road.prefab
+  artifactKey: Guid(bb7c883dd7ff44427863877eafc0cf0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Vertical Left Road.prefab using Guid(bb7c883dd7ff44427863877eafc0cf0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2fa9bbf2a3ef52cf60429eaf4e9ea84c') in 0.011302 seconds
+  Import took 0.013800 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000304 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Vertical Right Road.prefab
+  artifactKey: Guid(867b88ab6853c41dab8ef1d2f64406fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Vertical Right Road.prefab using Guid(867b88ab6853c41dab8ef1d2f64406fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'af3e495f60fac28cb66f0c9a3c20f70d') in 0.030586 seconds
+  Import took 0.033696 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.015529 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Vertical Road.prefab
+  artifactKey: Guid(42f6c7eec51d04072b8a7aa17d28ee4e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Vertical Road.prefab using Guid(42f6c7eec51d04072b8a7aa17d28ee4e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd286295f34625a9646ab54d29baf8dfb') in 0.032958 seconds
+  Import took 0.036201 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.164523 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Ground Tiles/Tiles.mat
+  artifactKey: Guid(2d942bd42c3be4e0fb18ac38355339cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Ground Tiles/Tiles.mat using Guid(2d942bd42c3be4e0fb18ac38355339cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2504486359c27e9f1b4d0de392005226') in 0.078261 seconds
+  Import took 0.081330 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.009477 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Left Up Road.prefab
+  artifactKey: Guid(169af656c4a2f4ac191e0b3ee6421046) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Left Up Road.prefab using Guid(169af656c4a2f4ac191e0b3ee6421046) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a4890fd4ee9c4a75ab8b3153cd6d4d96') in 0.012907 seconds
+  Import took 0.016103 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000398 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Vertical Right Road.prefab
+  artifactKey: Guid(867b88ab6853c41dab8ef1d2f64406fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Vertical Right Road.prefab using Guid(867b88ab6853c41dab8ef1d2f64406fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ea5915171424782912aab47933f495b') in 0.012419 seconds
+  Import took 0.015613 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000291 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Vertical Road.prefab
+  artifactKey: Guid(42f6c7eec51d04072b8a7aa17d28ee4e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Vertical Road.prefab using Guid(42f6c7eec51d04072b8a7aa17d28ee4e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0bd538391a0798728e9f2c9d6d8e6e30') in 0.016440 seconds
+  Import took 0.019179 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000311 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Up Right Road.prefab
+  artifactKey: Guid(f4fa2c2b36dea432b922f304f81b3f05) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Up Right Road.prefab using Guid(f4fa2c2b36dea432b922f304f81b3f05) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '617beffd5241ed5f3cf487d8e4e1c9b0') in 0.017979 seconds
+  Import took 0.021219 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000412 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Right Down Road.prefab
+  artifactKey: Guid(4ae2e3ed925fd4e8cbe5d27a93800bc4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Right Down Road.prefab using Guid(4ae2e3ed925fd4e8cbe5d27a93800bc4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '786ae5b6db3b1818eec5eefe7b6c3142') in 0.015286 seconds
+  Import took 0.017922 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000202 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Up End Road.prefab
+  artifactKey: Guid(3db11df16edc74376aaf4fa8053ef39e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Up End Road.prefab using Guid(3db11df16edc74376aaf4fa8053ef39e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c3fb345ebc1bc738cd83ed3713e94550') in 0.020749 seconds
+  Import took 0.025232 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000563 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Horizontal Up Road.prefab
+  artifactKey: Guid(3de4eac85c2624b499661519a75f23ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Horizontal Up Road.prefab using Guid(3de4eac85c2624b499661519a75f23ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '47cb13dc943c7c7fcda262098d1d7352') in 0.015703 seconds
+  Import took 0.018885 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000236 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Right End Road.prefab
+  artifactKey: Guid(6adcb5b3e642f49c1b6851c690291861) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Right End Road.prefab using Guid(6adcb5b3e642f49c1b6851c690291861) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '39019c59e50e616bb8358e40389de788') in 0.013371 seconds
+  Import took 0.015895 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000252 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Vertical Left Road.prefab
+  artifactKey: Guid(bb7c883dd7ff44427863877eafc0cf0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Vertical Left Road.prefab using Guid(bb7c883dd7ff44427863877eafc0cf0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '694b03f6bcc4ee23936855e95cea55e5') in 0.012439 seconds
+  Import took 0.015073 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.025402 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Clear.prefab
+  artifactKey: Guid(c3226049e641c411f808a1dfec68e381) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Clear.prefab using Guid(c3226049e641c411f808a1dfec68e381) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e9d70345d024ec5778e9761194bf184e') in 0.010395 seconds
+  Import took 0.012519 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000239 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Down End.prefab
+  artifactKey: Guid(9deb8c984de6c498f9526f4cc2f25087) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Down End.prefab using Guid(9deb8c984de6c498f9526f4cc2f25087) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '99580482cdb3ac4df99bb0778b0f3ea9') in 0.017182 seconds
+  Import took 0.019921 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000421 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Left Down Road.prefab
+  artifactKey: Guid(f8b32ee1a373f4ce9a9b91b9e9cbdf68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Left Down Road.prefab using Guid(f8b32ee1a373f4ce9a9b91b9e9cbdf68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b94c461444e0e70f8656ef872bea0c2f') in 0.014613 seconds
+  Import took 0.018041 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000349 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Left End Road.prefab
+  artifactKey: Guid(8ef4a97732a3545739c8a66ce069cf9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Left End Road.prefab using Guid(8ef4a97732a3545739c8a66ce069cf9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '59ff48f503e9d2c24e761997b570d34c') in 0.015246 seconds
+  Import took 0.019020 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000437 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Horizontal Road.prefab
+  artifactKey: Guid(3a3f7a4631db5475cac51f87bc4369de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Horizontal Road.prefab using Guid(3a3f7a4631db5475cac51f87bc4369de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6dfac645cd814308bd4c01e94f117ce1') in 0.013553 seconds
+  Import took 0.017461 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000226 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Cross Road.prefab
+  artifactKey: Guid(9aafb728ee16846c88f7f120e593edde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Cross Road.prefab using Guid(9aafb728ee16846c88f7f120e593edde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '363b892c01ac40fa81b0f2bc49b7fd1e') in 0.015095 seconds
+  Import took 0.017912 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000190 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Horizontal Down Road.prefab
+  artifactKey: Guid(746a518c5f59e4d3e94b2bc9de38c018) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Ground Tiles/Snowy Ground Horizontal Down Road.prefab using Guid(746a518c5f59e4d3e94b2bc9de38c018) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2ad63fe8fc9a2eb80ff8c44569e201b3') in 0.013831 seconds
+  Import took 0.016595 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 49.622655 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Objects/Buildings/Store/S-Mart Red Down.prefab
+  artifactKey: Guid(279fe8524a7e74d139f753a6d587a035) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Objects/Buildings/Store/S-Mart Red Down.prefab using Guid(279fe8524a7e74d139f753a6d587a035) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7a183054ad0303e6af17a5f7ad2a7a1d') in 0.016022 seconds
+  Import took 0.018453 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000294 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Objects/Buildings/Store/S-Mart Red Left.prefab
+  artifactKey: Guid(328ac800117b24c6ebd525412d03939c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Objects/Buildings/Store/S-Mart Red Left.prefab using Guid(328ac800117b24c6ebd525412d03939c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a4296a13b5dff68baeac74c4984e3a64') in 0.019382 seconds
+  Import took 0.022153 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000322 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Objects/Buildings/Store/S-Mart Red Right.prefab
+  artifactKey: Guid(9fa691c3896cd43f5a44a9bdcd6f835e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Objects/Buildings/Store/S-Mart Red Right.prefab using Guid(9fa691c3896cd43f5a44a9bdcd6f835e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '741a2afd40e45e50989c7914a8c2982a') in 0.023187 seconds
+  Import took 0.025386 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000148 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Objects/Buildings/Store/S-Mart Red Up.prefab
+  artifactKey: Guid(0c169431c495f46839d5aabbb51dd20a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Objects/Buildings/Store/S-Mart Red Up.prefab using Guid(0c169431c495f46839d5aabbb51dd20a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b3069f23f51918ab45cb64f87f0c0329') in 0.024222 seconds
+  Import took 0.026706 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.706240 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Objects/Misc/Mailbox Down.prefab
+  artifactKey: Guid(67d947b32964241a7acf5eab2eea1a34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Objects/Misc/Mailbox Down.prefab using Guid(67d947b32964241a7acf5eab2eea1a34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7806af51580fdf7cf55621e339e4d032') in 0.015064 seconds
+  Import took 0.017175 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000325 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Objects/Misc/Snowman.prefab
+  artifactKey: Guid(a56756e19eb654526b7e540befd9ce24) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Objects/Misc/Snowman.prefab using Guid(a56756e19eb654526b7e540befd9ce24) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3bfc1e1fe95d5aa830a2fd423e9e6490') in 0.016555 seconds
+  Import took 0.019819 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000599 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Objects/Misc/Mailbox Up.prefab
+  artifactKey: Guid(2e77f5726f1bf43428faedf899ba5b1b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Objects/Misc/Mailbox Up.prefab using Guid(2e77f5726f1bf43428faedf899ba5b1b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ea4ba7df3ab589008aeaa66faf72d4c6') in 0.023328 seconds
+  Import took 0.026570 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000323 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Objects/Misc/Mailbox Left.prefab
+  artifactKey: Guid(15f5368b0f2294c7bae6d11b92465fcf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Objects/Misc/Mailbox Left.prefab using Guid(15f5368b0f2294c7bae6d11b92465fcf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e4cc9c37d3e8bdbc47ebec7513f6f6f6') in 0.024577 seconds
+  Import took 0.028053 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000397 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Objects/Misc/Mailbox Right.prefab
+  artifactKey: Guid(b6a632347aa2b4a819cb62e15c67389e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Objects/Misc/Mailbox Right.prefab using Guid(b6a632347aa2b4a819cb62e15c67389e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '48dea01afaba0cb687b5ac17f8d7e3f1') in 0.021507 seconds
+  Import took 0.024302 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000329 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Objects/Misc/Road Sign.prefab
+  artifactKey: Guid(32d7fdb8776bd40bb8232348e283f9bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Objects/Misc/Road Sign.prefab using Guid(32d7fdb8776bd40bb8232348e283f9bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a9a6046d00be652869ffeec3542ec1e2') in 0.024091 seconds
+  Import took 0.027116 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.187743 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Objects/Trees/Single Tree.prefab
+  artifactKey: Guid(264dc88c7cae346ff9893a0d73c103d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Objects/Trees/Single Tree.prefab using Guid(264dc88c7cae346ff9893a0d73c103d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '82c7f194a1f60e8315f22b983653f365') in 0.016509 seconds
+  Import took 0.018652 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000295 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Objects/Trees/Tree Group 3.prefab
+  artifactKey: Guid(08c98a4a4844d4e2a835844ff3839f41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Objects/Trees/Tree Group 3.prefab using Guid(08c98a4a4844d4e2a835844ff3839f41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '66e4f7485429310cf3f539015ef39750') in 0.020094 seconds
+  Import took 0.022796 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000391 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Objects/Trees/Tree Line Horizontal.prefab
+  artifactKey: Guid(a56ffbe473fff43aeae212ee273ffd1b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Objects/Trees/Tree Line Horizontal.prefab using Guid(a56ffbe473fff43aeae212ee273ffd1b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6e3cf4229a75d331ea567c5363b3fcf8') in 0.024127 seconds
+  Import took 0.027671 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000342 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Objects/Trees/Tree Group 1.prefab
+  artifactKey: Guid(e5853bd289b614ad5b43d882ab549ab8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Objects/Trees/Tree Group 1.prefab using Guid(e5853bd289b614ad5b43d882ab549ab8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b20ad27f928de8cfce309cffc9047bd') in 0.028968 seconds
+  Import took 0.032277 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000229 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Objects/Trees/Tree Line Vertical.prefab
+  artifactKey: Guid(dd864a1f5d2a745feb5d77729d7082b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Objects/Trees/Tree Line Vertical.prefab using Guid(dd864a1f5d2a745feb5d77729d7082b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0fc60e6b5310308bcf6a968d825f9310') in 0.025013 seconds
+  Import took 0.028196 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000293 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Objects/Trees/Tree Group 2.prefab
+  artifactKey: Guid(ba29b24429efe43eab3e6180577b5e6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Objects/Trees/Tree Group 2.prefab using Guid(ba29b24429efe43eab3e6180577b5e6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '09e127f66b9c3be418481e27d362a82f') in 0.025004 seconds
+  Import took 0.028533 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000391 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Objects/Trees/Trees Full Coverage.prefab
+  artifactKey: Guid(11ad28f7f16cf42c8aa9053933797952) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Objects/Trees/Trees Full Coverage.prefab using Guid(11ad28f7f16cf42c8aa9053933797952) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bfcb2aead6050eea8343fc18d4792c6d') in 0.026805 seconds
+  Import took 0.030504 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000291 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Objects/Trees/Tree Group 4.prefab
+  artifactKey: Guid(b3ab01b5935d646229818471ec0e888e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Objects/Trees/Tree Group 4.prefab using Guid(b3ab01b5935d646229818471ec0e888e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ca0f52b14db51d646caa342eb8925aaa') in 0.023948 seconds
+  Import took 0.027648 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.565918 seconds.
+  path: Assets/Sprites/Background_Lvl1.png
+  artifactKey: Guid(4ecacda1ce2792d43a0f631fe9c418c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Background_Lvl1.png using Guid(4ecacda1ce2792d43a0f631fe9c418c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00d920fac32535df20d134a247e82bbf') in 0.030330 seconds
+  Import took 0.032511 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000205 seconds.
+  path: Assets/Sprites/Background_Lvl2.png
+  artifactKey: Guid(0b1ae3e37a82fd940845fd3830be0de5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Background_Lvl2.png using Guid(0b1ae3e37a82fd940845fd3830be0de5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b59ce5b12721b936af7941e2fde892a3') in 0.022485 seconds
+  Import took 0.025461 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.294681 seconds.
+  path: Assets/Scenes/Prototype5.unity
+  artifactKey: Guid(af986790b0ec51e408e2f032aedff87b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Prototype5.unity using Guid(af986790b0ec51e408e2f032aedff87b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '54dccbccd1e8b560541f7eab2388d288') in 0.004855 seconds
+  Import took 0.007554 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.372072 seconds.
+  path: Assets/Materials/Capture.mat
+  artifactKey: Guid(4c8a7692478719a449df64aa3620b82a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Capture.mat using Guid(4c8a7692478719a449df64aa3620b82a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '347a475bc44553e69e0a56f450b4caec') in 0.025392 seconds
+  Import took 0.027863 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002124 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.38 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.765 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.38 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1390 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 68.0 MB.
+System memory in use after: 68.1 MB.
+
+Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 1881.
+Total: 1.800300 ms (FindLiveObjects: 0.213400 ms CreateObjectMapping: 0.039400 ms MarkObjects: 1.530700 ms  DeleteObjects: 0.016100 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 357.764361 seconds.
+  path: Assets/Cute Isometric Town/Scenes
+  artifactKey: Guid(706a4f9ab9fb94665a66549ad1802847) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Scenes using Guid(706a4f9ab9fb94665a66549ad1802847) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '449336d7e852ce001c4bddffe5d6a49b') in 0.010801 seconds
+  Import took 0.013366 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 25.507568 seconds.
+  path: Assets/Capture 2.PNG
+  artifactKey: Guid(e122ead95c89265499fa9213ee41504f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Capture 2.PNG using Guid(e122ead95c89265499fa9213ee41504f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '220df8a873db5d5520da196e3ae0daf2') in 0.057466 seconds
+  Import took 0.059849 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000283 seconds.
+  path: Assets/Capture.PNG
+  artifactKey: Guid(14384cd6e9fdbda4cb26735c50fd11e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Capture.PNG using Guid(14384cd6e9fdbda4cb26735c50fd11e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f8b95c103802fed8966c6c5d3b421d4') in 0.018426 seconds
+  Import took 0.021060 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.058756 seconds.
+  path: Assets/Character.prefab
+  artifactKey: Guid(8b522272dc2080449a3e1508c7bf100b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character.prefab using Guid(8b522272dc2080449a3e1508c7bf100b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b41f2853124af7633c4149000ef417f7') in 0.120270 seconds
+  Import took 0.123492 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.297934 seconds.
+  path: Assets/Cluster.prefab
+  artifactKey: Guid(867badeafd6021441bd9e02ac6fa9260) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cluster.prefab using Guid(867badeafd6021441bd9e02ac6fa9260) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c8f45ee034503be2d5b1837414061ce1') in 0.019368 seconds
+  Import took 0.022493 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.038449 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Objects/Misc
+  artifactKey: Guid(67e4704a4b3634a7680ed97c790b1f0f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Objects/Misc using Guid(67e4704a4b3634a7680ed97c790b1f0f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '71dd1b3bca13c49d3d0ab373ea74a6d0') in 0.010876 seconds
+  Import took 0.013979 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 26.302051 seconds.
+  path: Packages/com.unity.2d.sprite/package.json
+  artifactKey: Guid(7dc5f1e5d04ac8549ac21802071e983b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.sprite/package.json using Guid(7dc5f1e5d04ac8549ac21802071e983b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9eff246d4208fd550dc56cc3fdb63e6c') in 0.017400 seconds
+  Import took 0.019526 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.925037 seconds.
+  path: Assets/Scenes/Prototype5.unity
+  artifactKey: Guid(af986790b0ec51e408e2f032aedff87b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Prototype5.unity using Guid(af986790b0ec51e408e2f032aedff87b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '23af0c239e7b4dedfb09826a86f9af5f') in 0.005776 seconds
+  Import took 0.008076 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002692 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.41 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.696 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.35 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1390 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 68.7 MB.
+System memory in use after: 68.8 MB.
+
+Unloading 25 unused Assets to reduce memory usage. Loaded Objects now: 1892.
+Total: 1.744600 ms (FindLiveObjects: 0.165600 ms CreateObjectMapping: 0.031100 ms MarkObjects: 1.518100 ms  DeleteObjects: 0.029100 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 1585.176442 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Objects/Buildings/House/House Red Up.prefab
+  artifactKey: Guid(c90d1c5907c97494fbce428af2041043) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Objects/Buildings/House/House Red Up.prefab using Guid(c90d1c5907c97494fbce428af2041043) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ac56b5bd383ef453038a670a711f191') in 0.066413 seconds
+  Import took 0.069172 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000244 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Objects/Buildings/House/House Yellow Left.prefab
+  artifactKey: Guid(fc14da990fe544a16b969e0dbc023c41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Objects/Buildings/House/House Yellow Left.prefab using Guid(fc14da990fe544a16b969e0dbc023c41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9532ba7f8db5ae0fdd3351e86e511579') in 0.022042 seconds
+  Import took 0.024656 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000362 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Objects/Buildings/House/House Yellow Down.prefab
+  artifactKey: Guid(a7c056fb62e434964b3a914b36ed6831) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Objects/Buildings/House/House Yellow Down.prefab using Guid(a7c056fb62e434964b3a914b36ed6831) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a5d0ef58a1ce495b383ebec9aeccf413') in 0.023761 seconds
+  Import took 0.026157 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.029535 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Objects/Buildings/House/House Yellow Right.prefab
+  artifactKey: Guid(08d1778ee10c94c998aca1780872bfcd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Objects/Buildings/House/House Yellow Right.prefab using Guid(08d1778ee10c94c998aca1780872bfcd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3f7e3fee1aa95ae68e5a405036f6d000') in 0.021521 seconds
+  Import took 0.024415 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.443213 seconds.
+  path: Assets/Cute Isometric Town/Tiles/Objects/Buildings/House/House Yellow Up.prefab
+  artifactKey: Guid(23f8c1ea81f0a4fceaf9c65e56908566) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cute Isometric Town/Tiles/Objects/Buildings/House/House Yellow Up.prefab using Guid(23f8c1ea81f0a4fceaf9c65e56908566) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e6ca6fd7df5633688bfcd5acb8e8c876') in 0.015829 seconds
+  Import took 0.018254 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002240 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.35 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.671 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.34 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1390 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 68.8 MB.
+System memory in use after: 69.0 MB.
+
+Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 1895.
+Total: 1.614500 ms (FindLiveObjects: 0.128500 ms CreateObjectMapping: 0.038400 ms MarkObjects: 1.432300 ms  DeleteObjects: 0.014600 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 145.724129 seconds.
+  path: Assets/FallingText 1.prefab
+  artifactKey: Guid(e7013740a50f5e1449eec6cbf09669fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/FallingText 1.prefab using Guid(e7013740a50f5e1449eec6cbf09669fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec121a300b40f26192a5020c717069db') in 0.028504 seconds
+  Import took 0.031137 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.003810 seconds.
+  path: Assets/FallingText 1.prefab
+  artifactKey: Guid(e7013740a50f5e1449eec6cbf09669fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/FallingText 1.prefab using Guid(e7013740a50f5e1449eec6cbf09669fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec121a300b40f26192a5020c717069db') in 0.005928 seconds
+  Import took 0.008192 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000347 seconds.
+  path: Assets/FallingText.prefab
+  artifactKey: Guid(3e37e45f7bfdea5438a491b75cd92a0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/FallingText.prefab using Guid(3e37e45f7bfdea5438a491b75cd92a0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '810fcd5b8988535495533d1c2758a77a') in 0.018930 seconds
+  Import took 0.021816 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.014991 seconds.
+  path: Assets/FallingText.prefab
+  artifactKey: Guid(3e37e45f7bfdea5438a491b75cd92a0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/FallingText.prefab using Guid(3e37e45f7bfdea5438a491b75cd92a0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '810fcd5b8988535495533d1c2758a77a') in 0.005156 seconds
+  Import took 0.008318 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.198769 seconds.
+  path: Assets/GameManager.prefab
+  artifactKey: Guid(ffb4613ef9dbd4546a78c6dd583b143c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameManager.prefab using Guid(ffb4613ef9dbd4546a78c6dd583b143c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a4004d1fdd5cfdae8eb6e31cdc54f3dc') in 0.014040 seconds
+  Import took 0.017496 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.051587 seconds.
+  path: Assets/KGWhYYouGoTtABeSoMeAn.ttf
+  artifactKey: Guid(3b3362d31ead40d46ad929d806c621cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/KGWhYYouGoTtABeSoMeAn.ttf using Guid(3b3362d31ead40d46ad929d806c621cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a8a5db0f62767b7e219b37116baaa7eb') in 0.062261 seconds
+  Import took 0.064604 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.698622 seconds.
+  path: Assets
+  artifactKey: Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets using Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e1a2c4dac9df7c17871e19a3b74f0e9f') in 0.007266 seconds
+  Import took 0.009588 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.578282 seconds.
+  path: Assets/Prefabs
+  artifactKey: Guid(b3f8af177ed8b7c4f931c9fbbb889df8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs using Guid(b3f8af177ed8b7c4f931c9fbbb889df8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a563cd0e9c49edf5c0f23b8d97f5924') in 0.009113 seconds
+  Import took 0.011317 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.680937 seconds.
+  path: Assets/Prefabs/blackout.prefab
+  artifactKey: Guid(259469ac989f88c40a2919c4c8b27971) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/blackout.prefab using Guid(259469ac989f88c40a2919c4c8b27971) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '118800f87ec8c0a0cff38f3b9a833ff7') in 0.022809 seconds
+  Import took 0.025183 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.009147 seconds.
+  path: Assets/Prefabs/blackout.prefab
+  artifactKey: Guid(259469ac989f88c40a2919c4c8b27971) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/blackout.prefab using Guid(259469ac989f88c40a2919c4c8b27971) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '118800f87ec8c0a0cff38f3b9a833ff7') in 0.011637 seconds
+  Import took 0.014583 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.857561 seconds.
+  path: Assets/Scenes/Prototype5.unity
+  artifactKey: Guid(af986790b0ec51e408e2f032aedff87b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Prototype5.unity using Guid(af986790b0ec51e408e2f032aedff87b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0d868bd07e499b635460402c37623bc7') in 0.004168 seconds
+  Import took 0.006735 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002866 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.50 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.939 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.68 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1390 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.1 MB.
+System memory in use after: 69.2 MB.
+
+Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 1903.
+Total: 2.293600 ms (FindLiveObjects: 0.178100 ms CreateObjectMapping: 0.067800 ms MarkObjects: 2.017200 ms  DeleteObjects: 0.028500 ms)
+

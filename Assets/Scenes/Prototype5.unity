@@ -330,11 +330,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4534237140322960, guid: dc572b1b63369484e8882226370c5636, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.8
+      value: 0.24
       objectReference: {fileID: 0}
     - target: {fileID: 4534237140322960, guid: dc572b1b63369484e8882226370c5636, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.4
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 4534237140322960, guid: dc572b1b63369484e8882226370c5636, type: 3}
       propertyPath: m_LocalPosition.z
@@ -475,6 +475,11 @@ PrefabInstance:
     - target: {fileID: 4670604656630018, guid: bd4b55c3dce7afe4884a2efcc12ce4fd, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50971213628288300, guid: bd4b55c3dce7afe4884a2efcc12ce4fd,
+        type: 3}
+      propertyPath: m_LinearDrag
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 114407424507904544, guid: bd4b55c3dce7afe4884a2efcc12ce4fd,
         type: 3}
@@ -5851,7 +5856,7 @@ MonoBehaviour:
   m_ignoreClusters:
     serializedVersion: 2
     m_Bits: 4294966271
-  m_timeLeft: 180
+  m_timeLeft: 90
   m_votesText: {fileID: 1271080185}
   m_pointsNeededText: {fileID: 1724182022}
   m_timeText: {fileID: 819516849}
@@ -5863,6 +5868,7 @@ MonoBehaviour:
   m_onlyClusters:
     serializedVersion: 2
     m_Bits: 1024
+  m_pointsNeeded: 40
   mp_fallingText: {fileID: 1899589736360194, guid: e7013740a50f5e1449eec6cbf09669fb,
     type: 3}
   m_fallingTextSpawnPoint: {fileID: 2063291708}

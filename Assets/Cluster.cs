@@ -85,26 +85,6 @@ public class Cluster : MonoBehaviour {
                 redTeams += voter.GetHealth();
             }
         }
-        if (redTeams > blueTeams)
-        {
-            foreach (Voter voter in m_members)
-            {
-                if (!voter.IsLeader())
-                {
-                    voter.TurnRed();
-                }
-            }
-        }
-        else if (redTeams < blueTeams)
-        {
-            foreach (Voter voter in m_members)
-            {
-                if (!voter.IsLeader())
-                {
-                    voter.TurnBlue();
-                }
-            }
-        }
     }
 
     public bool HasRoom()

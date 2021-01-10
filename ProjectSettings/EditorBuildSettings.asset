@@ -7,11 +7,17 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/Start.unity
+    guid: e0447fb0256209c4a8f659264abb3c23
   - enabled: 1
     path: Assets/Scenes/Intermission.unity
+    guid: fb276458eb8a58546b534ad71bd55779
   - enabled: 1
-    path: Assets/Scenes/Prototype 4.unity
+    path: Assets/Scenes/Prototype5.unity
+    guid: af986790b0ec51e408e2f032aedff87b
   - enabled: 1
     path: Assets/Scenes/Win.unity
+    guid: 907355b8150c74848be375684f30e768
   - enabled: 1
     path: Assets/Scenes/Fail.unity
+    guid: 665e09cb3d2753c428b577695854fa70
+  m_configObjects: {}

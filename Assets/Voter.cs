@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -41,6 +42,20 @@ public class Voter : Unit
     private const float MC_LEADER_MOVEMENT_MODIFIER = 1.75f;
     private const float MC_VOTER_MOVEMENT_MODIFIER = 1.0f;
 
+    internal void LeaderConvert()
+    {
+        m_hitPoints = 10;
+        if (GetTeam() == Team.BlueTeam)
+        {
+            TurnRed();
+        }
+        else
+        {
+            TurnBlue();
+        }
+
+
+    }
 
     float m_minMovementInterval = .7f;
     float m_maxMovementInterval = 1.4f;
@@ -193,7 +208,7 @@ public class Voter : Unit
     {
         if (m_myCluster == null)
         {
-            //find nearest cluster in view
+            //find nearest cluster (to voting booth) in view
             m_myCluster = GameManager.ms_instance.GetNearestCluster(this);
 
             if (m_myCluster == null)
@@ -237,7 +252,7 @@ public class Voter : Unit
 
     void OnCollisionEnter2D(Collision2D coll)
     {
-        if(GameManager.IsFinalRush())
+        if (GameManager.IsFinalRush())
         {
             return;
         }
@@ -249,9 +264,14 @@ public class Voter : Unit
                 m_hitPoints = 10;
             }
 
-            if (coll.gameObject.GetComponent<Voter>() is Leader && coll.gameObject.GetComponent<Voter>().GetTeam() != this.GetTeam())
+            Leader Leader = coll.gameObject.GetComponent<Leader>();
+            if (Leader != null && Leader.GetTeam() != this.GetTeam())
             {
-                m_hitPoints = 0;
+                if (!this.IsLeader())
+                {
+                    this.LeaderConvert();
+                }
+                return;
             }
 
             if (coll.gameObject.GetComponent<Voter>().GetTeam() == GetTeam())
@@ -328,8 +348,8 @@ public class Voter : Unit
             Voter hasEnemies = GameManager.ms_instance.HasEnemiesNearby(this);
 
             goToPolls = goToPolls || hasEnemies == null;
-            VotingBooth booth = GameManager.ms_instance.GetVotingBoothInRange(transform, goToPolls ? Mathf.Infinity : MC_NORMAL_VOTING_BOOTH_DISTANCE );
-            
+            VotingBooth booth = GameManager.ms_instance.GetVotingBoothInRange(transform, goToPolls ? Mathf.Infinity : MC_NORMAL_VOTING_BOOTH_DISTANCE);
+
             if (booth != null && (goToPolls || Vector3.Distance(booth.transform.position, this.transform.position) < MC_NORMAL_VOTING_BOOTH_DISTANCE))
             {
                 float charModifier = (this.IsLeader() ? MC_LEADER_MOVEMENT_MODIFIER * 100.0f : MC_VOTER_MOVEMENT_MODIFIER);
@@ -376,7 +396,7 @@ public class Voter : Unit
                 yield return WaitAndReturn();
                 continue;
             }
-            
+
             ClusterBehaviour();
             yield return WaitAndReturn();
         }
@@ -394,11 +414,11 @@ public class Voter : Unit
         {
             if (this.IsLeader())
             {
-                yield return new WaitForSeconds(Random.Range(m_minMovementInterval, m_maxMovementInterval) / 2);
+                yield return new WaitForSeconds(UnityEngine.Random.Range(m_minMovementInterval, m_maxMovementInterval) / 2);
             }
             else
             {
-                yield return new WaitForSeconds(Random.Range(m_minMovementInterval, m_maxMovementInterval));
+                yield return new WaitForSeconds(UnityEngine.Random.Range(m_minMovementInterval, m_maxMovementInterval));
             }
         }
     }

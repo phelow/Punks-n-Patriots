@@ -50,7 +50,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private LayerMask m_onlyClusters;
     
-    private const int m_pointsNeeded = 200;
+    [SerializeField]
+    private int m_pointsNeeded = 200;
 
     [SerializeField]
     private GameObject mp_fallingText;
@@ -335,16 +336,12 @@ public class GameManager : MonoBehaviour
 
     public void EndGame()
     {
-        if (PlayerPrefs.GetInt("HighScore", 0) <= m_currentPoints)
-        {
-            PlayerPrefs.SetInt("HighScore", m_currentPoints);
-        }
-
         PlayerPrefs.SetInt("YourScore", m_currentPoints);
 
         if (m_currentPoints >= m_pointsNeeded)
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1);
+            PlayerPrefs.SetString("" + UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1, "Unlocked");
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Win");
         }
         else
         {
@@ -416,8 +413,26 @@ public class GameManager : MonoBehaviour
 
     public Cluster GetNearestCluster(Voter voter)
     {
-        Collider2D coll = Physics2D.OverlapCircle(voter.transform.position, 4.0f, m_onlyClusters);
-        return coll != null ? coll.GetComponent<Cluster>() : null;
+        VotingBooth nearestBooth = GetVotingBoothInRange(voter.transform, 200.0f);
+
+        Collider2D [] colliders = Physics2D.OverlapCircleAll(voter.transform.position, 10.0f, m_onlyClusters);
+        Collider2D closestCollider = colliders.FirstOrDefault();
+
+        if (nearestBooth == null)
+        {
+            return closestCollider != null ? closestCollider.GetComponent<Cluster>() : null;
+        }
+
+        foreach (Collider2D collider in colliders)
+        {
+            if (Vector2.Distance(collider.transform.position, nearestBooth.transform.position) < Vector2.Distance(closestCollider.transform.position, nearestBooth.transform.position))
+            {
+                closestCollider = collider;
+            }
+        }
+
+
+        return closestCollider != null ? closestCollider.GetComponent<Cluster>() : null;
     }
 
     public void RemoveCluster(Cluster cluster)

@@ -34,14 +34,20 @@ public class Leader : Voter
     {
         if (coll.gameObject.tag == "Voter")
         {
-            if (coll.gameObject.GetComponent<Voter>().GetTeam() == GetTeam())
+            Voter voter = coll.gameObject.GetComponent<Voter>();
+            if (voter.GetTeam() == GetTeam())
             {
                 m_hitPoints += 10;
             }
             else
             {
+                if (!voter.IsLeader())
+                {
+                    voter.LeaderConvert();
+                }
                 m_hitPoints--;
             }
+
 
             if (m_hitPoints <= 0)
             {

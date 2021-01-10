@@ -20,6 +20,11 @@ public class VotingBooth : MonoBehaviour
         Vector3 viewPosition = Camera.main.WorldToViewportPoint(coll.gameObject.transform.position);
 
         Voter voter = coll.gameObject.GetComponent<Voter>();
+        if (voter == null)
+        {
+            return;
+        }
+
         bool isRedTeam = voter.GetTeam() == Voter.Team.RedTeam;
 
         if ((isRedTeam) && (viewPosition.x > 1.0f || viewPosition.x < 0.0f || viewPosition.y < 0.0f || viewPosition.y > 1.0f))
